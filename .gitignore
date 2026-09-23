@@ -1,0 +1,20 @@
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local build and IDE state
+**/.build/
+**/DerivedData/
+**/xcuserdata/
+*.xcuserstate
+.idea/
+.vscode/
+
+# Local secrets and signing material
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.mobileprovision
+*.provisionprofile
