@@ -1,0 +1,53 @@
+Building for debugging...
+[0/13] Write sources
+[2/13] Write swift-version-24593BA9C3E375BF.txt
+[4/16] Compiling ProfileDomain TransitionPlanner.swift
+[5/16] Emitting module ProfileDomain
+[6/16] Compiling ProfileDomain Profile.swift
+[7/17] Wrapping AST for ProfileDomain for debugging
+[9/19] Emitting module ProfileDomainTests
+[10/19] Compiling ProfileDomainTests TransitionPlannerTests.swift
+[11/20] /workspace/products/sonadeck/app/ProfileDomain/.build/x86_64-unknown-linux-gnu/debug/ProfileDomainPackageDiscoveredTests.derived/all-discovered-tests.swift
+[12/20] Write sources
+[13/20] Wrapping AST for ProfileDomainTests for debugging
+[15/23] Compiling ProfileDomainPackageDiscoveredTests ProfileDomainTests.swift
+[16/23] Compiling ProfileDomainPackageDiscoveredTests all-discovered-tests.swift
+[17/23] Emitting module ProfileDomainPackageDiscoveredTests
+[18/24] /workspace/products/sonadeck/app/ProfileDomain/.build/x86_64-unknown-linux-gnu/debug/ProfileDomainPackageTests.derived/runner.swift
+[19/24] Write sources
+[20/24] Wrapping AST for ProfileDomainPackageDiscoveredTests for debugging
+[22/26] Compiling ProfileDomainPackageTests runner.swift
+[23/26] Emitting module ProfileDomainPackageTests
+[24/27] Wrapping AST for ProfileDomainPackageTests for debugging
+[25/27] Write Objects.LinkFileList
+[26/27] Linking ProfileDomainPackageTests.xctest
+Build complete! (15.64s)
+Test Suite 'All tests' started at 2026-09-24 02:27:21.846
+Test Suite 'debug.xctest' started at 2026-09-24 02:27:21.862
+Test Suite 'TransitionPlannerTests' started at 2026-09-24 02:27:21.862
+Test Case 'TransitionPlannerTests.testAbsentAppStaysPendingAndIsNotApplied' started at 2026-09-24 02:27:21.862
+Test Case 'TransitionPlannerTests.testAbsentAppStaysPendingAndIsNotApplied' passed (0.002 seconds)
+Test Case 'TransitionPlannerTests.testEmptyProfileReleasesAllPreviouslyControlledApps' started at 2026-09-24 02:27:21.864
+Test Case 'TransitionPlannerTests.testEmptyProfileReleasesAllPreviouslyControlledApps' passed (0.0 seconds)
+Test Case 'TransitionPlannerTests.testInvalidGainAndDuplicateIdentityAreRejected' started at 2026-09-24 02:27:21.865
+Test Case 'TransitionPlannerTests.testInvalidGainAndDuplicateIdentityAreRejected' passed (0.0 seconds)
+Test Case 'TransitionPlannerTests.testMissingDeviceBlocksWholePlanIncludingReleases' started at 2026-09-24 02:27:21.865
+Test Case 'TransitionPlannerTests.testMissingDeviceBlocksWholePlanIncludingReleases' passed (0.0 seconds)
+Test Case 'TransitionPlannerTests.testReleasesOldRuleAndAppliesNewRule' started at 2026-09-24 02:27:21.865
+Test Case 'TransitionPlannerTests.testReleasesOldRuleAndAppliesNewRule' passed (0.0 seconds)
+Test Case 'TransitionPlannerTests.testRepeatedSelectionWithMatchingObservedRulesIsNoOp' started at 2026-09-24 02:27:21.865
+Test Case 'TransitionPlannerTests.testRepeatedSelectionWithMatchingObservedRulesIsNoOp' passed (0.0 seconds)
+Test Case 'TransitionPlannerTests.testUnauthorizedControlBlocksPlan' started at 2026-09-24 02:27:21.865
+Test Case 'TransitionPlannerTests.testUnauthorizedControlBlocksPlan' passed (0.0 seconds)
+Test Case 'TransitionPlannerTests.testUnavailableSystemOutputBlocksFollowSystemRule' started at 2026-09-24 02:27:21.865
+Test Case 'TransitionPlannerTests.testUnavailableSystemOutputBlocksFollowSystemRule' passed (0.0 seconds)
+Test Suite 'TransitionPlannerTests' passed at 2026-09-24 02:27:21.866
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'debug.xctest' passed at 2026-09-24 02:27:21.866
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'All tests' passed at 2026-09-24 02:27:21.866
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.4 (5ee435b15ad40ec)
+↳ Target Platform: x86_64-unknown-linux-gnu
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

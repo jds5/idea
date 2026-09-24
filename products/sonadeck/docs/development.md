@@ -1,6 +1,6 @@
 # 开发执行与非 Mac 测试
 
-更新日期：2026-09-23。阶段：M1 领域基础开始；M0 音频可行性仍待 Mac 真机实验。
+更新日期：2026-09-24。阶段：M1 领域基础开始并通过 Docker 单测；M0 音频可行性仍待 Mac 真机实验。
 
 ## 当前可开发的边界
 
@@ -17,6 +17,8 @@ docker run --rm -v "${PWD}:/workspace" -w /workspace/products/sonadeck/app/Profi
 ```
 
 镜像为 Swift 官方 Docker 镜像的带编译器版本；`-slim` 只适合运行时，不含 `swift` 命令。此命令只验证跨平台领域逻辑，Linux 容器无法运行 AppKit、SwiftUI、Core Audio，也不能模拟 macOS 的音频权限、真实设备时钟、退出恢复或动画帧率。
+
+2026-09-24 的实际运行结果、原始日志及截图见[Docker 测试汇报](../tests/reports/2026-09-24-docker-profile-domain/report.md)。
 
 有 Mac 后，在相同目录执行 `swift test`，再进行 Xcode 构建和真实设备实验。Swift 包通过并不意味着 Mac 应用已构建。
 
