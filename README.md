@@ -8,7 +8,7 @@
 
 | 产品 | 定位 | 当前阶段 | 入口 |
 | --- | --- | --- | --- |
-| SonaDeck | Mac 应用音量与输出管理，保存多套音频配置并一键切换 | 首期规划已建立；尚未实现或通过真机验证 | [产品首页](products/sonadeck/README.md) |
+| SonaDeck | Mac 应用音量与输出管理，保存多套音频配置并一键切换 | 首期规划已建立；跨平台领域基础开始，真机音频仍待验证 | [产品首页](products/sonadeck/README.md) |
 
 ## 仓库结构
 
@@ -22,6 +22,8 @@
 └── products/
     └── sonadeck/
         ├── README.md             # 当前状态、文档入口、下一步
+        ├── app/
+        │   └── ProfileDomain/     # 可在 Linux Docker 中测试的 Swift 领域包
         └── docs/
             ├── product-spec.md   # 首期范围与用户任务
             ├── profiles.md       # 配置数据与切换语义
@@ -29,10 +31,11 @@
             ├── technical-plan.md # 系统版本、音频路线、分发
             ├── roadmap.md        # 阶段、任务与完成条件
             ├── validation.md     # 兼容性、可靠性、性能验收
+            ├── development.md    # 开发边界与非 Mac 测试
             └── decisions.md      # 决策状态、证据与待验证问题
 ```
 
-产品实现开始后，在对应产品下按需创建 `app/`（应用工程）、`experiments/`（技术实验）、`tests/`（工程外测试资料）和 `assets/`（设计源文件）。不预建空工程，不在根目录混放多个应用。实际工程内部可以采用 Xcode/Swift Package 的标准测试布局。
+产品实现按需在对应产品下创建 `app/`（应用工程）、`experiments/`（技术实验）、`tests/`（工程外测试资料）和 `assets/`（设计源文件）。不预建空工程，不在根目录混放多个应用。实际工程内部可以采用 Xcode/Swift Package 的标准测试布局。
 
 ## 阅读与工作方式
 
@@ -41,7 +44,7 @@
 3. 产品需求、设计假设、已验证事实分开记录；计划完成不代表产品完成。
 4. 新产品复制 [立项模板](templates/product-brief.md)，创建独立目录并更新本页索引。除非已经存在真实复用需求，不提取跨产品框架。
 
-当前仅包含研究和规划文档，没有可运行应用，也没有统一的构建或测试命令。每个产品开始实现后，在自己的 README 中维护准确命令和环境要求。
+当前没有可运行的 Mac 应用。SonaDeck 已有可独立测试的 Swift 领域包；其运行命令和环境要求见[开发与测试](products/sonadeck/docs/development.md)。
 
 ## 既有研究
 

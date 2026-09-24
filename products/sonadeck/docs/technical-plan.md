@@ -91,4 +91,4 @@ Apple [审核指南](https://developer.apple.com/app-store/review/guidelines/)�
 
 ## 7. 当前环境限制
 
-本次规划所在环境为 Windows，不能运行 Xcode 或验证 Core Audio。后续必须提供可用 Mac、至少两种物理输出、稳定签名身份及可复现实验记录。当前没有 macOS 构建命令或测试成绩可报告。
+当前开发环境为 Windows，不能运行 Xcode 或验证 Core Audio。`ProfileDomain` 已有独立的 Linux 容器测试命令，见[开发与测试](development.md)；这只覆盖跨平台逻辑。后续必须提供可用 Mac、至少两种物理输出、稳定签名身份及可复现实验记录。当前没有 macOS 构建或音频测试成绩可报告。
