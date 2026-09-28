@@ -9,6 +9,7 @@
 | 产品 | 定位 | 当前阶段 | 入口 |
 | --- | --- | --- | --- |
 | SonaDeck | Mac 应用音量与输出管理，保存多套音频配置并一键切换 | 首期规划已建立；跨平台领域基础开始，真机音频仍待验证 | [产品首页](products/sonadeck/README.md) |
+| Weather App（暂定目录名） | 参考 Windy 的天气查询与约一个月趋势能力 | 数据源研究；公开 API 已做小样本连通验证，尚未开发应用 | [研究首页](products/weather-app/README.md) |
 
 ## 仓库结构
 
