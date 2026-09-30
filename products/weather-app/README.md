@@ -12,6 +12,7 @@
 
 ## 文档入口
 
+- [NAS、云服务器与 Cloudflare 架构](docs/nas-cloud-architecture-2026-09-30.md)：利用现有 NAS 的任务分工、结果发布、缓存、故障恢复和成本估算；尚未部署或验证家庭网络。
 - [持续成本与免费商用替代](docs/cost-and-free-alternatives-2026-09-30.md)：天气输出与 AI 的区别、免费接口、自托管、小模型、运维成本和选择门槛；[本轮 Docker 实验](experiments/free-sources.md)。
 - [Chrome 交互原型与启动说明](prototype/README.md)：本地页面、模拟天气/广告、桌面与手机布局、可复现测试；[预览入口](prototype/index.html)。
 - [产品需求与选择理由](docs/product-spec.md)：定位、用户任务、竞品取舍、免费边界、功能优先级；产品范围的主要定义位置。

@@ -4,6 +4,8 @@
 
 2026-09-30 成本复评：用户要求优先免费商用来源及个人可承担的部署。新增 MET Norway、NWS 与 Open-Meteo 开源查询服务 / AWS 开放数据候选，见[专项研究](cost-and-free-alternatives-2026-09-30.md)及[小型实验](../experiments/free-sources.md)。这不要求自运行气象模型，也不引入 LLM；候选不等于已完成供应商选型。下面商业聚合接口保留为对照，不再是唯一候选路线。
 
+用户进一步提出利用已有 NAS、云服务器和 Cloudflare，并提供大陆 NAS、32 GB 内存、2 TB SSD、约 5M 上行等信息。推荐试验分工为 NAS 后台取数/处理，云服务器保存可直接返回的结果，Cloudflare 只缓存明确公开的响应；硬件、带宽单位和限额的主要定义见[NAS 部署方案](nas-cloud-architecture-2026-09-30.md)。尚未实机测试，不替换本文件的领域、隐私与数据质量要求，也未执行部署。
+
 ## 1. 平台与最小架构
 
 规划默认：Android 原生 Kotlin / Jetpack Compose，业务规则与 UI、数据源、广告适配层隔离。最低系统暂按 Android 9（API 28）做原型预算，尚未锁定；目标 SDK、依赖稳定版、Play 当期要求在工程初始化时核验，不在设计文档虚构版本号。iOS、Web 与账号同步延后。
