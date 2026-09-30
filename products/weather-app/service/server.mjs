@@ -4,10 +4,11 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { places, profiles } from './catalog.mjs';
 import { readSnapshot } from './store.mjs';
 import { evaluate, cacheState } from './domain.mjs';
+import { handleLanRequest } from './lan-testing.mjs';
 
 const website = new URL('../website/', import.meta.url);
 const staticFiles = { '/': ['index.html', 'text/html'], '/styles.css': ['styles.css', 'text/css'], '/privacy': ['privacy.html', 'text/html'], '/sources': ['sources.html', 'text/html'], '/mark.svg': ['mark.svg', 'image/svg+xml'] };
-export function createServer({ directory = fileURLToPath(new URL('./data/', import.meta.url)), clock = () => Math.floor(Date.now() / 1000) } = {}) {
+export function createServer({ directory = fileURLToPath(new URL('./data/', import.meta.url)), clock = () => Math.floor(Date.now() / 1000), lanTesting = false, apkDirectory, publicOrigin } = {}) {
   return http.createServer(async (req, res) => {
     const json = (status, payload, maxAge = 0) => {
       res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': maxAge ? `public, max-age=${maxAge}` : 'no-store', 'X-Content-Type-Options': 'nosniff' });
@@ -16,6 +17,7 @@ export function createServer({ directory = fileURLToPath(new URL('./data/', impo
     try {
       if (req.method !== 'GET') return json(405, { error: 'Only GET is supported.' });
       const url = new URL(req.url, 'http://localhost');
+      if (lanTesting && (url.pathname === '/test' || url.pathname.startsWith('/test/')) && await handleLanRequest(url.pathname, res, { directory, clock, apkDirectory, publicOrigin })) return;
       if (staticFiles[url.pathname]) {
         const [file, type] = staticFiles[url.pathname];
         const body = await readFile(new URL(file, website));
@@ -40,7 +42,7 @@ export function createServer({ directory = fileURLToPath(new URL('./data/', impo
   });
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const server = createServer({ directory: process.env.DATA_DIR || undefined });
+  const server = createServer({ directory: process.env.DATA_DIR || undefined, lanTesting: process.env.LAN_TESTING === '1', apkDirectory: process.env.APK_DIR, publicOrigin: process.env.PUBLIC_ORIGIN });
   server.requestTimeout = 10000;
   server.headersTimeout = 10000;
   server.listen(Number(process.env.PORT || 8787), process.env.HOST || '127.0.0.1', () => console.log('Dayward gateway ready'));

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dayward · Android 真机测试</title>
+  <link rel="stylesheet" href="/test/style.css"><script src="/test/client.js" defer></script>
+</head>
+<body><main>
+  <p class="eyebrow">DAYWARD / LOCAL DEVICE TEST</p>
+  <h1>开始你的<br>第一次真机测试。</h1>
+  <p>本页面由电脑上的 Docker 服务提供。手机能打开此页面，说明当前浏览器已经连通服务；还需在 App 中完成连接验证。</p>
+  <section aria-labelledby="install"><h2 id="install">1. 安装测试版</h2>
+    <p>Android 9 或以上。下载后按系统提示，允许当前浏览器安装这一个测试包。</p>
+    <a id="download" class="button" hidden href="/test/dayward-debug.apk">下载 Android APK</a>
+    <p id="build" role="status">正在检查安装包…</p><details><summary>安装包校验值</summary><code id="checksum">正在读取…</code></details>
+    <p class="small">这是内部 Debug 包，非商店发布版。覆盖安装保留计划；卸载或清除应用数据会删除计划。</p>
+  </section>
+  <section aria-labelledby="connect"><h2 id="connect">2. 确认连接地址</h2>
+    <code id="origin"></code><button id="copy" type="button">复制地址</button><p id="copy-state" role="status"></p>
+    <p>首次安装的 APK 已预填地址。若以前安装过旧版，在 <strong>Setup → Gateway origin</strong> 粘贴上面的地址，再点 <strong>Connect gateway</strong>。已有设置优先保留。</p>
+    <p>手机与电脑保持同一 Wi-Fi，测试期间保持电脑和 Docker 运行。手机上不要填 <code>localhost</code>、<code>127.0.0.1</code> 或 <code>10.0.2.2</code>。</p>
+  </section>
+  <section aria-labelledby="data"><h2 id="data">3. 检查真实数据</h2>
+    <p id="status" role="status" aria-live="polite">正在读取服务状态…</p><button id="refresh" type="button">重新检查状态</button><ul id="cities"></ul>
+    <p class="small">这里的时间是采集时间，不是模型起报时间；“缓存可用”不表示天气预测已验证准确。后台约每小时采集一次。</p>
+  </section>
+  <section><h2>4. 完成测试闭环</h2><ol>
+    <li>Weather 选择 London，点 Load collected forecast。</li>
+    <li>选择未来时段和时长，点 Inspect this window，再命名并保存。</li>
+    <li>打开 Plans，查看保存的预测，点击 Check against latest collection。</li>
+    <li>彻底关闭 App 后重新打开，确认计划仍在；暂时断开 Wi-Fi，确认仍可查看保存基线，刷新时明确报错。</li>
+    <li>恢复 Wi-Fi 后再次复查；需要时删除测试计划。</li>
+  </ol><p>当前显示 <strong>Reference only / information incomplete</strong> 是预期行为：模型起报和原生小时溯源未完成，自动推荐与官方预警未接入。同一轮数据应提示 No newer collected snapshot。</p></section>
+  <section><h2>遇到问题时</h2><ul>
+    <li>页面打不开：核对同一 Wi-Fi、电脑 IP、防火墙规则；访客网络、热点客户端隔离或 VPN 可能阻断设备互访。</li>
+    <li>页面能开但 App 连不上：检查 Setup 的地址与端口，确认使用本页下载的 Debug 包。</li>
+    <li>安装冲突：先记录现有计划；不要直接卸载来排错，先核对旧包签名。</li>
+    <li>天气显示 unavailable/stale：等待采集完成，在电脑上查看 collector 日志。</li>
+  </ul><p>反馈时记录手机型号、Android 版本、操作步骤和错误原文。需要截图时可遮挡私人计划名称。</p></section>
+  <p class="small">本地测试工具 · 没有账号、广告或自动上传诊断日志</p>
+</main></body></html>

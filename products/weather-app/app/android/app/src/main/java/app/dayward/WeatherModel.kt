@@ -17,7 +17,7 @@ import java.util.UUID
 class WeatherModel(application: Application) : AndroidViewModel(application) {
     private val prefs = application.getSharedPreferences("gateway", 0)
     private val store = PlanStore(application)
-    var endpoint by mutableStateOf(prefs.getString("origin", "http://10.0.2.2:8787")!!)
+    var endpoint by mutableStateOf(prefs.getString("origin", BuildConfig.DEFAULT_GATEWAY_URL)!!)
         private set
     var catalog by mutableStateOf<List<JSONObject>>(emptyList())
         private set

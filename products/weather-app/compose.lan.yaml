@@ -1,0 +1,14 @@
+# Local device testing only; invoked by scripts/prepare-lan.ps1.
+services:
+  gateway:
+    environment:
+      LAN_TESTING: "1"
+      APK_DIR: /testing
+      PUBLIC_ORIGIN: ${DAYWARD_ORIGIN:?Run scripts/prepare-lan.ps1 first}
+    volumes:
+      - ./artifacts/lan:/testing:ro
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

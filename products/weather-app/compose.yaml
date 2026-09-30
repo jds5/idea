@@ -15,7 +15,7 @@ services:
       context: .
       dockerfile: service/Dockerfile
     ports:
-      - "127.0.0.1:8787:8787"
+      - "${DAYWARD_BIND_ADDRESS:-127.0.0.1}:${DAYWARD_PORT:-8787}:8787"
     volumes:
       - forecasts:/data:ro
     restart: unless-stopped

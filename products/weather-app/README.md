@@ -14,6 +14,7 @@
 
 ## 文档入口
 
+- [同一 Wi-Fi 真机测试](docs/device-testing.md)：本机 Docker、手机安装入口、预填连接地址、防火墙与逐步验收。
 - [首个内部版本实施计划](docs/implementation.md)、[开发与运行](docs/development.md)、[工程验证记录](docs/implementation-validation-2026-09-30.md)：实际工程、测试、数据门槛和后续增量。
 - [NAS、云服务器与 Cloudflare 架构](docs/nas-cloud-architecture-2026-09-30.md)：利用现有 NAS 的任务分工、结果发布、缓存、故障恢复和成本估算；尚未部署或验证家庭网络。
 - [持续成本与免费商用替代](docs/cost-and-free-alternatives-2026-09-30.md)：天气输出与 AI 的区别、免费接口、自托管、小模型、运维成本和选择门槛；[本轮 Docker 实验](experiments/free-sources.md)。
@@ -44,7 +45,7 @@
 
 下一项可执行工作：Android 设备体验验收、逐点模型溯源、连续采集和失败恢复验证；再补齐官方预警与多地点比较。NAS/VPS 跨机发布与 Cloudflare 尚未部署。现有模拟原型仍可开展用户任务比较，尚未招募用户或发送外部消息。
 
-验证结果：内部工程完成 14 项后端测试、9 项 Android 单元测试、Debug APK 构建和 lint（0 errors）；六城双模型真实采集、来源断开/网关重启后的缓存读取、官网 Chrome 检查通过。详细证据见[工程验证](docs/implementation-validation-2026-09-30.md)。旧模拟原型的 7 项测试独立保留。尚未验证用户选择、准确度、广告收入或 Android 设备体验。
+验证结果：内部工程及 LAN 准备完成 16 项后端测试、9 项 Android 单元测试、Debug APK 构建和 lint（0 errors）；六城双模型真实采集、缓存读取、官网与测试页 Chrome 检查通过。最初工程证据见[工程验证](docs/implementation-validation-2026-09-30.md)，新增的 Docker 手机入口及尚需管理员执行的 Windows 网络配置见[真机测试](docs/device-testing.md)。旧模拟原型的 7 项测试独立保留。尚未验证用户选择、准确度、广告收入或 Android 设备体验。
 
 尚未解决：用户是否比免费竞品更愿意使用本方案；周趋势在目标地区是否有决策增益；广告是否覆盖全部服务成本；供应商和预警授权；首发支持国家；Android 性能与辅助功能。红色 Windy 所谓 30 天页面仍未证实，但本产品不再以这个前提定义能力。
 

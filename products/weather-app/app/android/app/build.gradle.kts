@@ -1,3 +1,5 @@
+import java.net.URI
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -13,6 +15,15 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "0.1.0-internal"
+        buildConfigField("String", "DEFAULT_GATEWAY_URL", "\"https://localhost\"")
+    }
+    buildTypes {
+        getByName("debug") {
+            val origin = providers.gradleProperty("daywardGateway").orElse("http://10.0.2.2:8787").get()
+            val uri = URI(origin)
+            require(uri.scheme in listOf("http", "https") && uri.host != null && uri.userInfo == null && uri.rawQuery == null && uri.rawFragment == null && uri.path.orEmpty().trim('/').isEmpty()) { "daywardGateway must be an HTTP(S) origin" }
+            buildConfigField("String", "DEFAULT_GATEWAY_URL", "\"${origin.trimEnd('/')}\"")
+        }
     }
     buildFeatures { compose = true; buildConfig = true }
     compileOptions {
