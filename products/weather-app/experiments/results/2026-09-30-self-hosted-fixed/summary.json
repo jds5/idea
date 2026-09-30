@@ -1,0 +1,147 @@
+{
+  "requests": [
+    {
+      "name": "aws-catalog",
+      "url": "https://openmeteo.s3.amazonaws.com/?list-type=2&delimiter=/&prefix=data/&max-keys=1000",
+      "requested_at": "2026-09-30T02:52:32.216671+00:00",
+      "status": 200,
+      "bytes": 8397,
+      "sha256": "ee71645d7ed03fc9b0cdea737165cf99d1a0bfed6dc6c74bbcd2030239b18846",
+      "catalog": {
+        "count": 107,
+        "truncated": "false",
+        "ec46": [
+          "data/ecmwf_ec46/",
+          "data/ecmwf_ec46_ensemble_mean/",
+          "data/ecmwf_ec46_weekly/"
+        ]
+      },
+      "elapsed_seconds": 1.193
+    },
+    {
+      "name": "london-short",
+      "url": "http://127.0.0.1:8080/v1/forecast?latitude=51.5074&longitude=-0.1278&timezone=Europe%2FLondon&models=ecmwf_ifs025%2Cgfs_global%2Cicon_global&hourly=temperature_2m%2Cprecipitation%2Cwind_speed_10m%2Cwind_gusts_10m&forecast_days=2",
+      "requested_at": "2026-09-30T02:52:33.410217+00:00",
+      "status": 200,
+      "bytes": 4751,
+      "sha256": "2a10210933d99a2cbb1187dbe12e03878fb64f21a3b2fb0776b7c3fcf6752ea6",
+      "coverage": {
+        "first": "2026-09-30T00:00",
+        "last": "2026-10-01T23:00",
+        "series": {
+          "temperature_2m_ecmwf_ifs025": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "precipitation_ecmwf_ifs025": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "wind_speed_10m_ecmwf_ifs025": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "wind_gusts_10m_ecmwf_ifs025": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "temperature_2m_gfs_global": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "precipitation_gfs_global": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "wind_speed_10m_gfs_global": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "wind_gusts_10m_gfs_global": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "temperature_2m_icon_global": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "precipitation_icon_global": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "wind_speed_10m_icon_global": {
+            "rows": 48,
+            "non_null": 48
+          },
+          "wind_gusts_10m_icon_global": {
+            "rows": 48,
+            "non_null": 48
+          }
+        },
+        "metadata": {
+          "latitude": 51.5,
+          "longitude": -0.25,
+          "generationtime_ms": 527.8068780899048,
+          "utc_offset_seconds": 3600,
+          "timezone": "Europe/London",
+          "timezone_abbreviation": "GMT+1",
+          "elevation": 16.0,
+          "hourly_units": {
+            "time": "iso8601",
+            "temperature_2m_ecmwf_ifs025": "°C",
+            "precipitation_ecmwf_ifs025": "mm",
+            "wind_speed_10m_ecmwf_ifs025": "km/h",
+            "wind_gusts_10m_ecmwf_ifs025": "km/h",
+            "temperature_2m_gfs_global": "°C",
+            "precipitation_gfs_global": "mm",
+            "wind_speed_10m_gfs_global": "km/h",
+            "wind_gusts_10m_gfs_global": "km/h",
+            "temperature_2m_icon_global": "°C",
+            "precipitation_icon_global": "mm",
+            "wind_speed_10m_icon_global": "km/h",
+            "wind_gusts_10m_icon_global": "km/h"
+          }
+        }
+      },
+      "elapsed_seconds": 41.966
+    },
+    {
+      "name": "london-ec46-weekly",
+      "url": "http://127.0.0.1:8080/v1/seasonal?latitude=51.5074&longitude=-0.1278&timezone=Europe%2FLondon&models=ecmwf_ec46&weekly=temperature_2m_anomaly%2Cprecipitation_anomaly&forecast_days=46",
+      "requested_at": "2026-09-30T02:53:15.373143+00:00",
+      "status": 200,
+      "bytes": 500,
+      "sha256": "59895892fc50d630e5c8fd8f8747c34aac472f6cf955ce074374e88c04900e2e",
+      "coverage": {
+        "first": "2026-09-28",
+        "last": "2026-11-09",
+        "series": {
+          "temperature_2m_anomaly": {
+            "rows": 7,
+            "non_null": 6
+          },
+          "precipitation_anomaly": {
+            "rows": 7,
+            "non_null": 6
+          }
+        },
+        "metadata": {
+          "latitude": 51.569084,
+          "longitude": 0.0,
+          "generationtime_ms": 528.1416177749634,
+          "utc_offset_seconds": 3600,
+          "timezone": "Europe/London",
+          "timezone_abbreviation": "GMT+1",
+          "elevation": 16.0,
+          "weekly_units": {
+            "time": "iso8601",
+            "temperature_2m_anomaly": "K",
+            "precipitation_anomaly": "mm"
+          }
+        }
+      },
+      "elapsed_seconds": 5.091
+    }
+  ],
+  "scope": "Availability only. API hourly output does not prove native hourly resolution; no accuracy or load test."
+}

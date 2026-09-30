@@ -1,0 +1,160 @@
+[ NOTICE ] Server started on http://0.0.0.0:8080
+App/configure.swift:43: Fatal error: 'try!' expression unexpectedly raised an error: OmFileFormat.OmFileFormatSwiftError.cannotCreateFile(filename: "./data//cache.bin", errno: 13, error: "Permission denied")
+
+*** Signal 4: Backtracing from 0x7e95a0d40271... done ***
+
+*** Program crashed: Illegal instruction at 0x00007e95a0d40271 ***
+
+Platform: x86_64 Linux (Ubuntu 22.04.5 LTS)
+
+Thread 0 "openmeteo-api":
+
+  0      0x00007e959d50880a <unknown> in libc.so.6
+  1 [ra] 0x00007e95a077abc9 _dispatch_sig_thread + 8 in libdispatch.so
+...
+
+Thread 1 "NIO-SGLTN-1-#1":
+
+  0                0x00007e959d5ebeae <unknown> in libc.so.6
+  1 [ra] [system]  0x0000574de9c50918 specialized Selector.whenReady0(strategy:onLoopBegin:_:) + 967 in openmeteo-api at //<compiler-generated>
+  2 [ra] [inlined] 0x0000574de9c5b2fd specialized Selector.whenReady(strategy:onLoopBegin:_:) in openmeteo-api at .build/checkouts/swift-nio/Sources/NIOPosix/SelectorGeneric.swift:396:18
+  3 [ra]           0x0000574de9c5b2fd SelectableEventLoop._blockingWaitForWork(nextReadyDeadline:_:) + 220 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:861:28
+  4 [ra] [inlined] 0x0000574de9c4d998 closure #2 in SelectableEventLoop.run() in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:935:26
+  5 [ra] [inlined] 0x0000574de9c4d998 specialized withAutoReleasePool<A>(_:) in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:49:16
+  6 [ra]           0x0000574de9c4d998 SelectableEventLoop.run() + 375 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:934:17
+  7 [ra] [inlined] 0x0000574de9c11022 static MultiThreadedEventLoopGroup.runTheLoop(thread:uniqueID:parentGroup:canEventLoopBeShutdownIndividually:selectorFactory:initializer:metricsDelegate:_:) in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/MultiThreadedEventLoopGroup.swift:135:22
+  8 [ra]           0x0000574de9c11022 closure #1 in static MultiThreadedEventLoopGroup.setupThreadAndEventLoop(name:uniqueID:parentGroup:selectorFactory:initializer:metricsDelegate:) + 1489 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/MultiThreadedEventLoopGroup.swift:157:41
+  9 [ra] [thunk]   0x0000574de9c15e9e partial apply for closure #1 in static MultiThreadedEventLoopGroup.setupThreadAndEventLoop(name:uniqueID:parentGroup:selectorFactory:initializer:metricsDelegate:) + 61 in openmeteo-api at //<compiler-generated>
+ 10 [ra] [thunk]   0x0000574de9c1af9f thunk for @escaping @callee_guaranteed (@guaranteed NIOThread) -> () + 14 in openmeteo-api at //<compiler-generated>
+ 11 [ra]           0x0000574de9c77a2e closure #1 in closure #1 in static ThreadOpsPosix.run(handle:args:) + 461 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/ThreadPosix.swift:185:21
+...
+
+Thread 2 "NIO-SGLTN-1-#2":
+
+  0                0x00007e959d5ebeae <unknown> in libc.so.6
+  1 [ra] [system]  0x0000574de9c50918 specialized Selector.whenReady0(strategy:onLoopBegin:_:) + 967 in openmeteo-api at //<compiler-generated>
+  2 [ra] [inlined] 0x0000574de9c5b2fd specialized Selector.whenReady(strategy:onLoopBegin:_:) in openmeteo-api at .build/checkouts/swift-nio/Sources/NIOPosix/SelectorGeneric.swift:396:18
+  3 [ra]           0x0000574de9c5b2fd SelectableEventLoop._blockingWaitForWork(nextReadyDeadline:_:) + 220 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:861:28
+  4 [ra] [inlined] 0x0000574de9c4d998 closure #2 in SelectableEventLoop.run() in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:935:26
+  5 [ra] [inlined] 0x0000574de9c4d998 specialized withAutoReleasePool<A>(_:) in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:49:16
+  6 [ra]           0x0000574de9c4d998 SelectableEventLoop.run() + 375 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/SelectableEventLoop.swift:934:17
+  7 [ra] [inlined] 0x0000574de9c11022 static MultiThreadedEventLoopGroup.runTheLoop(thread:uniqueID:parentGroup:canEventLoopBeShutdownIndividually:selectorFactory:initializer:metricsDelegate:_:) in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/MultiThreadedEventLoopGroup.swift:135:22
+  8 [ra]           0x0000574de9c11022 closure #1 in static MultiThreadedEventLoopGroup.setupThreadAndEventLoop(name:uniqueID:parentGroup:selectorFactory:initializer:metricsDelegate:) + 1489 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/MultiThreadedEventLoopGroup.swift:157:41
+  9 [ra] [thunk]   0x0000574de9c15e9e partial apply for closure #1 in static MultiThreadedEventLoopGroup.setupThreadAndEventLoop(name:uniqueID:parentGroup:selectorFactory:initializer:metricsDelegate:) + 61 in openmeteo-api at //<compiler-generated>
+ 10 [ra] [thunk]   0x0000574de9c1af9f thunk for @escaping @callee_guaranteed (@guaranteed NIOThread) -> () + 14 in openmeteo-api at //<compiler-generated>
+ 11 [ra]           0x0000574de9c77a2e closure #1 in closure #1 in static ThreadOpsPosix.run(handle:args:) + 461 in openmeteo-api at /build/.build/checkouts/swift-nio/Sources/NIOPosix/ThreadPosix.swift:185:21
+...
+
+Thread 3:
+
+  0  0x00007e959d557117 <unknown> in libc.so.6
+...
+
+Thread 4:
+
+  0      0x00007e959d5ebeae <unknown> in libc.so.6
+  1 [ra] 0x00007e95a0779f92 _dispatch_mgr_invoke + 129 in libdispatch.so
+  2 [ra] 0x00007e95a0779efd _dispatch_mgr_thread + 108 in libdispatch.so
+  3 [ra] 0x00007e95a077d105 _dispatch_worker_thread + 628 in libdispatch.so
+...
+
+Thread 5:
+
+  0  0x00007e959d557117 <unknown> in libc.so.6
+...
+
+Thread 6 "SGLTN-TP-#0":
+
+  0  0x00007e959d557117 <unknown> in libc.so.6
+...
+
+Thread 7 "SGLTN-TP-#1":
+
+  0  0x00007e959d557117 <unknown> in libc.so.6
+...
+
+Thread 8 crashed:
+
+  0                  0x00007e95a0d40271 _assertionFailure(_:_:file:line:flags:) + 225 in libswiftCore.so
+  1 [ra]             0x00007e95a0d7c4a3 swift_unexpectedError + 802 in libswiftCore.so
+  2 [ra]             0x0000574de9153d9e closure #1 in variable initialization expression of static OpenMeteo.dataBlockCache + 1101 in openmeteo-api at /build/Sources/App/configure.swift:43:56
+  3 [ra]             0x0000574de9153939 one-time initialization function for dataBlockCache + 8 in openmeteo-api at /build/Sources/App/configure.swift:38:67
+  4 [ra]             0x00007e95a0f5b391 swift::threading_impl::once_slow(swift::threading_impl::once_t&, void (*)(void*), void*) + 160 in libswiftCore.so
+  5 [ra] [inlined]   0x0000574de9072520 OpenMeteo.dataBlockCache.unsafeMutableAddressor in openmeteo-api at Sources/App/configure.swift:38:16
+  6 [ra] [thunk]     0x0000574de9072520 OmFileLocalRemoteOmReader.init(file:) + 63 in openmeteo-api at /build/Sources/App/Helper/File/OmFileSystem+OmFiles.swift:31:71
+  7 [async] [thunk]  0x0000574de90770e0 protocol witness for OmRemotePayload.init(file:) in conformance OmFileLocalRemoteOmReader in openmeteo-api
+  8 [async]          0x0000574dea0bb340 OmFileSystemS3.File.getPayload<A>(ofType:context:receivedFileModifiedError:) in openmeteo-api at /build/Sources/OmFileIO/OmFileSystemS3.swift:228
+  9 [async]          0x0000574dea0b8ae0 OmFileSystemS3.FileWithContext.with<A, B>(fn:) in openmeteo-api at /build/Sources/OmFileIO/OmFileSystemS3.swift:61
+ 10 [async]          0x0000574de8e4c960 closure #2 in ApiQueryParameter.getCoordinates(logger:httpClient:) in openmeteo-api at /build/Sources/App/Helper/ForecastapiQuery.swift:402
+ 11 [async] [thunk]  0x0000574de8e56240 partial apply for closure #2 in ApiQueryParameter.getCoordinates(logger:httpClient:) in openmeteo-api
+ 12 [async]          0x0000574dea062850 Sequence.asyncMap<A>(_:) in openmeteo-api at /build/Sources/OmFileIO/Intrinsics/Concurrency.swift:22
+ 13 [async]          0x0000574de8e4b840 ApiQueryParameter.getCoordinates(logger:httpClient:) in openmeteo-api at /build/Sources/App/Helper/ForecastapiQuery.swift:402
+ 14 [async]          0x0000574de8e4af10 ApiQueryParameter.getCoordinatesWithTimezone(allowTimezones:logger:httpClient:) in openmeteo-api at /build/Sources/App/Helper/ForecastapiQuery.swift:354
+ 15 [async]          0x0000574de8e49320 ApiQueryParameter.prepareCoordinates(allowTimezones:logger:httpClient:) in openmeteo-api at /build/Sources/App/Helper/ForecastapiQuery.swift:293
+ 16 [async]          0x0000574de8dfb720 closure #1 in WeatherApiController.query(_:) in openmeteo-api at /build/Sources/App/Controllers/ForecastapiController.swift:318
+ 17 [async] [system] 0x0000574de8b3ab20 specialized Request.withApiParameter<A>(_:alias:fn:) in openmeteo-api at //<compiler-generated>
+ 18 [async]          0x0000574de8e44ea0 implicit closure #6 in implicit closure #5 in ForecastapiController.boot(routes:) in openmeteo-api
+ 19 [async] [thunk]  0x0000574de8e458b0 partial apply for implicit closure #6 in implicit closure #5 in ForecastapiController.boot(routes:) in openmeteo-api
+ 20 [async] [thunk]  0x0000574de8fef680 thunk for @escaping @callee_guaranteed @Sendable @async (@guaranteed Request) -> (@owned Response, @error @owned Error) in openmeteo-api at //<compiler-generated>
+ 21 [async]          0x0000574de8e46950 partial apply for thunk for @escaping @callee_guaranteed @Sendable @async (@guaranteed Request) -> (@owned Response, @error @owned Error) in openmeteo-api
+ 22 [async]          0x0000574dea37d670 closure #1 in RoutesBuilder.on<A>(_:_:body:use:) in openmeteo-api at /build/.build/checkouts/vapor/Sources/Vapor/Concurrency/RoutesBuilder+Concurrency.swift:148
+ 23 [async] [thunk]  0x0000574dea37d930 partial apply for closure #1 in RoutesBuilder.on<A>(_:_:body:use:) in openmeteo-api at //<compiler-generated>
+ 24 [async] [system] 0x0000574dea3629e0 specialized closure #1 in AsyncResponder.respond(to:) in openmeteo-api at //<compiler-generated>
+ 25 [async] [thunk]  0x0000574dea362df0 partial apply for specialized closure #1 in AsyncResponder.respond(to:) in openmeteo-api at //<compiler-generated>
+ 26 [async] [system] 0x0000574dea361ca0 specialized closure #1 in EventLoopPromise.completeWithTask(_:) in openmeteo-api at //<compiler-generated>
+ 27 [async] [system] 0x0000574dea362f10 partial apply for specialized closure #1 in EventLoopPromise.completeWithTask(_:) in openmeteo-api at //<compiler-generated>
+ 28 [async] [system] 0x0000574de99babe0 specialized thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@out A) in openmeteo-api at //<compiler-generated>
+ 29 [async] [thunk]  0x0000574de99bbec0 partial apply for specialized thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@out A) in openmeteo-api
+ 30 [async] [system] 0x00007e95a0a142a0 completeTaskWithClosure(swift::AsyncContext*, swift::SwiftError*) in libswift_Concurrency.so
+...
+
+Thread 9:
+
+  0  0x00007e959d557117 <unknown> in libc.so.6
+...
+
+Thread 10:
+
+  0  0x00007e959d557117 <unknown> in libc.so.6
+...
+
+Thread 11 "NIO-SGLTN-1-#2":
+
+  0  0x00007e959d557117 <unknown> in libc.so.6
+...
+
+
+Registers:
+
+rax 0x0000000200000003  8589934595
+rdx 0x0000000000000002  2
+rcx 0xfffffffe00000000  18446744065119617024
+rbx 0x0000000000000003  3
+rsi 0x00007e957000c608  03 00 00 00 00 00 00 00 c0 00 00 00 00 00 00 80  ········À·······
+rdi 0x00007e95680008e0  06 00 04 00 05 00 07 00 07 00 04 00 02 00 03 00  ················
+rbp 0x00007e9585ff8740  f0 87 ff 85 95 7e 00 00 a3 c4 d7 a0 95 7e 00 00  ð·ÿ··~··£Ä× ·~··
+rsp 0x00007e9585ff86d0  e0 86 ff 85 95 7e 00 00 eb e9 c5 a0 95 7e 00 00  à·ÿ··~··ëéÅ ·~··
+ r8 0x00007e9568017e80  17 80 56 e9 07 00 00 00 a0 02 ac 1f a2 78 1a d9  ··Vé···· ·¬·¢x·Ù
+ r9 0x00007e9585ff8440  24 00 00 00 00 00 00 f0 40 ee 00 68 95 7e 00 00  $······ð@î·h·~··
+r10 0x0000000000000000  0
+r11 0xd91a78a21fac02a0  15643948893336240800
+r12 0x00007e957000c600  38 64 03 a1 95 7e 00 00 03 00 00 00 00 00 00 00  8d·¡·~··········
+r13 0x00007e9585ff87b8  aa 00 00 00 00 00 00 f0 00 c6 00 70 95 7e 00 00  ª······ð·Æ·p·~··
+r14 0x0000000000000000  0
+r15 0x00000000000000aa  170
+rip 0x00007e95a0d40271  0f 0b 48 83 ec 08 48 8d 05 b2 a9 30 00 48 8d 3d  ··H·ì·H··²©0·H·=
+
+rflags 0x0000000000010202
+
+cs 0x0033  fs 0x0000  gs 0x0000
+
+
+Images (79 omitted):
+
+0x0000574de882c000–0x0000574deadc70c8 9509cdecfa6d453e4659b3af2aa281647066064d openmeteo-api           /app/openmeteo-api
+0x00007e959d4c6000–0x00007e959d682401 095c7ba148aeca81668091f718047078d57efddb libc.so.6               /usr/lib/x86_64-linux-gnu/libc.so.6
+0x00007e95a0748000–0x00007e95a07901b8 440ce6fd04a589971ca109aebb3d010ff32d2a4e libdispatch.so          /usr/lib/swift/linux/libdispatch.so
+0x00007e95a099e000–0x00007e95a0a31070 ec48daaddb3a686d0913709f53964f1f285db365 libswift_Concurrency.so /usr/lib/swift/linux/libswift_Concurrency.so
+0x00007e95a0a47000–0x00007e95a1019c50 7eb736a3088e0cfea099e955eebd87db49cf7a00 libswiftCore.so         /usr/lib/swift/linux/libswiftCore.so
+
+Backtrace took 8.07s

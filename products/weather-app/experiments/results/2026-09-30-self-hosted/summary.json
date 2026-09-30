@@ -1,0 +1,37 @@
+{
+  "requests": [
+    {
+      "name": "aws-catalog",
+      "url": "https://openmeteo.s3.amazonaws.com/?list-type=2&delimiter=/&prefix=data/&max-keys=1000",
+      "requested_at": "2026-09-30T02:49:54.097082+00:00",
+      "status": 200,
+      "bytes": 8397,
+      "sha256": "ee71645d7ed03fc9b0cdea737165cf99d1a0bfed6dc6c74bbcd2030239b18846",
+      "catalog": {
+        "count": 107,
+        "truncated": "false",
+        "ec46": [
+          "data/ecmwf_ec46/",
+          "data/ecmwf_ec46_ensemble_mean/",
+          "data/ecmwf_ec46_weekly/"
+        ]
+      },
+      "elapsed_seconds": 1.378
+    },
+    {
+      "name": "london-short",
+      "url": "http://127.0.0.1:8080/v1/forecast?latitude=51.5074&longitude=-0.1278&timezone=Europe%2FLondon&models=ecmwf_ifs025%2Cgfs_global%2Cicon_global&hourly=temperature_2m%2Cprecipitation%2Cwind_speed_10m%2Cwind_gusts_10m&forecast_days=2",
+      "requested_at": "2026-09-30T02:49:55.475019+00:00",
+      "error": "Remote end closed connection without response",
+      "elapsed_seconds": 11.857
+    },
+    {
+      "name": "london-ec46-weekly",
+      "url": "http://127.0.0.1:8080/v1/seasonal?latitude=51.5074&longitude=-0.1278&timezone=Europe%2FLondon&models=ecmwf_ec46&weekly=temperature_2m_anomaly%2Cprecipitation_anomaly&forecast_days=46",
+      "requested_at": "2026-09-30T02:50:07.331376+00:00",
+      "error": "<urlopen error [Errno 111] Connection refused>",
+      "elapsed_seconds": 0.001
+    }
+  ],
+  "scope": "Availability only. API hourly output does not prove native hourly resolution; no accuracy or load test."
+}

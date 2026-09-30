@@ -1,0 +1,180 @@
+{
+  "python": "3.11.16",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+  "user_agent": "DaywardResearch/0.1 (https://github.com/jds5/idea)",
+  "requests": [
+    {
+      "name": "met-london",
+      "url": "https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=51.5074&lon=-0.1278",
+      "requested_at": "2026-09-30T02:42:46.904723+00:00",
+      "status": 200,
+      "bytes": 64016,
+      "sha256": "a4095ad2ceb603b5ec1bfbcbf07127e722f225740269d7a3c0c2459d03aea6a5",
+      "headers": {
+        "Date": "Wed, 30 Sep 2026 02:42:43 GMT",
+        "Expires": "Wed, 30 Sep 2026 03:12:43 GMT",
+        "Last-Modified": "Wed, 30 Sep 2026 02:42:43 GMT",
+        "Cache-Control": null
+      },
+      "elapsed_seconds": 2.337,
+      "coverage": {
+        "updated_at": "2026-09-30T01:17:23Z",
+        "rows": 92,
+        "first": "2026-09-30T02:00:00Z",
+        "last": "2026-10-09T12:00:00Z",
+        "step_hours": {
+          "1.0": 64,
+          "6.0": 27
+        },
+        "instant_field_rows": {
+          "air_pressure_at_sea_level": 92,
+          "air_temperature": 92,
+          "apparent_air_temperature": 92,
+          "cloud_area_fraction": 92,
+          "cloud_area_fraction_high": 92,
+          "cloud_area_fraction_low": 92,
+          "cloud_area_fraction_medium": 92,
+          "dew_point_temperature": 92,
+          "fog_area_fraction": 65,
+          "relative_humidity": 92,
+          "ultraviolet_index_clear_sky": 65,
+          "wind_from_direction": 92,
+          "wind_speed": 92
+        },
+        "next_1_hour_precipitation_rows": 64,
+        "units": {
+          "air_pressure_at_sea_level": "hPa",
+          "air_temperature": "celsius",
+          "air_temperature_max": "celsius",
+          "air_temperature_min": "celsius",
+          "apparent_air_temperature": "celsius",
+          "cloud_area_fraction": "%",
+          "cloud_area_fraction_high": "%",
+          "cloud_area_fraction_low": "%",
+          "cloud_area_fraction_medium": "%",
+          "dew_point_temperature": "celsius",
+          "fog_area_fraction": "%",
+          "precipitation_amount": "mm",
+          "relative_humidity": "%",
+          "ultraviolet_index_clear_sky": "1",
+          "wind_from_direction": "degrees",
+          "wind_speed": "m/s"
+        }
+      }
+    },
+    {
+      "name": "met-berlin",
+      "url": "https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=52.52&lon=13.405",
+      "requested_at": "2026-09-30T02:42:49.242582+00:00",
+      "status": 200,
+      "bytes": 64068,
+      "sha256": "c23d5149022220f06073fabfeda40146955c8562d96a47551a01e93e3847a20c",
+      "headers": {
+        "Date": "Wed, 30 Sep 2026 02:42:45 GMT",
+        "Expires": "Wed, 30 Sep 2026 03:14:44 GMT",
+        "Last-Modified": "Wed, 30 Sep 2026 02:42:45 GMT",
+        "Cache-Control": null
+      },
+      "elapsed_seconds": 1.991,
+      "coverage": {
+        "updated_at": "2026-09-30T01:18:00Z",
+        "rows": 92,
+        "first": "2026-09-30T02:00:00Z",
+        "last": "2026-10-09T12:00:00Z",
+        "step_hours": {
+          "1.0": 64,
+          "6.0": 27
+        },
+        "instant_field_rows": {
+          "air_pressure_at_sea_level": 92,
+          "air_temperature": 92,
+          "apparent_air_temperature": 92,
+          "cloud_area_fraction": 92,
+          "cloud_area_fraction_high": 92,
+          "cloud_area_fraction_low": 92,
+          "cloud_area_fraction_medium": 92,
+          "dew_point_temperature": 92,
+          "fog_area_fraction": 65,
+          "relative_humidity": 92,
+          "ultraviolet_index_clear_sky": 65,
+          "wind_from_direction": 92,
+          "wind_speed": 92
+        },
+        "next_1_hour_precipitation_rows": 64,
+        "units": {
+          "air_pressure_at_sea_level": "hPa",
+          "air_temperature": "celsius",
+          "air_temperature_max": "celsius",
+          "air_temperature_min": "celsius",
+          "apparent_air_temperature": "celsius",
+          "cloud_area_fraction": "%",
+          "cloud_area_fraction_high": "%",
+          "cloud_area_fraction_low": "%",
+          "cloud_area_fraction_medium": "%",
+          "dew_point_temperature": "celsius",
+          "fog_area_fraction": "%",
+          "precipitation_amount": "mm",
+          "relative_humidity": "%",
+          "ultraviolet_index_clear_sky": "1",
+          "wind_from_direction": "degrees",
+          "wind_speed": "m/s"
+        }
+      }
+    },
+    {
+      "name": "nws-new-york-point",
+      "url": "https://api.weather.gov/points/40.7128,-74.0060",
+      "requested_at": "2026-09-30T02:42:51.234783+00:00",
+      "status": 200,
+      "bytes": 3913,
+      "sha256": "d17744cd5eb5921b68ded4d5e8e283ce7af50c2f9f95ba840e4ea780151b515d",
+      "headers": {
+        "Date": "Wed, 30 Sep 2026 02:42:46 GMT",
+        "Expires": "Wed, 30 Sep 2026 13:34:05 GMT",
+        "Last-Modified": null,
+        "Cache-Control": "public, max-age=39079, s-maxage=120"
+      },
+      "elapsed_seconds": 0.811
+    },
+    {
+      "name": "nws-new-york-hourly",
+      "url": "https://api.weather.gov/gridpoints/OKX/33,42/forecast/hourly",
+      "requested_at": "2026-09-30T02:42:52.046185+00:00",
+      "status": 200,
+      "bytes": 163703,
+      "sha256": "3be0df03e91bf3f491fa209ca7922c66e5f8b8a72608227ec93cb34266472b6d",
+      "headers": {
+        "Date": "Wed, 30 Sep 2026 02:42:47 GMT",
+        "Expires": "Wed, 30 Sep 2026 03:30:56 GMT",
+        "Last-Modified": "Wed, 30 Sep 2026 01:59:58 GMT",
+        "Cache-Control": "public, max-age=2889, s-maxage=3600"
+      },
+      "elapsed_seconds": 1.162,
+      "coverage": {
+        "updated_at": "2026-09-29T18:01:32+00:00",
+        "rows": 156,
+        "first": "2026-09-29T22:00:00-04:00",
+        "last": "2026-10-06T10:00:00-04:00",
+        "fields": [
+          "detailedForecast",
+          "dewpoint",
+          "endTime",
+          "icon",
+          "isDaytime",
+          "name",
+          "number",
+          "probabilityOfPrecipitation",
+          "relativeHumidity",
+          "shortForecast",
+          "startTime",
+          "temperature",
+          "temperatureTrend",
+          "temperatureUnit",
+          "windDirection",
+          "windSpeed"
+        ]
+      }
+    }
+  ],
+  "scope": "One-shot public endpoint availability and field coverage only; no accuracy, SLA, or production validation."
+}

@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-09-30T02:54:40.789Z",
+  "docker_version": "29.8.0",
+  "python_image": [
+    "python@sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6"
+  ],
+  "container_stats": {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "0.21%",
+    "Container": "dayward-source-probe-fixed",
+    "ID": "b3a98ca94434",
+    "MemPerc": "6.42%",
+    "MemUsage": "526.2MiB / 8GiB",
+    "Name": "dayward-source-probe-fixed",
+    "NetIO": "4.81MB / 219kB",
+    "PIDs": "10"
+  },
+  "cache_files": "512M\t/app/data",
+  "container_state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 5704,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-09-30T02:52:24.120047567Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  }
+}
