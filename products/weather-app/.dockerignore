@@ -1,0 +1,6 @@
+*
+!service/
+!service/**
+service/data/
+!website/
+!website/**

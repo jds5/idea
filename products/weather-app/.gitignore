@@ -1,0 +1,8 @@
+service/data/
+**/node_modules/
+app/android/.gradle/
+app/android/.kotlin/
+app/android/**/build/
+app/android/local.properties
+artifacts/
+*.log

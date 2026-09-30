@@ -9,7 +9,7 @@
 | 产品 | 定位 | 当前阶段 | 入口 |
 | --- | --- | --- | --- |
 | SonaDeck | Mac 应用音量与输出管理，保存多套音频配置并一键切换 | 首期规划已建立；跨平台领域基础开始，真机音频仍待验证 | [产品首页](products/sonadeck/README.md) |
-| Weather App（暂定目录名） | 面向欧美，帮助用户选出行时间、地点并跟踪变化 | Chrome 原型完成首版；免费商用数据与持续成本研究中，变现方式重新评估 | [产品首页](products/weather-app/README.md) |
+| Weather App（暂定目录名） | 面向欧美，帮助用户选出行时间、地点并跟踪变化 | Android、真实天气缓存与轻量官网进入内部工程；变现与数据质量继续验证 | [产品首页](products/weather-app/README.md) |
 
 ## 仓库结构
 
