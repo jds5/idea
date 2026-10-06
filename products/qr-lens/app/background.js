@@ -1,4 +1,14 @@
 import { decodeAll } from './decoder.js';
+import { webUrl } from './links.js';
+
+chrome.runtime.onMessage.addListener((message, sender, respond) => {
+  if (message.type !== 'qr:open-url' || sender.id !== chrome.runtime.id || !sender.tab || sender.frameId !== 0) return;
+  const url = webUrl(message.url);
+  if (!url) { respond({ ok: false }); return; }
+  chrome.windows.create({ url, type: 'normal', focused: true, setSelfAsOpener: false })
+    .then(() => respond({ ok: true }), () => respond({ ok: false }));
+  return true;
+});
 
 const busy = new Set();
 export async function scanTab(tab) {

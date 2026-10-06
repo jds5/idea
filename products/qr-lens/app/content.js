@@ -1,4 +1,5 @@
 import { rectangle, contained } from './geometry.js';
+import { webUrl } from './links.js';
 
 if (!globalThis.__qrLens) {
   let host, dialog, root, session, codes = [], selection = null, draft = null, pointer = null;
@@ -60,7 +61,23 @@ if (!globalThis.__qrLens) {
           copy.textContent = copied ? '已复制' : '请按 Ctrl/Cmd+C 复制';
         }
       });
-      card.append(label, copy); list.append(card);
+      const actions = element('div', undefined, 'actions'); actions.append(copy);
+      const url = webUrl(code.text);
+      if (url) {
+        const openLink = button('在新窗口打开', async () => {
+          openLink.disabled = true;
+          try {
+            const response = await chrome.runtime.sendMessage({ type: 'qr:open-url', url });
+            if (!response?.ok) throw new Error('open failed');
+            openLink.textContent = '在新窗口打开';
+          } catch {
+            openLink.textContent = '打开失败，点击重试';
+          } finally { openLink.disabled = false; }
+        });
+        openLink.title = url;
+        actions.append(openLink);
+      }
+      card.append(label, actions); list.append(card);
     });
   }
   function open(message) {
@@ -83,6 +100,7 @@ if (!globalThis.__qrLens) {
       strong{white-space:nowrap;font-size:15px}.hint{font-size:12px;color:#c5d4e9}
       button{font:inherit;color:#f5f8ff;background:#ffffff12;border:1px solid #ffffff38;border-radius:9px;padding:7px 11px;cursor:pointer}
       button:hover{background:#ffffff28}button:focus-visible,textarea:focus-visible{outline:3px solid #73ceff;outline-offset:2px}
+      .actions{display:flex;flex-wrap:wrap;gap:8px}button:disabled{opacity:.6;cursor:wait}
       .panel{right:18px;top:106px;width:min(350px,calc(100% - 36px));max-height:calc(100% - 124px);padding:16px;overflow:auto;user-select:text;cursor:auto}
       .status{margin:0 0 10px;color:#bce9ff}.results{display:grid;gap:12px}article{border-top:1px solid #ffffff20;padding-top:12px}label{font-size:12px;color:#c5d4e9}
       textarea{display:block;width:100%;height:86px;resize:vertical;margin:7px 0 9px;padding:10px;color:#eef4ff;background:#090f1d;border:1px solid #ffffff25;border-radius:8px;font:13px/1.5 ui-monospace,monospace;user-select:text;overflow:auto}
@@ -118,28 +136,40 @@ if (!globalThis.__qrLens) {
       draft = selection ? { ...selection } : { x: innerWidth / 4, y: innerHeight / 4, width: innerWidth / 2, height: innerHeight / 2 };
       status.textContent = '方向键移动，Shift+方向键调整大小，Enter 确定，Esc 取消'; draw();
     });
-    toolbar.append(element('strong', 'QR Lens'), element('span', '拖动空白处框选 · Esc 退出', 'hint'), reset, toggle, keyboard, button('关闭', close));
+    toolbar.append(element('strong', 'QR Lens'), element('span', '拖动框选 · 点击空白处退出', 'hint'), reset, toggle, keyboard, button('关闭', close));
     dialog.append(snapshot, surface, markers, box, toolbar, panel);
     root.append(style, dialog); document.documentElement.append(host);
     dialog.showModal();
     dialog.addEventListener('cancel', event => { event.preventDefault(); if (keyboardMode) { keyboardMode = false; draft = null; render(); } else close(); });
     // Only the drawing surface can initiate selection. No document-level pointer handlers.
+    let clickToClose = false;
+    const updatePointer = event => {
+      if (Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) >= 4) pointer.dragged = true;
+      draft = rectangle(pointer, { x: Math.max(0, Math.min(innerWidth, event.clientX)), y: Math.max(0, Math.min(innerHeight, event.clientY)) });
+    };
     surface.addEventListener('pointerdown', event => {
       if (event.button !== 0 || !event.isPrimary) return;
-      event.preventDefault(); keyboardMode = false;
-      pointer = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      event.preventDefault(); keyboardMode = false; draft = null; clickToClose = false;
+      pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, dragged: false };
       surface.setPointerCapture(event.pointerId);
     });
     surface.addEventListener('pointermove', event => {
       if (!pointer || event.pointerId !== pointer.id) return;
-      draft = rectangle(pointer, { x: Math.max(0, Math.min(innerWidth, event.clientX)), y: Math.max(0, Math.min(innerHeight, event.clientY)) }); draw();
+      updatePointer(event); draw();
     });
     surface.addEventListener('pointerup', event => {
       if (!pointer || event.pointerId !== pointer.id) return;
-      if (draft && draft.width >= 8 && draft.height >= 8) selection = draft;
+      updatePointer(event);
+      clickToClose = !pointer.dragged;
+      if (pointer.dragged && draft.width >= 8 && draft.height >= 8) selection = draft;
       draft = null; pointer = null; surface.releasePointerCapture(event.pointerId); render();
     });
-    surface.addEventListener('pointercancel', () => { pointer = null; draft = null; render(); });
+    // Remove the overlay only after the click targets it, avoiding click-through to the page.
+    surface.addEventListener('click', event => {
+      event.preventDefault(); event.stopPropagation();
+      if (clickToClose) { clickToClose = false; close(); }
+    });
+    surface.addEventListener('pointercancel', () => { pointer = null; draft = null; clickToClose = false; render(); });
     dialog.addEventListener('keydown', event => {
       event.stopPropagation();
       if (!keyboardMode || !draft) return;

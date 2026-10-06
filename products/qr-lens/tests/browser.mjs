@@ -27,6 +27,7 @@ try {
   const extensionPath = resolve('artifacts/extension');
   context = await chromium.launchPersistentContext('', { channel: 'chromium', headless: true, viewport: { width: 1100, height: 760 }, args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`] });
   await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin });
+  await context.route('https://example.com/**', route => route.fulfill({ contentType: 'text/html', body: '<title>Opened QR link</title>' }));
   const page = await context.newPage();
   await page.goto(origin); await page.bringToFront();
   // Existing pixels remain visible, but a newly inserted data: <img> would be blocked.
@@ -34,10 +35,16 @@ try {
     const policy = document.createElement('meta'); policy.httpEquiv = 'Content-Security-Policy'; policy.content = "img-src 'self'"; document.head.append(policy);
   });
   const worker = context.serviceWorkers()[0] || await context.waitForEvent('serviceworker');
-  const start = () => worker.evaluate(async () => {
-    const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
-    await globalThis.testScan(tab);
-  });
+  let lastStart = 0;
+  const start = async () => {
+    // Stay below captureVisibleTab's two-captures-per-second quota in automation.
+    await new Promise(resolve => setTimeout(resolve, Math.max(0, 550 - (Date.now() - lastStart))));
+    lastStart = Date.now();
+    await worker.evaluate(async () => {
+      const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+      await globalThis.testScan(tab);
+    });
+  };
   await start();
   const overlay = page.locator('#qr-lens-overlay');
   const results = overlay.locator('textarea');
@@ -45,6 +52,9 @@ try {
   assert.equal(await results.count(), 3);
   assert.deepEqual((await results.evaluateAll(items => items.map(x => x.value))).sort(), [...values].sort());
   assert.equal(await overlay.locator('canvas').evaluate(canvas => canvas.width), 1100);
+  assert.equal(await overlay.getByRole('button', { name: '在新窗口打开', exact: true }).count(), 2);
+  await overlay.locator('.status').click();
+  assert.equal(await overlay.count(), 1);
   await page.screenshot({ path: 'artifacts/full.png' });
   await page.mouse.move(40, 110); await page.mouse.down(); await page.mouse.move(290, 370, { steps: 8 }); await page.mouse.up();
   assert.equal(await results.count(), 1);
@@ -58,6 +68,26 @@ try {
   assert.equal(await overlay.locator('.selection').getAttribute('style'), selectionBefore);
   assert.equal(await results.count(), 1);
   await page.screenshot({ path: 'artifacts/selection.png' });
+  const originalWindow = await worker.evaluate(async () => (await chrome.tabs.query({ active: true, lastFocusedWindow: true }))[0].windowId);
+  const openedPage = context.waitForEvent('page');
+  await overlay.getByRole('button', { name: '在新窗口打开', exact: true }).click();
+  const linkedPage = await openedPage;
+  await linkedPage.waitForURL(values[0]);
+  const linkedWindow = await worker.evaluate(async () => (await chrome.tabs.query({ url: 'https://example.com/*' }))[0].windowId);
+  assert.notEqual(linkedWindow, originalWindow, 'must create a window, not merely another tab');
+  assert.equal(await linkedPage.evaluate(() => window.opener), null);
+  assert.equal(await overlay.count(), 1);
+  await linkedPage.close();
+  await worker.evaluate(id => chrome.windows.update(id, { focused: true }), originalWindow);
+  await page.bringToFront();
+  // Short/one-axis drags and a drag returning to its origin must never dismiss.
+  for (const end of [{ x: 505, y: 400 }, { x: 650, y: 400 }, { x: 500, y: 600 }]) {
+    await page.mouse.move(500, 400); await page.mouse.down(); await page.mouse.move(end.x, end.y); await page.mouse.up();
+    assert.equal(await overlay.count(), 1);
+  }
+  await page.mouse.move(500, 400); await page.mouse.down(); await page.mouse.move(650, 600); await page.mouse.move(500, 400); await page.mouse.up();
+  assert.equal(await overlay.count(), 1);
+  assert.equal(await overlay.locator('.selection').getAttribute('style'), selectionBefore);
   await overlay.getByRole('button', { name: '显示全部', exact: true }).click();
   assert.equal(await results.count(), 3);
   // Reverse drag, then a region without codes; the old results must not survive.
@@ -72,6 +102,10 @@ try {
   await page.keyboard.press('Escape'); assert.equal(await overlay.count(), 0);
   // A second invocation closes rather than capturing its own overlay.
   await start(); assert.equal(await results.count(), 3); await start(); assert.equal(await overlay.count(), 0);
+  // Clicking the blank overlay closes it without activating the page button underneath.
+  await start(); await page.mouse.click(445, 725);
+  assert.equal(await overlay.count(), 0);
+  assert.notEqual(await page.title(), 'clicked');
   await start(); await page.setViewportSize({ width: 1000, height: 700 });
   await overlay.waitFor({ state: 'detached' });
   assert.notEqual(await page.title(), 'clicked');
@@ -84,7 +118,7 @@ try {
     return chrome.action.getBadgeText({ tabId: tab.id });
   });
   assert.equal(badge, '!');
-  console.log(`PASS (${await context.browser().version()}): real extension screenshot/decode, multiple results, region filtering, clipboard, text-selection isolation, empty/reverse/keyboard selection, Escape, toggle, resize cleanup, empty page, restricted-page badge.`);
+  console.log(`PASS (${await context.browser().version()}): screenshot/decode, filtering, clipboard/text-selection isolation, click dismissal without click-through, short/axis/return drags stay open, HTTP(S) actions create a separate window, empty/reverse/keyboard selection, Escape, toggle, resize, restricted-page badge.`);
 } finally {
   await context?.close(); server.close();
 }
