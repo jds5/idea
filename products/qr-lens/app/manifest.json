@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "QR Lens · 页面二维码",
+  "version": "0.1.0",
+  "description": "本地识别当前页面可见二维码，框选筛选并复制原始字符串。",
+  "minimum_chrome_version": "109",
+  "permissions": ["activeTab", "scripting", "clipboardWrite"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "识别当前页面二维码" }
+}
