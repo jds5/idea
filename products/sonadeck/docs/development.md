@@ -1,6 +1,6 @@
 # 开发执行与非 Mac 测试
 
-更新日期：2026-09-24。阶段：M1 领域基础开始并通过 Docker 单测；M0 音频可行性仍待 Mac 真机实验。
+更新日期：2026-10-09。阶段：M1 领域基础与最小模拟 UI 完成本轮实验；16 项 Docker XCTest、16 项 macOS 同源同步断言（非 XCTest）、UI-01–10 通过。原生构建与截图见[报告](../tests/reports/2026-10-09-windows-vm/report.md)；M0 音频可行性仍待 Mac 真机实验。
 
 ## 当前可开发的边界
 
@@ -22,6 +22,12 @@ docker run --rm -v "${PWD}:/workspace" -w /workspace/products/sonadeck/app/Profi
 
 有 Mac 后，在相同目录执行 `swift test`，再进行 Xcode 构建和真实设备实验。Swift 包通过并不意味着 Mac 应用已构建。
 
+## 模拟 UI 与虚拟机实验
+
+经用户授权，新增[最小原生 UI](../app/SonaDeckPrototype/README.md)，覆盖四套样例配置、草稿、会话内另存和故障模拟；尚无真实音频、持久化或菜单栏。使用 macOS 15+ 与兼容 Swift 6 工具链执行 `bash build-app.sh` 可构建本地测试 `.app`。原生编译和点击结果须查看报告，不能从 Linux 编译输出推断。
+
+[Windows VM 实验脚本](../experiments/windows-vm/README.md)用于 QEMU/KVM 环境诊断、客体截图和恢复介质校验。此方式需要额外的 macOS 客体系统；普通 Linux Docker 容器本身不能执行 SwiftUI。
+
 ## 接下来的实施顺序
 
 1. **M0 真机门槛**：准备 Apple Silicon Mac 与内置、USB、蓝牙输出；运行 Apple 的 [Core Audio taps 示例](https://developer.apple.com/documentation/coreaudio/capturing-system-audio-with-core-audio-taps)，记录系统完整版本、Xcode、权限、签名及设备。先验证捕获与原路静音，再自行验证处理后输出、双应用双设备和强制退出恢复。
@@ -29,4 +35,4 @@ docker run --rm -v "${PWD}:/workspace" -w /workspace/products/sonadeck/app/Profi
 3. **M1 领域补全**：加入系统字段接管与所有权恢复、串行协调器、读回状态、持久化与故障注入测试。将本包作为 Mac 工程依赖；真实后端实现 `AudioObservation` 对应的能力查询和状态读取。
 4. **M1 界面原型**：主窗口始终显示常用配置及真实状态，使用 fake backend 展示成功、待生效、阻断和恢复失败；Mac 上检查键盘、VoiceOver 与动画。
 
-Mac 端实验不能由 Docker 代跑，也不以截图或编译成功替代音频观测。初次进入 Mac 环境时，优先完成 M0 门槛，再决定是否继续投入完整应用开发。
+真实设备实验不能由虚拟音频转发代替，也不以截图或编译成功替代音频观测。最小模拟原型不改变 M0 门槛；完成 M0 后再决定是否继续投入完整应用开发。

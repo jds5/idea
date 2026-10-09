@@ -1,0 +1,19 @@
+﻿{
+    "recordedAt":  "2026-10-09T19:01:32.7938284+08:00",
+    "cpu":  {
+                "Name":  "AMD Ryzen 7 9700X 8-Core Processor             ",
+                "NumberOfCores":  8,
+                "NumberOfLogicalProcessors":  16,
+                "VirtualizationFirmwareEnabled":  true
+            },
+    "memoryBytes":  33408598016,
+    "os":  {
+               "Caption":  "Microsoft Windows 11 专业版",
+               "Version":  "10.0.26300",
+               "BuildNumber":  "26300"
+           },
+    "docker":  "Server=29.2.1 Kernel=6.6.87.2-microsoft-standard-WSL2 Arch=x86_64 CPUs=16 MemoryBytes=16299253760",
+    "sourceRevision":  "a43921a4ec902f207714a48bde257066f1b28f6f",
+    "recoveryVersion":  "15.4.1 (24E263), observed in Disk Utility",
+    "qemu":  "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+}

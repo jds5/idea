@@ -1,0 +1,68 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>原型模型测试 / Prototype model</title><style>
+body{margin:0;padding:32px;background:#101820;color:#ecf2f8;font:16px/1.55 "Microsoft YaHei",Arial,sans-serif}
+h1{font-size:28px;margin:0 0 12px}h2{font-size:18px;color:#9cc8ef}
+p{color:#cad2db}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#192532;padding:20px;border:1px solid #41566a;border-radius:8px;font:14px/1.45 Consolas,monospace}
+</style><h1>原型模型测试 / Prototype model</h1>
+<p>2026-10-09 · SonaDeck · 实际日志展示页截图，非产品 UI / Captured logs, not product UI</p>
+<h2>prototype-tests.log</h2><pre>Building for debugging...
+[0/19] Write sources
+[4/19] Write swift-version-24593BA9C3E375BF.txt
+[6/22] Compiling ProfileDomain Profile.swift
+[7/22] Emitting module ProfileDomain
+[8/22] Compiling ProfileDomain TransitionPlanner.swift
+[9/23] Wrapping AST for ProfileDomain for debugging
+[11/25] Emitting module PrototypeModel
+[12/25] Compiling PrototypeModel SimulationSession.swift
+[13/26] Wrapping AST for PrototypeModel for debugging
+[15/30] Emitting module PrototypeUI
+[16/30] Compiling PrototypeUI App.swift
+[17/31] Wrapping AST for PrototypeUI for debugging
+[18/31] Write Objects.LinkFileList
+[20/31] Emitting module PrototypeModelTests
+[21/31] Compiling PrototypeModelTests SimulationSessionTests.swift
+[21/32] Linking SonaDeckPrototype
+[23/32] /tmp/sonadeck-build/x86_64-unknown-linux-gnu/debug/SonaDeckPrototypePackageDiscoveredTests.derived/all-discovered-tests.swift
+[24/32] Write sources
+[25/32] Wrapping AST for PrototypeModelTests for debugging
+[27/35] Compiling SonaDeckPrototypePackageDiscoveredTests all-discovered-tests.swift
+[28/35] Compiling SonaDeckPrototypePackageDiscoveredTests PrototypeModelTests.swift
+[29/35] Emitting module SonaDeckPrototypePackageDiscoveredTests
+[30/36] /tmp/sonadeck-build/x86_64-unknown-linux-gnu/debug/SonaDeckPrototypePackageTests.derived/runner.swift
+[31/36] Write sources
+[32/36] Wrapping AST for SonaDeckPrototypePackageDiscoveredTests for debugging
+[34/38] Emitting module SonaDeckPrototypePackageTests
+[35/38] Compiling SonaDeckPrototypePackageTests runner.swift
+[36/39] Wrapping AST for SonaDeckPrototypePackageTests for debugging
+[37/39] Write Objects.LinkFileList
+[38/39] Linking SonaDeckPrototypePackageTests.xctest
+Build complete! (8.54s)
+Test Suite &#x27;All tests&#x27; started at 2026-10-09 11:15:47.165
+Test Suite &#x27;debug.xctest&#x27; started at 2026-10-09 11:15:47.166
+Test Suite &#x27;SimulationSessionTests&#x27; started at 2026-10-09 11:15:47.166
+Test Case &#x27;SimulationSessionTests.testCodableRoundTripPreservesConfiguration&#x27; started at 2026-10-09 11:15:47.166
+Test Case &#x27;SimulationSessionTests.testCodableRoundTripPreservesConfiguration&#x27; passed (0.001 seconds)
+Test Case &#x27;SimulationSessionTests.testDraftIsSeparateFromObservedAndSurvivesSwitching&#x27; started at 2026-10-09 11:15:47.168
+Test Case &#x27;SimulationSessionTests.testDraftIsSeparateFromObservedAndSurvivesSwitching&#x27; passed (0.001 seconds)
+Test Case &#x27;SimulationSessionTests.testInvalidDraftCannotBeSavedOrApplied&#x27; started at 2026-10-09 11:15:47.168
+Test Case &#x27;SimulationSessionTests.testInvalidDraftCannotBeSavedOrApplied&#x27; passed (0.0 seconds)
+Test Case &#x27;SimulationSessionTests.testMissingDeviceKeepsActualConfigurationAndRules&#x27; started at 2026-10-09 11:15:47.169
+Test Case &#x27;SimulationSessionTests.testMissingDeviceKeepsActualConfigurationAndRules&#x27; passed (0.0 seconds)
+Test Case &#x27;SimulationSessionTests.testPendingApplicationDoesNotClaimCompleteAndCanRetry&#x27; started at 2026-10-09 11:15:47.169
+Test Case &#x27;SimulationSessionTests.testPendingApplicationDoesNotClaimCompleteAndCanRetry&#x27; passed (0.0 seconds)
+Test Case &#x27;SimulationSessionTests.testPermissionDeniedAndExecutionFailureNeverReportSuccess&#x27; started at 2026-10-09 11:15:47.169
+Test Case &#x27;SimulationSessionTests.testPermissionDeniedAndExecutionFailureNeverReportSuccess&#x27; passed (0.0 seconds)
+Test Case &#x27;SimulationSessionTests.testSaveCopyKeepsOriginalAndDoesNotApply&#x27; started at 2026-10-09 11:15:47.169
+Test Case &#x27;SimulationSessionTests.testSaveCopyKeepsOriginalAndDoesNotApply&#x27; passed (0.0 seconds)
+Test Case &#x27;SimulationSessionTests.testTwentyRoundTripsReleaseOldOwnership&#x27; started at 2026-10-09 11:15:47.170
+Test Case &#x27;SimulationSessionTests.testTwentyRoundTripsReleaseOldOwnership&#x27; passed (0.001 seconds)
+Test Suite &#x27;SimulationSessionTests&#x27; passed at 2026-10-09 11:15:47.170
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite &#x27;debug.xctest&#x27; passed at 2026-10-09 11:15:47.170
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite &#x27;All tests&#x27; passed at 2026-10-09 11:15:47.170
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.4 (5ee435b15ad40ec)
+↳ Target Platform: x86_64-unknown-linux-gnu
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.</pre></html>

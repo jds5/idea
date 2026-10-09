@@ -1,0 +1,5 @@
+Command: ["wsl", "-d", "Debian", "--", "sh", "-lc", "docker run --rm --entrypoint timeout -v /mnt/wslg/PulseServer:/tmp/PulseServer -e PULSE_SERVER=unix:/tmp/PulseServer sonadeck-vm-tools:audio 3 qemu-system-x86_64 -machine none -nodefaults -display none -S -audiodev pa,id=audio0,server=unix:/tmp/PulseServer"]
+Expected: timeout exit 124 after initialization; no guest audio played.
+qemu-system-x86_64: terminating on signal 15 from pid 1 (timeout)
+
+exit=124

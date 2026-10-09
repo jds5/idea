@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-10-09T22:01:36.633089+08:00",
+  "archiveSHA256": "f3d96a315e7f8cfd835c37222baea72c55f487bc2350ec2c81cef439ec2fcfd5",
+  "files": [
+    {
+      "path": "ProfileDomain/Package.swift",
+      "sha256": "b14422b9372807b7e4fc1ce0470e8f7586a4f1f0ac4dab895f49efc64b7da55b"
+    },
+    {
+      "path": "ProfileDomain/Tests/ProfileDomainTests/TransitionPlannerTests.swift",
+      "sha256": "8b20e92a2948a2873c3a413d3e3f0ebca5f641e0dd3f948dc5b1ad40efbc0eca"
+    },
+    {
+      "path": "ProfileDomain/Sources/ProfileDomain/Profile.swift",
+      "sha256": "994d7296fdbed2394cc7736f7a5c7f26cc8920be0abcfd41cad0924c722cc84a"
+    },
+    {
+      "path": "ProfileDomain/Sources/ProfileDomain/TransitionPlanner.swift",
+      "sha256": "bc2d6cc3093768e7b931b1a2a0f65b39195fa560f975042219142dc1e9248c30"
+    },
+    {
+      "path": "SonaDeckPrototype/build-app.sh",
+      "sha256": "81b8ed41bf9e7dfd451953677a5230715e9c3d32ed99029892af0ba75298a5b7"
+    },
+    {
+      "path": "SonaDeckPrototype/Package.swift",
+      "sha256": "3a4c73b1fb04621032a72f97c7cce337d9d1141ae9fe0b9372793c9957665841"
+    },
+    {
+      "path": "SonaDeckPrototype/Tests/PrototypeModelTests/SimulationSessionTests.swift",
+      "sha256": "53959d8cd70cce8e12bfcf5a59c01ab44234a1764a269a4740664953f87cd0cb"
+    },
+    {
+      "path": "SonaDeckPrototype/Sources/PrototypeModel/SimulationSession.swift",
+      "sha256": "3dd46edd03d4d31bf505749120ce2594c9299e0b3d781122f5b7a689f6a75cf7"
+    },
+    {
+      "path": "SonaDeckPrototype/Sources/PrototypeUI/App.swift",
+      "sha256": "7c6df1a3b6fe6caf0f3da4f4ba6ae70bb606f1ffa4b88730a17f518c0c0e8a15"
+    }
+  ]
+}

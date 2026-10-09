@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-09T22:02:21.262854+08:00",
+  "containers": {
+    "sonadeck-macos-lab": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-09T10:52:41.093398886Z",
+      "FinishedAt": "2026-10-09T14:01:37.518034379Z"
+    },
+    "sonadeck-vm-tools": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 137,
+      "Error": "",
+      "StartedAt": "2026-10-09T10:40:48.605514239Z",
+      "FinishedAt": "2026-10-09T14:02:01.217078125Z"
+    }
+  },
+  "ignore_msrs": "N"
+}

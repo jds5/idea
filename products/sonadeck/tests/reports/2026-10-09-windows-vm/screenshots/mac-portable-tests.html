@@ -1,0 +1,26 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>macOS 同源同步断言 / Not XCTest</title><style>
+body{margin:0;padding:32px;background:#101820;color:#ecf2f8;font:16px/1.55 "Microsoft YaHei",Arial,sans-serif}
+h1{font-size:28px;margin:0 0 12px}h2{font-size:18px;color:#9cc8ef}
+p{color:#cad2db}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#192532;padding:20px;border:1px solid #41566a;border-radius:8px;font:14px/1.45 Consolas,monospace}
+</style><h1>macOS 同源同步断言 / Not XCTest</h1>
+<p>2026-10-09 · SonaDeck · 实际日志展示页截图，非产品 UI / Captured logs, not product UI</p>
+<h2>mac-portable-tests.log</h2><pre>Portable synchronous assertions; NOT XCTest execution.
+PASS TransitionPlannerTests.testReleasesOldRuleAndAppliesNewRule
+PASS TransitionPlannerTests.testMissingDeviceBlocksWholePlanIncludingReleases
+PASS TransitionPlannerTests.testAbsentAppStaysPendingAndIsNotApplied
+PASS TransitionPlannerTests.testRepeatedSelectionWithMatchingObservedRulesIsNoOp
+PASS TransitionPlannerTests.testUnauthorizedControlBlocksPlan
+PASS TransitionPlannerTests.testEmptyProfileReleasesAllPreviouslyControlledApps
+PASS TransitionPlannerTests.testUnavailableSystemOutputBlocksFollowSystemRule
+PASS TransitionPlannerTests.testInvalidGainAndDuplicateIdentityAreRejected
+PASS SimulationSessionTests.testTwentyRoundTripsReleaseOldOwnership
+PASS SimulationSessionTests.testMissingDeviceKeepsActualConfigurationAndRules
+PASS SimulationSessionTests.testPermissionDeniedAndExecutionFailureNeverReportSuccess
+PASS SimulationSessionTests.testPendingApplicationDoesNotClaimCompleteAndCanRetry
+PASS SimulationSessionTests.testDraftIsSeparateFromObservedAndSurvivesSwitching
+PASS SimulationSessionTests.testSaveCopyKeepsOriginalAndDoesNotApply
+PASS SimulationSessionTests.testInvalidDraftCannotBeSavedOrApplied
+PASS SimulationSessionTests.testCodableRoundTripPreservesConfiguration
+portable_cases_passed=16
+portable_exit=0</pre></html>

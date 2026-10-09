@@ -2,7 +2,7 @@
 
 **为 Mac 集中管理应用音量和输出设备，保存多套音频配置，并在主界面一键切换。**
 
-更新日期：2026-09-24。阶段：首期规划完成，M1 跨平台领域基础已开始并通过 Docker 单测；M0 音频原型与 Mac 真机验证尚未执行。
+更新日期：2026-10-09。阶段：首期规划完成，M1 领域基础与最小模拟 UI 已完成本轮实验：16 项 Docker XCTest、16 项 macOS 同源便携断言、UI-01–10 通过；M0 音频原型与 Mac 真机验证尚未执行。
 
 ## 已确认的目标
 
@@ -26,6 +26,8 @@
 | [验证计划](docs/validation.md) | 真机矩阵、测试场景和性能预算 |
 | [决策与依据](docs/decisions.md) | 已确认事项、规划默认、证据和未知项 |
 | [开发与测试](docs/development.md) | Windows + Docker 命令、当前代码边界与 Mac 实验接续 |
+| [最小原生 UI 原型](app/SonaDeckPrototype/README.md) | 模拟音频配置、异常、草稿和 UI 测试矩阵 |
+| [本轮实测报告](tests/reports/2026-10-09-windows-vm/report.md) | PC / Docker / macOS 客体、功能测试与真实截图 |
 
 ## 当前技术建议
 
@@ -40,10 +42,12 @@
 
 2026-09-24 在 Swift 6.2.4 Docker 容器中完成干净构建，8 项领域单测全部通过；原始日志、截图和限制见[测试汇报](tests/reports/2026-09-24-docker-profile-domain/report.md)。
 
+2026-10-09 经用户授权新增 `app/SonaDeckPrototype/`，包含最小 SwiftUI 窗口与模拟后端；新增 8 项模型测试，并重跑 8 项领域测试通过。原型仅在当前会话保存配置，不控制系统音频。macOS 客体、原生编译与 UI 交互的实际结果以[本轮报告](tests/reports/2026-10-09-windows-vm/report.md)为准。
+
 ## 下一步
 
 执行 [M0 技术验证](docs/roadmap.md)：在 Mac 上验证“两个应用分别调音量、分别路由到两个输出、再切换两套配置”的最短闭环，以及故障后正常发声的恢复方式。
 
-当前 Windows 环境可运行 Swift 领域测试；Xcode 构建、音频效果、设备兼容和流畅度尚未验证。Docker 结果不代替 Mac 验收。
+当前 Windows 环境可运行 Swift 领域与模型测试，并用于 QEMU/KVM macOS 客体实验；真实音频效果、物理设备兼容和原生硬件流畅度尚未验证。Docker / 虚拟机结果不代替 Mac 真机验收。
 
 SonaDeck 已被选为项目名；商标、域名和商店重名检查尚未完成，安排在公开发布前。保存配置并非已证实的独占功能，竞争价值需要通过真实切换任务验证。

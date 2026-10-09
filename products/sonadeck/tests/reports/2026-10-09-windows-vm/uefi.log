@@ -1,0 +1,1 @@
+﻿qemu-system-x86_64: warning: host doesn't support requested feature: CPUID.01H:ECX.pcid [bit 17]

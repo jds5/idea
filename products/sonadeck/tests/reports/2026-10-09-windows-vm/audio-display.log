@@ -1,0 +1,9 @@
+﻿srwxrwxrwx 1 jds5 jds5  0 Oct  9 18:23 /mnt/wslg/PulseServer
+
+/dev/snd:
+total 0
+crw-rw---- 1 root audio 116, 33 Oct  9 18:23 timer
+
+/mnt/wslg/.X11-unix:
+total 0
+srwxrwxrwx 1 jds5 jds5 0 Oct  9 18:23 X0

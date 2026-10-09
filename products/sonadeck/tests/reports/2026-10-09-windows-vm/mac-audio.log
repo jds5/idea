@@ -1,0 +1,9 @@
+Fri Oct  9 20:50:15 CST 2026
+QEMU backend: none; this run cannot forward guest sound to host.
+Audio:
+
+    Devices:
+
+Error: AudioQueueStart failed (-66680)
+afplay_exit=1
+No audio content was recorded. Exit status does not prove audible output.

@@ -1,6 +1,6 @@
 # 真机验证与发布验收
 
-更新日期：2026-09-24。状态：测试计划；下列真机、交互与发布验收均未执行，数字均为目标。跨平台领域单测的实际结果见[Docker 测试汇报](../tests/reports/2026-09-24-docker-profile-domain/report.md)，不能替代下列验收。
+更新日期：2026-10-09。状态：正式真机与发布测试计划，数字均为目标。新增最小模拟 UI 与 Windows / Docker macOS 实验的实际状态见[独立报告](../tests/reports/2026-10-09-windows-vm/report.md)，不代表下列完整验收通过。早期跨平台领域单测见[Docker 测试汇报](../tests/reports/2026-09-24-docker-profile-domain/report.md)。
 
 ## 1. 测试层级
 

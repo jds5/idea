@@ -1,0 +1,61 @@
+Building for debugging...
+[0/19] Write sources
+[4/19] Write swift-version-24593BA9C3E375BF.txt
+[6/22] Compiling ProfileDomain Profile.swift
+[7/22] Emitting module ProfileDomain
+[8/22] Compiling ProfileDomain TransitionPlanner.swift
+[9/23] Wrapping AST for ProfileDomain for debugging
+[11/25] Emitting module PrototypeModel
+[12/25] Compiling PrototypeModel SimulationSession.swift
+[13/26] Wrapping AST for PrototypeModel for debugging
+[15/30] Emitting module PrototypeUI
+[16/30] Compiling PrototypeUI App.swift
+[17/31] Wrapping AST for PrototypeUI for debugging
+[18/31] Write Objects.LinkFileList
+[20/31] Emitting module PrototypeModelTests
+[21/31] Compiling PrototypeModelTests SimulationSessionTests.swift
+[21/32] Linking SonaDeckPrototype
+[23/32] /tmp/sonadeck-build/x86_64-unknown-linux-gnu/debug/SonaDeckPrototypePackageDiscoveredTests.derived/all-discovered-tests.swift
+[24/32] Write sources
+[25/32] Wrapping AST for PrototypeModelTests for debugging
+[27/35] Compiling SonaDeckPrototypePackageDiscoveredTests all-discovered-tests.swift
+[28/35] Compiling SonaDeckPrototypePackageDiscoveredTests PrototypeModelTests.swift
+[29/35] Emitting module SonaDeckPrototypePackageDiscoveredTests
+[30/36] /tmp/sonadeck-build/x86_64-unknown-linux-gnu/debug/SonaDeckPrototypePackageTests.derived/runner.swift
+[31/36] Write sources
+[32/36] Wrapping AST for SonaDeckPrototypePackageDiscoveredTests for debugging
+[34/38] Emitting module SonaDeckPrototypePackageTests
+[35/38] Compiling SonaDeckPrototypePackageTests runner.swift
+[36/39] Wrapping AST for SonaDeckPrototypePackageTests for debugging
+[37/39] Write Objects.LinkFileList
+[38/39] Linking SonaDeckPrototypePackageTests.xctest
+Build complete! (8.54s)
+Test Suite 'All tests' started at 2026-10-09 11:15:47.165
+Test Suite 'debug.xctest' started at 2026-10-09 11:15:47.166
+Test Suite 'SimulationSessionTests' started at 2026-10-09 11:15:47.166
+Test Case 'SimulationSessionTests.testCodableRoundTripPreservesConfiguration' started at 2026-10-09 11:15:47.166
+Test Case 'SimulationSessionTests.testCodableRoundTripPreservesConfiguration' passed (0.001 seconds)
+Test Case 'SimulationSessionTests.testDraftIsSeparateFromObservedAndSurvivesSwitching' started at 2026-10-09 11:15:47.168
+Test Case 'SimulationSessionTests.testDraftIsSeparateFromObservedAndSurvivesSwitching' passed (0.001 seconds)
+Test Case 'SimulationSessionTests.testInvalidDraftCannotBeSavedOrApplied' started at 2026-10-09 11:15:47.168
+Test Case 'SimulationSessionTests.testInvalidDraftCannotBeSavedOrApplied' passed (0.0 seconds)
+Test Case 'SimulationSessionTests.testMissingDeviceKeepsActualConfigurationAndRules' started at 2026-10-09 11:15:47.169
+Test Case 'SimulationSessionTests.testMissingDeviceKeepsActualConfigurationAndRules' passed (0.0 seconds)
+Test Case 'SimulationSessionTests.testPendingApplicationDoesNotClaimCompleteAndCanRetry' started at 2026-10-09 11:15:47.169
+Test Case 'SimulationSessionTests.testPendingApplicationDoesNotClaimCompleteAndCanRetry' passed (0.0 seconds)
+Test Case 'SimulationSessionTests.testPermissionDeniedAndExecutionFailureNeverReportSuccess' started at 2026-10-09 11:15:47.169
+Test Case 'SimulationSessionTests.testPermissionDeniedAndExecutionFailureNeverReportSuccess' passed (0.0 seconds)
+Test Case 'SimulationSessionTests.testSaveCopyKeepsOriginalAndDoesNotApply' started at 2026-10-09 11:15:47.169
+Test Case 'SimulationSessionTests.testSaveCopyKeepsOriginalAndDoesNotApply' passed (0.0 seconds)
+Test Case 'SimulationSessionTests.testTwentyRoundTripsReleaseOldOwnership' started at 2026-10-09 11:15:47.170
+Test Case 'SimulationSessionTests.testTwentyRoundTripsReleaseOldOwnership' passed (0.001 seconds)
+Test Suite 'SimulationSessionTests' passed at 2026-10-09 11:15:47.170
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'debug.xctest' passed at 2026-10-09 11:15:47.170
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'All tests' passed at 2026-10-09 11:15:47.170
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.4 (5ee435b15ad40ec)
+↳ Target Platform: x86_64-unknown-linux-gnu
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

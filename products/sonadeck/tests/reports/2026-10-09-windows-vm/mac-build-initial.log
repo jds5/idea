@@ -1,0 +1,19 @@
+Building for debugging...
+[0/8] Write sources
+[1/8] Write SonaDeckPrototype-entitlement.plist
+[3/8] Write sources
+[4/8] Write swift-version--1AB21518FC5DEDBE.txt
+[6/11] Emitting module ProfileDomain
+[7/11] Compiling ProfileDomain TransitionPlanner.swift
+[8/11] Compiling ProfileDomain Profile.swift
+[9/13] Compiling PrototypeModel SimulationSession.swift
+[10/13] Emitting module PrototypeModel
+[11/15] Compiling PrototypeUI App.swift
+[12/15] Emitting module PrototypeUI
+[12/15] Write Objects.LinkFileList
+[13/15] Linking SonaDeckPrototype
+[14/15] Applying SonaDeckPrototype
+Build complete! (826.97s)
+/Users/sonadeck/sonadeck-test/SonaDeckPrototype/.build/SonaDeckPrototype.app: replacing existing signature
+Local ad-hoc signed test app: /Users/sonadeck/sonadeck-test/SonaDeckPrototype/.build/SonaDeckPrototype.app
+build_exit=0

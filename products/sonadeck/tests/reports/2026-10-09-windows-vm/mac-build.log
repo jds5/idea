@@ -1,0 +1,13 @@
+[0/1] Planning build
+Building for debugging...
+[0/4] Write sources
+[1/4] Write swift-version--1AB21518FC5DEDBE.txt
+[3/6] Compiling PrototypeUI App.swift
+[4/6] Emitting module PrototypeUI
+[4/7] Write Objects.LinkFileList
+[5/7] Linking SonaDeckPrototype
+[6/7] Applying SonaDeckPrototype
+Build complete! (122.56s)
+/Users/sonadeck/sonadeck-test/SonaDeckPrototype/.build/SonaDeckPrototype.app: replacing existing signature
+Local ad-hoc signed test app: /Users/sonadeck/sonadeck-test/SonaDeckPrototype/.build/SonaDeckPrototype.app
+build_exit=0

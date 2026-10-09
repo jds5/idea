@@ -1,0 +1,37 @@
+Fri Oct  9 20:58:19 CST 2026
+Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+Target: x86_64-apple-macosx15.0
+MacOSX15.5.sdk
+MacOSX15.sdk
+ 1678  56.7   18:18 /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+  306  47.9   43:53 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+   54  40.0   45:45 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
+ 1089  39.1   32:51 /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd
+  115  27.9   45:34 /usr/libexec/trustd
+  697  27.1   39:39 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/system_installd
+   82  26.7   45:45 /usr/libexec/PerfPowerServices
+ 1983  23.0   02:16 /System/Library/PrivateFrameworks/XprotectFramework.framework/Versions/A/XPCServices/XprotectService.xpc/Contents/MacOS/XprotectService
+ 1337  18.7   29:23 /usr/libexec/linkd
+ 2050  17.5   00:04 ps
+ 1237  17.2   30:21 /System/Library/PrivateFrameworks/AXAssetLoader.framework/Support/axassetsd
+  103  16.1   45:38 /usr/libexec/runningboardd
+  324  14.1   43:25 /System/Library/DriverExtensions/com.apple.AppleUserHIDDrivers.dext/com.apple.AppleUserHIDDrivers
+  209  14.0   44:12 /System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated
+ 2051  10.5   00:04 sort
+2026-10-09 20:51:40+08 SonaDecks-iMac system_installd[697]: Installed "CLTools_Executables" ()
+2026-10-09 20:51:41+08 SonaDecks-iMac system_installd[697]: PackageKit: ----- End install -----
+2026-10-09 20:51:48+08 SonaDecks-iMac installer[1829]: -[IFDInstallController(Private) _buildInstallPlanReturningError:]: file://localhost/private/tmp/sonadeck-clt/CLTools_macOSNMOS_SDK.pkg
+	    "PKLeopardPackage <id=com.apple.pkg.CLTools_SDK_macOS_NMOS, version=16.4.0.0.1.1747106510, url=file://localhost/private/tmp/sonadeck-clt/CLTools_macOSNMOS_SDK.pkg>"
+2026-10-09 20:52:24+08 SonaDecks-iMac system_installd[697]: PackageKit: Extracting file://localhost/private/tmp/sonadeck-clt/CLTools_macOSNMOS_SDK.pkg (destination=/Library/Apple/System/Library/InstallerSandboxes/.PKInstallSandboxManager-SystemSoftware/707C2A75-DCC0-4794-8405-5172B220EFEC.activeSandbox/Root, uid=0)
+2026-10-09 20:58:08+08 SonaDecks-iMac system_installd[697]: PackageKit: Writing system content receipt for com.apple.pkg.CLTools_SDK_macOS_NMOS to /
+2026-10-09 20:58:08+08 SonaDecks-iMac system_installd[697]: Installed "CLTools_macOSNMOS_SDK" ()
+2026-10-09 20:58:09+08 SonaDecks-iMac system_installd[697]: PackageKit: ----- End install -----
+2026-10-09 20:58:16+08 SonaDecks-iMac installer[1977]: -[IFDInstallController(Private) _buildInstallPlanReturningError:]: file://localhost/private/tmp/sonadeck-clt/CLTools_macOSLMOS_SDK.pkg
+2026-10-09 20:58:19+08 SonaDecks-iMac system_installd[697]: PackageKit: Extracting file:///Library/Updates/012-04872/MRTConfigData_10_15.pkg (destination=/Library/Apple/System/Library/InstallerSandboxes/.PKInstallSandboxManager-SystemSoftware/426AA846-A44E-4B45-9164-FF8DB8C5F6C2.activeSandbox/Root, uid=0)
+2026-10-09 20:59:06+08 SonaDecks-iMac system_installd[697]: PackageKit: ----- End install -----
+2026-10-09 20:59:16+08 SonaDecks-iMac system_installd[697]: PackageKit: Extracting file:///Library/Updates/061-06985/GatekeeperCompatibilityData.pkg (destination=/Library/Apple/System/Library/InstallerSandboxes/.PKInstallSandboxManager-SystemSoftware/DA69FFED-4E64-4985-AE0C-4372210A5DAC.activeSandbox/Root, uid=0)
+2026-10-09 20:59:30+08 SonaDecks-iMac system_installd[697]: PackageKit: ----- End install -----
+2026-10-09 20:59:42+08 SonaDecks-iMac system_installd[697]: PackageKit: Extracting file:///Library/Updates/142-30521/XProtectPlistConfigData_10_15.pkg (destination=/Library/Apple/System/Library/InstallerSandboxes/.PKInstallSandboxManager-SystemSoftware/5505442C-83E2-4ADC-82CF-8BDCF32A0022.activeSandbox/Root, uid=0)
+2026-10-09 21:00:12+08 SonaDecks-iMac system_installd[697]: PackageKit: ----- End install -----
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s4s1   120Gi    10Gi    94Gi    10%    426k  990M    0%   /

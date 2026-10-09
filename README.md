@@ -8,7 +8,7 @@
 
 | 产品 | 定位 | 当前阶段 | 入口 |
 | --- | --- | --- | --- |
-| SonaDeck | Mac 应用音量与输出管理，保存多套音频配置并一键切换 | 首期规划已建立；跨平台领域基础开始，真机音频仍待验证 | [产品首页](products/sonadeck/README.md) |
+| SonaDeck | Mac 应用音量与输出管理，保存多套音频配置并一键切换 | 最小原生模拟 UI 已完成虚拟机测试，真机音频仍待验证 | [产品首页](products/sonadeck/README.md) |
 | Weather App（暂定目录名） | 面向欧美，帮助用户选出行时间、地点并跟踪变化 | Android、真实天气缓存与轻量官网进入内部工程；变现与数据质量继续验证 | [产品首页](products/weather-app/README.md) |
 | QR Lens（暂定名称） | Chrome 页面二维码本地解析、框选筛选与字符串复制 | 首期实现与自动化验证；正式 Chrome 人工验收待完成 | [产品首页](products/qr-lens/README.md) |
 
@@ -46,7 +46,7 @@
 3. 产品需求、设计假设、已验证事实分开记录；计划完成不代表产品完成。
 4. 新产品复制 [立项模板](templates/product-brief.md)，创建独立目录并更新本页索引。除非已经存在真实复用需求，不提取跨产品框架。
 
-当前没有可运行的 Mac 应用。SonaDeck 已有可独立测试的 Swift 领域包；其运行命令和环境要求见[开发与测试](products/sonadeck/docs/development.md)。
+SonaDeck 已有可独立测试的 Swift 领域包和最小模拟 UI 原型，尚无可发布的音频控制应用。运行命令和环境要求见[开发与测试](products/sonadeck/docs/development.md)，实际测试与截图见[本轮报告](products/sonadeck/tests/reports/2026-10-09-windows-vm/report.md)。
 
 ## 既有研究
 

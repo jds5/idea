@@ -1,0 +1,56 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>macOS XCTest 工具链阻断 / Missing XCTest</title><style>
+body{margin:0;padding:32px;background:#101820;color:#ecf2f8;font:16px/1.55 "Microsoft YaHei",Arial,sans-serif}
+h1{font-size:28px;margin:0 0 12px}h2{font-size:18px;color:#9cc8ef}
+p{color:#cad2db}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#192532;padding:20px;border:1px solid #41566a;border-radius:8px;font:14px/1.45 Consolas,monospace}
+</style><h1>macOS XCTest 工具链阻断 / Missing XCTest</h1>
+<p>2026-10-09 · SonaDeck · 实际日志展示页截图，非产品 UI / Captured logs, not product UI</p>
+<h2>mac-tests.log</h2><pre>[0/1] Planning build
+Building for debugging...
+[0/8] Write sources
+[1/8] /Users/sonadeck/sonadeck-test/SonaDeckPrototype/.build/x86_64-apple-macosx/debug/SonaDeckPrototypePackageTests.derived/runner.swift
+[2/8] Write sources
+[3/8] Write swift-version--1AB21518FC5DEDBE.txt
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[5/8] Emitting module PrototypeModelTests
+/Users/sonadeck/sonadeck-test/SonaDeckPrototype/Tests/PrototypeModelTests/SimulationSessionTests.swift:1:8: error: no such module &#x27;XCTest&#x27;
+  1 | import XCTest
+    |        `- error: no such module &#x27;XCTest&#x27;
+  2 | import ProfileDomain
+  3 | @testable import PrototypeModel
+[6/8] Compiling PrototypeModelTests SimulationSessionTests.swift
+/Users/sonadeck/sonadeck-test/SonaDeckPrototype/Tests/PrototypeModelTests/SimulationSessionTests.swift:1:8: error: no such module &#x27;XCTest&#x27;
+  1 | import XCTest
+    |        `- error: no such module &#x27;XCTest&#x27;
+  2 | import ProfileDomain
+  3 | @testable import PrototypeModel
+error: fatalError
+prototype_test_exit=1
+Building for debugging...
+[0/7] /Users/sonadeck/sonadeck-test/ProfileDomain/.build/x86_64-apple-macosx/debug/ProfileDomainPackageTests.derived/runner.swift
+[0/7] Write sources
+[4/7] Write swift-version--1AB21518FC5DEDBE.txt
+[6/10] Compiling ProfileDomain Profile.swift
+[7/10] Emitting module ProfileDomain
+[8/10] Compiling ProfileDomain TransitionPlanner.swift
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[9/12] Emitting module ProfileDomainTests
+/Users/sonadeck/sonadeck-test/ProfileDomain/Tests/ProfileDomainTests/TransitionPlannerTests.swift:1:8: error: no such module &#x27;XCTest&#x27;
+  1 | import XCTest
+
+    |        `- error: no such module &#x27;XCTest&#x27;
+  2 | @testable import ProfileDomain
+
+  3 | 
+
+[10/12] Compiling ProfileDomainTests TransitionPlannerTests.swift
+/Users/sonadeck/sonadeck-test/ProfileDomain/Tests/ProfileDomainTests/TransitionPlannerTests.swift:1:8: error: no such module &#x27;XCTest&#x27;
+  1 | import XCTest
+
+    |        `- error: no such module &#x27;XCTest&#x27;
+  2 | @testable import ProfileDomain
+
+  3 | 
+
+error: fatalError
+domain_test_exit=1</pre></html>

@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>现有配置领域测试 / ProfileDomain</title><style>
+body{margin:0;padding:32px;background:#101820;color:#ecf2f8;font:16px/1.55 "Microsoft YaHei",Arial,sans-serif}
+h1{font-size:28px;margin:0 0 12px}h2{font-size:18px;color:#9cc8ef}
+p{color:#cad2db}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#192532;padding:20px;border:1px solid #41566a;border-radius:8px;font:14px/1.45 Consolas,monospace}
+</style><h1>现有配置领域测试 / ProfileDomain</h1>
+<p>2026-10-09 · SonaDeck · 实际日志展示页截图，非产品 UI / Captured logs, not product UI</p>
+<h2>domain-tests.log</h2><pre>Building for debugging...
+[0/13] Write sources
+[2/13] Write swift-version-24593BA9C3E375BF.txt
+[4/16] Compiling ProfileDomain TransitionPlanner.swift
+[5/16] Emitting module ProfileDomain
+[6/16] Compiling ProfileDomain Profile.swift
+[7/17] Wrapping AST for ProfileDomain for debugging
+[9/19] Emitting module ProfileDomainTests
+[10/19] Compiling ProfileDomainTests TransitionPlannerTests.swift
+[11/20] /tmp/sonadeck-build/x86_64-unknown-linux-gnu/debug/ProfileDomainPackageDiscoveredTests.derived/all-discovered-tests.swift
+[12/20] Write sources
+[13/20] Wrapping AST for ProfileDomainTests for debugging
+[15/23] Compiling ProfileDomainPackageDiscoveredTests all-discovered-tests.swift
+[16/23] Emitting module ProfileDomainPackageDiscoveredTests
+[17/23] Compiling ProfileDomainPackageDiscoveredTests ProfileDomainTests.swift
+[18/24] /tmp/sonadeck-build/x86_64-unknown-linux-gnu/debug/ProfileDomainPackageTests.derived/runner.swift
+[19/24] Write sources
+[20/26] Wrapping AST for ProfileDomainPackageDiscoveredTests for debugging
+[22/26] Emitting module ProfileDomainPackageTests
+[23/26] Compiling ProfileDomainPackageTests runner.swift
+[24/27] Wrapping AST for ProfileDomainPackageTests for debugging
+[25/27] Write Objects.LinkFileList
+[26/27] Linking ProfileDomainPackageTests.xctest
+Build complete! (6.76s)
+Test Suite &#x27;All tests&#x27; started at 2026-10-09 11:11:29.005
+Test Suite &#x27;debug.xctest&#x27; started at 2026-10-09 11:11:29.007
+Test Suite &#x27;TransitionPlannerTests&#x27; started at 2026-10-09 11:11:29.007
+Test Case &#x27;TransitionPlannerTests.testAbsentAppStaysPendingAndIsNotApplied&#x27; started at 2026-10-09 11:11:29.007
+Test Case &#x27;TransitionPlannerTests.testAbsentAppStaysPendingAndIsNotApplied&#x27; passed (0.001 seconds)
+Test Case &#x27;TransitionPlannerTests.testEmptyProfileReleasesAllPreviouslyControlledApps&#x27; started at 2026-10-09 11:11:29.008
+Test Case &#x27;TransitionPlannerTests.testEmptyProfileReleasesAllPreviouslyControlledApps&#x27; passed (0.0 seconds)
+Test Case &#x27;TransitionPlannerTests.testInvalidGainAndDuplicateIdentityAreRejected&#x27; started at 2026-10-09 11:11:29.008
+Test Case &#x27;TransitionPlannerTests.testInvalidGainAndDuplicateIdentityAreRejected&#x27; passed (0.0 seconds)
+Test Case &#x27;TransitionPlannerTests.testMissingDeviceBlocksWholePlanIncludingReleases&#x27; started at 2026-10-09 11:11:29.009
+Test Case &#x27;TransitionPlannerTests.testMissingDeviceBlocksWholePlanIncludingReleases&#x27; passed (0.0 seconds)
+Test Case &#x27;TransitionPlannerTests.testReleasesOldRuleAndAppliesNewRule&#x27; started at 2026-10-09 11:11:29.009
+Test Case &#x27;TransitionPlannerTests.testReleasesOldRuleAndAppliesNewRule&#x27; passed (0.0 seconds)
+Test Case &#x27;TransitionPlannerTests.testRepeatedSelectionWithMatchingObservedRulesIsNoOp&#x27; started at 2026-10-09 11:11:29.009
+Test Case &#x27;TransitionPlannerTests.testRepeatedSelectionWithMatchingObservedRulesIsNoOp&#x27; passed (0.0 seconds)
+Test Case &#x27;TransitionPlannerTests.testUnauthorizedControlBlocksPlan&#x27; started at 2026-10-09 11:11:29.009
+Test Case &#x27;TransitionPlannerTests.testUnauthorizedControlBlocksPlan&#x27; passed (0.0 seconds)
+Test Case &#x27;TransitionPlannerTests.testUnavailableSystemOutputBlocksFollowSystemRule&#x27; started at 2026-10-09 11:11:29.010
+Test Case &#x27;TransitionPlannerTests.testUnavailableSystemOutputBlocksFollowSystemRule&#x27; passed (0.0 seconds)
+Test Suite &#x27;TransitionPlannerTests&#x27; passed at 2026-10-09 11:11:29.010
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite &#x27;debug.xctest&#x27; passed at 2026-10-09 11:11:29.010
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite &#x27;All tests&#x27; passed at 2026-10-09 11:11:29.010
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.4 (5ee435b15ad40ec)
+↳ Target Platform: x86_64-unknown-linux-gnu
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.</pre></html>

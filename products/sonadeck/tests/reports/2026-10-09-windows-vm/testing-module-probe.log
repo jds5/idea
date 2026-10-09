@@ -1,0 +1,5 @@
+/tmp/TestingProbe.swift:1:8: error: no such module 'Testing'
+1 | import Testing
+  |        `- error: no such module 'Testing'
+2 | 
+testing_module_exit=1

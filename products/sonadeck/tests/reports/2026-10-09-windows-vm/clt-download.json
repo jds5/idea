@@ -1,0 +1,80 @@
+{
+  "productID": "082-41241",
+  "version": "Command Line Tools 16.4",
+  "requiredOS": "15.3 <= macOS < 16.0 (Apple distribution)",
+  "distributionURL": "https://swdist.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/082-41241.English.dist",
+  "packages": [
+    {
+      "name": "CLTools_macOSNMOS_SDK.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_macOSNMOS_SDK.pkg",
+      "size": 58513026,
+      "catalogCompressedTOCSHA1": "c6b24ec30264caa426cb9e27c48ce22ebcc38aa6",
+      "sha256": "ba3453d62b3d2babf67f3a4a44e8073d6555c85f114856f4390a1f53bd76e24a",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_macOS_SDK.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_macOS_SDK.pkg",
+      "size": 5366,
+      "catalogCompressedTOCSHA1": "c7023499d29caaa4d3a093cd7981903558751ffe",
+      "sha256": "a4621c6d19332f76c7c5208c386ef8cef89846bccbb204e02856ba23d646cfcf",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_macOS_DevSDK_Remove_macOS13.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_macOS_DevSDK_Remove_macOS13.pkg",
+      "size": 5385,
+      "catalogCompressedTOCSHA1": "6433eb9b5d75b2420e6413103c77e3d81f2239b8",
+      "sha256": "269b51299c7e34d02985f33c3c72a6e53dc83117110b0d1a2e962b5f124fbed2",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_Executables.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_Executables.pkg",
+      "size": 715692551,
+      "catalogCompressedTOCSHA1": "d1d5bf166a88ba1b59d982fa27f96d6b16601a94",
+      "sha256": "43c15c1f952c7a4c1a8f67c6b46350b83e217c610d7d3c14aa09e88bb251a4b6",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_macOSLMOS_SDK.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_macOSLMOS_SDK.pkg",
+      "size": 59460733,
+      "catalogCompressedTOCSHA1": "f4cf62b81b6c11b3fef87c62c7c563227970d94e",
+      "sha256": "ee10f491e7c5518bb7346527c242ec34b2d431bb787a2ee00247553e9806ea45",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_macOS_DevSDK_Remove_macOS110.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_macOS_DevSDK_Remove_macOS110.pkg",
+      "size": 5380,
+      "catalogCompressedTOCSHA1": "3c0c5e3190cf6249daf2335e3760242500147487",
+      "sha256": "e5149ab585e81d2595352c11422f5592b8ca60bc4ffcb0996b68385244e45f01",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_macOS_DevSDK_Remove_macOS12.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_macOS_DevSDK_Remove_macOS12.pkg",
+      "size": 5384,
+      "catalogCompressedTOCSHA1": "3e738bb40902170bf7b1d85459baff58e63eb4b8",
+      "sha256": "61bb1112c295245195d53a5b77e83466924759576822c1e502216c1ed1d26111",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_macOS_DevSDK_Remove_macOS14.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_macOS_DevSDK_Remove_macOS14.pkg",
+      "size": 5385,
+      "catalogCompressedTOCSHA1": "c5635a223331f9d1b92c14d6bbe82dc5fa33fb27",
+      "sha256": "13104801ff0ab16637c024d521e3ef97a4c71a127731f03d22c13158bfe19497",
+      "archiveChecksumsVerified": true
+    },
+    {
+      "name": "CLTools_SwiftBackDeploy.pkg",
+      "url": "https://swcdn.apple.com/content/downloads/52/01/082-41241-A_0747ZN8FHV/dectd075r63pppkkzsb75qk61s0lfee22j/CLTools_SwiftBackDeploy.pkg",
+      "size": 48542704,
+      "catalogCompressedTOCSHA1": "988f7793b9548f5c4b5081014aaa2851708f504d",
+      "sha256": "e0fc4381f493af8f917f088b8a69bc836d9a6e9638f921e80756a8c47a4f187d",
+      "archiveChecksumsVerified": true
+    }
+  ]
+}

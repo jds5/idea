@@ -1,0 +1,29 @@
+Fri Oct  9 20:56:04 CST 2026
+  697 112.1   35:10 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/system_installd
+ 1678  87.0   13:49 /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+   82  54.1   41:16 /usr/libexec/PerfPowerServices
+   97  40.7   41:10 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+   31  27.4   41:16 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+   54  26.4   41:16 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
+ 1933  12.2   00:03 bash
+  209  11.9   39:43 /System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated
+  324  10.1   38:56 /System/Library/DriverExtensions/com.apple.AppleUserHIDDrivers.dext/com.apple.AppleUserHIDDrivers
+   26   7.8   41:17 /usr/libexec/logd
+    1   6.8   41:34 /sbin/launchd
+  117   6.7   41:04 /usr/libexec/airportd
+ 1092   6.6   28:22 /usr/libexec/triald
+  306   5.4   39:24 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+   65   3.2   41:16 /usr/libexec/opendirectoryd
+Oct  9 12:03:31 iMac OSInstaller[184]: ------- Install Succeeded -------
+2026-10-09 20:45:00+08 SonaDecks-iMac installer[1737]: -[IFDInstallController(Private) _buildInstallPlanReturningError:]: file://localhost/private/tmp/sonadeck-clt/CLTools_Executables.pkg
+	    "PKLeopardPackage <id=com.apple.pkg.CLTools_Executables, version=16.4.0.0.1.1747106510, url=file://localhost/private/tmp/sonadeck-clt/CLTools_Executables.pkg>"
+2026-10-09 20:45:26+08 SonaDecks-iMac system_installd[697]: PackageKit: Extracting file://localhost/private/tmp/sonadeck-clt/CLTools_Executables.pkg (destination=/Library/Apple/System/Library/InstallerSandboxes/.PKInstallSandboxManager-SystemSoftware/490F5F77-FC37-4E5D-834B-E6F133ABC8C6.activeSandbox/Root, uid=0)
+2026-10-09 20:51:39+08 SonaDecks-iMac system_installd[697]: PackageKit: Executing script "postinstall" in /Library/Apple/System/Library/InstallerSandboxes/.PKInstallSandboxManager-SystemSoftware/490F5F77-FC37-4E5D-834B-E6F133ABC8C6.activeSandbox/OpenPath.GWC2v1/Scripts/com.apple.pkg.CLTools_Executables.9kems1
+2026-10-09 20:51:40+08 SonaDecks-iMac system_installd[697]: PackageKit: Writing system content receipt for com.apple.pkg.CLTools_Executables to /
+2026-10-09 20:51:40+08 SonaDecks-iMac system_installd[697]: Installed "CLTools_Executables" ()
+2026-10-09 20:51:41+08 SonaDecks-iMac system_installd[697]: PackageKit: ----- End install -----
+2026-10-09 20:51:48+08 SonaDecks-iMac installer[1829]: -[IFDInstallController(Private) _buildInstallPlanReturningError:]: file://localhost/private/tmp/sonadeck-clt/CLTools_macOSNMOS_SDK.pkg
+	    "PKLeopardPackage <id=com.apple.pkg.CLTools_SDK_macOS_NMOS, version=16.4.0.0.1.1747106510, url=file://localhost/private/tmp/sonadeck-clt/CLTools_macOSNMOS_SDK.pkg>"
+2026-10-09 20:52:24+08 SonaDecks-iMac system_installd[697]: PackageKit: Extracting file://localhost/private/tmp/sonadeck-clt/CLTools_macOSNMOS_SDK.pkg (destination=/Library/Apple/System/Library/InstallerSandboxes/.PKInstallSandboxManager-SystemSoftware/707C2A75-DCC0-4794-8405-5172B220EFEC.activeSandbox/Root, uid=0)
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s4s1   120Gi    10Gi    95Gi    10%    426k  992M    0%   /

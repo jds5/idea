@@ -1,0 +1,127 @@
+2026-10-09 12:43:09.590 systemsetup[1708:27821] ### Error:-99 File:/AppleInternal/Library/BuildRoots/4~CVuRugDbLKa_zEQljq3K1IvK4BXMSpueyBYR8s8/Library/Caches/com.apple.xbs/Sources/Admin/InternetServices.m Line:395
+Set TimeZone: Asia/Shanghai
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  1  841M    1 12.7M    0     0  31.5M      0  0:00:26 --:--:--  0:00:26 31.4M  7  841M    7 66.4M    0     0  47.5M      0  0:00:17  0:00:01  0:00:16 47.4M 12  841M   12  101M    0     0  42.1M      0  0:00:19  0:00:02  0:00:17 42.1M 16  841M   16  142M    0     0  41.8M      0  0:00:20  0:00:03  0:00:17 41.8M 20  841M   20  169M    0     0  38.3M      0  0:00:21  0:00:04  0:00:17 38.3M 23  841M   23  197M    0     0  36.6M      0  0:00:22  0:00:05  0:00:17 37.0M 27  841M   27  234M    0     0  36.1M      0  0:00:23  0:00:06  0:00:17 32.9M 29  841M   29  252M    0     0  33.9M      0  0:00:24  0:00:07  0:00:17 30.0M 32  841M   32  272M    0     0  32.3M      0  0:00:25  0:00:08  0:00:17 25.9M 34  841M   34  292M    0     0  29.8M      0  0:00:28  0:00:09  0:00:19 22.8M 36  841M   36  307M    0     0  29.5M      0  0:00:28  0:00:10  0:00:18 21.9M 40  841M   40  340M    0     0  29.6M      0  0:00:28  0:00:11  0:00:17 21.2M 44  841M   44  371M    0     0  29.9M      0  0:00:28  0:00:12  0:00:16 24.0M 48  841M   48  409M    0     0  30.5M      0  0:00:27  0:00:13  0:00:14 27.5M 52  841M   52  444M    0     0  30.8M      0  0:00:27  0:00:14  0:00:13 32.9M 54  841M   54  461M    0     0  29.9M      0  0:00:28  0:00:15  0:00:13 30.7M 57  841M   57  483M    0     0  29.5M      0  0:00:28  0:00:16  0:00:12 29.2M 60  841M   60  509M    0     0  29.2M      0  0:00:28  0:00:17  0:00:11 27.4M 62  841M   62  528M    0     0  28.7M      0  0:00:29  0:00:18  0:00:11 23.6M 65  841M   65  548M    0     0  28.2M      0  0:00:29  0:00:19  0:00:10 20.7M 67  841M   67  572M    0     0  28.0M      0  0:00:29  0:00:20  0:00:09 22.1M 71  841M   71  599M    0     0  27.9M      0  0:00:30  0:00:21  0:00:09 22.8M 73  841M   73  614M    0     0  27.4M      0  0:00:30  0:00:22  0:00:08 21.0M 75  841M   75  634M    0     0  27.1M      0  0:00:31  0:00:23  0:00:08 21.2M 78  841M   78  660M    0     0  26.9M      0  0:00:31  0:00:24  0:00:07 22.1M 81  841M   81  688M    0     0  27.1M      0  0:00:31  0:00:25  0:00:06 23.3M 84  841M   84  710M    0     0  26.8M      0  0:00:31  0:00:26  0:00:05 22.3M 88  841M   88  747M    0     0  27.2M      0  0:00:30  0:00:27  0:00:03 26.5M 92  841M   92  775M    0     0  27.2M      0  0:00:30  0:00:28  0:00:02 27.9M 95  841M   95  799M    0     0  27.1M      0  0:00:30  0:00:29  0:00:01 28.2M 98  841M   98  829M    0     0  27.2M      0  0:00:30  0:00:30 --:--:-- 28.1M100  841M  100  841M    0     0  27.4M      0  0:00:30  0:00:30 --:--:-- 30.8M
+Package "CLTools_Executables.pkg":
+   Status: signed Apple Software
+   Certificate Chain:
+    1. Software Update
+       Expires: 2029-04-14 21:28:23 +0000
+       SHA256 Fingerprint:
+           E0 74 D2 04 AC 24 98 E9 DC 90 4A 7B C7 CE D8 46 41 19 B7 9D 05 66 
+           80 28 92 05 83 B1 E8 96 EB B4
+       ------------------------------------------------------------------------
+    2. Apple Software Update Certification Authority
+       Expires: 2031-10-15 00:00:00 +0000
+       SHA256 Fingerprint:
+           12 99 E9 BF E7 76 A2 9F F4 52 F8 C4 F5 E5 5F 3B 4D FD 29 34 34 9D 
+           D1 85 0B 82 74 F3 5C 71 74 5C
+       ------------------------------------------------------------------------
+    3. Apple Root CA
+       Expires: 2035-02-09 21:40:36 +0000
+       SHA256 Fingerprint:
+           B0 B1 73 0E CB C7 FF 45 05 14 2C 49 F1 29 5E 6E DA 6B CA ED 7E 2C 
+           68 C5 BE 91 B5 A1 10 01 F0 24
+
+installer: Package name is CLTools_Executables
+installer: Installing at base path /
+installer: The install was successful.
+Package "CLTools_macOSNMOS_SDK.pkg":
+   Status: signed Apple Software
+   Certificate Chain:
+    1. Software Update
+       Expires: 2029-04-14 21:28:23 +0000
+       SHA256 Fingerprint:
+           E0 74 D2 04 AC 24 98 E9 DC 90 4A 7B C7 CE D8 46 41 19 B7 9D 05 66 
+           80 28 92 05 83 B1 E8 96 EB B4
+       ------------------------------------------------------------------------
+    2. Apple Software Update Certification Authority
+       Expires: 2031-10-15 00:00:00 +0000
+       SHA256 Fingerprint:
+           12 99 E9 BF E7 76 A2 9F F4 52 F8 C4 F5 E5 5F 3B 4D FD 29 34 34 9D 
+           D1 85 0B 82 74 F3 5C 71 74 5C
+       ------------------------------------------------------------------------
+    3. Apple Root CA
+       Expires: 2035-02-09 21:40:36 +0000
+       SHA256 Fingerprint:
+           B0 B1 73 0E CB C7 FF 45 05 14 2C 49 F1 29 5E 6E DA 6B CA ED 7E 2C 
+           68 C5 BE 91 B5 A1 10 01 F0 24
+
+installer: Package name is CLTools_macOSNMOS_SDK
+installer: Installing at base path /
+installer: The install was successful.
+Package "CLTools_macOSLMOS_SDK.pkg":
+   Status: signed Apple Software
+   Certificate Chain:
+    1. Software Update
+       Expires: 2029-04-14 21:28:23 +0000
+       SHA256 Fingerprint:
+           E0 74 D2 04 AC 24 98 E9 DC 90 4A 7B C7 CE D8 46 41 19 B7 9D 05 66 
+           80 28 92 05 83 B1 E8 96 EB B4
+       ------------------------------------------------------------------------
+    2. Apple Software Update Certification Authority
+       Expires: 2031-10-15 00:00:00 +0000
+       SHA256 Fingerprint:
+           12 99 E9 BF E7 76 A2 9F F4 52 F8 C4 F5 E5 5F 3B 4D FD 29 34 34 9D 
+           D1 85 0B 82 74 F3 5C 71 74 5C
+       ------------------------------------------------------------------------
+    3. Apple Root CA
+       Expires: 2035-02-09 21:40:36 +0000
+       SHA256 Fingerprint:
+           B0 B1 73 0E CB C7 FF 45 05 14 2C 49 F1 29 5E 6E DA 6B CA ED 7E 2C 
+           68 C5 BE 91 B5 A1 10 01 F0 24
+
+installer: Package name is CLTools_macOSLMOS_SDK
+installer: Installing at base path /
+installer: The install was successful.
+Package "CLTools_SwiftBackDeploy.pkg":
+   Status: signed Apple Software
+   Certificate Chain:
+    1. Software Update
+       Expires: 2029-04-14 21:28:23 +0000
+       SHA256 Fingerprint:
+           E0 74 D2 04 AC 24 98 E9 DC 90 4A 7B C7 CE D8 46 41 19 B7 9D 05 66 
+           80 28 92 05 83 B1 E8 96 EB B4
+       ------------------------------------------------------------------------
+    2. Apple Software Update Certification Authority
+       Expires: 2031-10-15 00:00:00 +0000
+       SHA256 Fingerprint:
+           12 99 E9 BF E7 76 A2 9F F4 52 F8 C4 F5 E5 5F 3B 4D FD 29 34 34 9D 
+           D1 85 0B 82 74 F3 5C 71 74 5C
+       ------------------------------------------------------------------------
+    3. Apple Root CA
+       Expires: 2035-02-09 21:40:36 +0000
+       SHA256 Fingerprint:
+           B0 B1 73 0E CB C7 FF 45 05 14 2C 49 F1 29 5E 6E DA 6B CA ED 7E 2C 
+           68 C5 BE 91 B5 A1 10 01 F0 24
+
+installer: Package name is CLTools_SwiftBackDeploy
+installer: Installing at base path /
+installer: The install was successful.
+Package "CLTools_macOS_SDK.pkg":
+   Status: signed Apple Software
+   Certificate Chain:
+    1. Software Update
+       Expires: 2029-04-14 21:28:23 +0000
+       SHA256 Fingerprint:
+           E0 74 D2 04 AC 24 98 E9 DC 90 4A 7B C7 CE D8 46 41 19 B7 9D 05 66 
+           80 28 92 05 83 B1 E8 96 EB B4
+       ------------------------------------------------------------------------
+    2. Apple Software Update Certification Authority
+       Expires: 2031-10-15 00:00:00 +0000
+       SHA256 Fingerprint:
+           12 99 E9 BF E7 76 A2 9F F4 52 F8 C4 F5 E5 5F 3B 4D FD 29 34 34 9D 
+           D1 85 0B 82 74 F3 5C 71 74 5C
+       ------------------------------------------------------------------------
+    3. Apple Root CA
+       Expires: 2035-02-09 21:40:36 +0000
+       SHA256 Fingerprint:
+           B0 B1 73 0E CB C7 FF 45 05 14 2C 49 F1 29 5E 6E DA 6B CA ED 7E 2C 
+           68 C5 BE 91 B5 A1 10 01 F0 24
+
+installer: Package name is CLTools_macOS_SDK
+installer: Installing at base path /
+installer: The install was successful.
+swift-driver version: 1.120.5 Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+Target: x86_64-apple-macosx15.0

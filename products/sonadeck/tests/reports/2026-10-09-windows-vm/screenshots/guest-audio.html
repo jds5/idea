@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>macOS 客体音频基线 / Guest audio baseline</title><style>
+body{margin:0;padding:32px;background:#101820;color:#ecf2f8;font:16px/1.55 "Microsoft YaHei",Arial,sans-serif}
+h1{font-size:28px;margin:0 0 12px}h2{font-size:18px;color:#9cc8ef}
+p{color:#cad2db}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#192532;padding:20px;border:1px solid #41566a;border-radius:8px;font:14px/1.45 Consolas,monospace}
+</style><h1>macOS 客体音频基线 / Guest audio baseline</h1>
+<p>2026-10-09 · SonaDeck · 实际日志展示页截图，非产品 UI / Captured logs, not product UI</p>
+<h2>mac-audio.log</h2><pre>Fri Oct  9 20:50:15 CST 2026
+QEMU backend: none; this run cannot forward guest sound to host.
+Audio:
+
+    Devices:
+
+Error: AudioQueueStart failed (-66680)
+afplay_exit=1
+No audio content was recorded. Exit status does not prove audible output.</pre><h2>qemu-pulse.log</h2><pre>Command: [&quot;wsl&quot;, &quot;-d&quot;, &quot;Debian&quot;, &quot;--&quot;, &quot;sh&quot;, &quot;-lc&quot;, &quot;docker run --rm --entrypoint timeout -v /mnt/wslg/PulseServer:/tmp/PulseServer -e PULSE_SERVER=unix:/tmp/PulseServer sonadeck-vm-tools:audio 3 qemu-system-x86_64 -machine none -nodefaults -display none -S -audiodev pa,id=audio0,server=unix:/tmp/PulseServer&quot;]
+Expected: timeout exit 124 after initialization; no guest audio played.
+qemu-system-x86_64: terminating on signal 15 from pid 1 (timeout)
+
+exit=124</pre></html>

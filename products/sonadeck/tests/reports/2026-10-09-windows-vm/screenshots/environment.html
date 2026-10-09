@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>环境与虚拟化验证 / Environment</title><style>
+body{margin:0;padding:32px;background:#101820;color:#ecf2f8;font:16px/1.55 "Microsoft YaHei",Arial,sans-serif}
+h1{font-size:28px;margin:0 0 12px}h2{font-size:18px;color:#9cc8ef}
+p{color:#cad2db}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#192532;padding:20px;border:1px solid #41566a;border-radius:8px;font:14px/1.45 Consolas,monospace}
+</style><h1>环境与虚拟化验证 / Environment</h1>
+<p>2026-10-09 · SonaDeck · 实际日志展示页截图，非产品 UI / Captured logs, not product UI</p>
+<h2>baseline.json</h2><pre>{
+    &quot;recordedAt&quot;:  &quot;2026-10-09T19:01:32.7938284+08:00&quot;,
+    &quot;cpu&quot;:  {
+                &quot;Name&quot;:  &quot;AMD Ryzen 7 9700X 8-Core Processor             &quot;,
+                &quot;NumberOfCores&quot;:  8,
+                &quot;NumberOfLogicalProcessors&quot;:  16,
+                &quot;VirtualizationFirmwareEnabled&quot;:  true
+            },
+    &quot;memoryBytes&quot;:  33408598016,
+    &quot;os&quot;:  {
+               &quot;Caption&quot;:  &quot;Microsoft Windows 11 专业版&quot;,
+               &quot;Version&quot;:  &quot;10.0.26300&quot;,
+               &quot;BuildNumber&quot;:  &quot;26300&quot;
+           },
+    &quot;docker&quot;:  &quot;Server=29.2.1 Kernel=6.6.87.2-microsoft-standard-WSL2 Arch=x86_64 CPUs=16 MemoryBytes=16299253760&quot;,
+    &quot;sourceRevision&quot;:  &quot;a43921a4ec902f207714a48bde257066f1b28f6f&quot;,
+    &quot;recoveryVersion&quot;:  &quot;15.4.1 (24E263), observed in Disk Utility&quot;,
+    &quot;qemu&quot;:  &quot;QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)&quot;
+}</pre><h2>kvm.log</h2><pre>KVM_API_VERSION: 12
+KVM_CREATE_VM: OK
+KVM_CREATE_VCPU: OK
+KVM_RUN exit_reason: 5 (expected 5 = HLT)
+PASS: guest executed HLT using nested KVM; macOS boot NOT tested.</pre></html>

@@ -1,0 +1,5 @@
+# Preserve raw diagnostic bytes, including original whitespace and line endings.
+*.log -text -whitespace
+*.json -text -whitespace
+# Generated log pages embed the captured text verbatim.
+screenshots/*.html -whitespace

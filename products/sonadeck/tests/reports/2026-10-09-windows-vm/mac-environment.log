@@ -1,0 +1,29 @@
+Fri Oct  9 21:07:34 CST 2026
+ProductName:		macOS
+ProductVersion:		15.8.1
+BuildVersion:		24H32
+x86_64
+hw.ncpu: 6
+hw.memsize: 8589934592
+/Library/Developer/CommandLineTools
+swift-driver version: 1.120.5 Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+Target: x86_64-apple-macosx15.0
+Graphics/Displays:
+
+    Display:
+
+      Type: GPU
+      VRAM (Total): 3 MB
+      Device ID: 0x0405
+      Revision ID: 0x0000
+      Kernel Extension Info: No Kext Loaded
+      Displays:
+        Display:
+          Resolution: 1280 x 800
+          UI Looks like: 1280 x 800
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+      Vendor ID: 0x15ad
+

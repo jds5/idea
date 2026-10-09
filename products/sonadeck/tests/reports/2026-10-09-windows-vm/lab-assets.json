@@ -1,0 +1,37 @@
+{
+  "recordedAt": "2026-10-09T19:59:32.348875+08:00",
+  "upstream": "https://github.com/kholia/OSX-KVM",
+  "dockerOSXRevision": "aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3",
+  "assets": [
+    {
+      "name": "OVMF_CODE_4M.fd",
+      "bytes": 3653632,
+      "sha256": "7decd7fa9965e7f943a1f79d1d05ce6d881540d625cc2a9641a57f89721b4577",
+      "state": "file used by this experiment"
+    },
+    {
+      "name": "OVMF_VARS-1920x1080.fd",
+      "bytes": 131072,
+      "sha256": "6ed987af3a3c155be71665f510eae3e007eda9b8b94afd59d45e91c4a11565cc",
+      "state": "runtime mutable UEFI variables"
+    },
+    {
+      "name": "OpenCore.qcow2",
+      "bytes": 19398656,
+      "sha256": "6ed36c0c2a4206ccc695f6b1a734a1cc6f94d288b0517c705d351c63cb92a6f3",
+      "state": "file used by this experiment"
+    },
+    {
+      "name": "boot.sh",
+      "bytes": 1467,
+      "sha256": "c429eac944007176eea7529c449a52d275cf96f648512ec92a50cfd66f13fce7",
+      "state": "file used by this experiment"
+    },
+    {
+      "name": "fetch-macOS-v2.py",
+      "bytes": 23644,
+      "sha256": "39ac6d26bd265f5d32198062f515ad15ef93afb7a74e702be2b008090d5bd5f3",
+      "state": "file used by this experiment"
+    }
+  ]
+}

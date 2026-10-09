@@ -1,6 +1,6 @@
 # 技术与平台计划
 
-更新日期：2026-09-23。状态：路线建议；没有经过真机验证。
+更新日期：2026-10-09。状态：路线建议；没有经过真机验证。本轮仅更新实验环境状态，既有平台资料不视为重新核验。
 
 ## 1. macOS 与硬件策略
 
@@ -91,4 +91,4 @@ Apple [审核指南](https://developer.apple.com/app-store/review/guidelines/)�
 
 ## 7. 当前环境限制
 
-当前开发环境为 Windows，不能运行 Xcode 或验证 Core Audio。`ProfileDomain` 已有独立的 Linux 容器测试命令，见[开发与测试](development.md)；这只覆盖跨平台逻辑。后续必须提供可用 Mac、至少两种物理输出、稳定签名身份及可复现实验记录。当前没有 macOS 构建或音频测试成绩可报告。
+当前宿主环境为 Windows，已开始 QEMU/KVM macOS 客体实验及最小 SwiftUI 模拟原型；具体构建、UI、音频状态见[实测报告](../tests/reports/2026-10-09-windows-vm/report.md)。`ProfileDomain` 和 `PrototypeModel` 的 Linux 容器测试只覆盖跨平台逻辑。虚拟机不替代 Apple Silicon、物理设备或流畅度验收；后续仍必须提供可用 Mac、至少两种物理输出、稳定签名身份及可复现实验记录。

@@ -1,0 +1,20 @@
+{
+  "finishedAt": "2026-10-09T21:40:38.938477+08:00",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "3g",
+    "-v",
+    "C:/Users/yaoch/IdeaProjects/idea:/workspace:ro",
+    "swift:6.2.4-noble",
+    "bash",
+    "/workspace/products/sonadeck/experiments/windows-vm/validate-portable-assertions.sh"
+  ],
+  "exitCode": 0
+}

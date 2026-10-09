@@ -1,0 +1,7 @@
+﻿[ 1707.198296] kvm_amd: kvm [3603]: vcpu0, guest rIP: 0xffffff800633954a Unhandled WRMSR(0x1d9) = 0x0
+[ 1707.318705] kvm_amd: kvm [3603]: vcpu0, guest rIP: 0xffffff800633954a Unhandled WRMSR(0x1d9) = 0x0
+[ 1707.516625] kvm_amd: kvm [3603]: vcpu1, guest rIP: 0xffffff800633954a Unhandled WRMSR(0x1d9) = 0x0
+[ 1707.518627] kvm_amd: kvm [3603]: vcpu2, guest rIP: 0xffffff800633954a Unhandled WRMSR(0x1d9) = 0x0
+[ 1707.520276] kvm_amd: kvm [3603]: vcpu3, guest rIP: 0xffffff800633954a Unhandled WRMSR(0x1d9) = 0x0
+[ 1707.522956] kvm_amd: kvm [3603]: vcpu4, guest rIP: 0xffffff800633954a Unhandled WRMSR(0x1d9) = 0x0
+[ 1707.524280] kvm_amd: kvm [3603]: vcpu5, guest rIP: 0xffffff800633954a Unhandled WRMSR(0x1d9) = 0x0

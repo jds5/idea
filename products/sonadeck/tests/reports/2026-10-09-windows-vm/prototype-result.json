@@ -1,0 +1,28 @@
+{
+  "finishedAt": "2026-10-09T19:15:47.307894+08:00",
+  "package": "SonaDeckPrototype",
+  "platform": "Linux container; not macOS UI",
+  "exitCode": 0,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "3g",
+    "--mount",
+    "type=bind,source=C:\\Users\\yaoch\\IdeaProjects\\idea,target=/workspace,readonly",
+    "-w",
+    "/workspace/products/sonadeck/app/SonaDeckPrototype",
+    "swift:6.2.4-noble",
+    "swift",
+    "test",
+    "--scratch-path",
+    "/tmp/sonadeck-build",
+    "-j",
+    "4"
+  ]
+}

@@ -1,0 +1,494 @@
+Analysis of sampling swift-frontend (pid 2480) every 10 milliseconds
+Process:         swift-frontend [2480]
+Path:            /Library/Developer/CommandLineTools/usr/bin/swift-frontend
+Load Address:    0x106794000
+Identifier:      swift-frontend
+Version:         6.1.2.1.2
+Code Type:       X86-64
+Platform:        macOS
+Parent Process:  swift-driver [2478]
+Target Type:     live task
+
+Date/Time:       2026-10-09 21:26:27.706 +0800
+Launch Time:     2026-10-09 21:21:53.647 +0800
+OS Version:      macOS 15.8.1 (24H32)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         51.3M
+Physical footprint (peak):  299.6M
+Idle exit:                  untracked
+----
+
+Call graph:
+    265 Thread_44972   DispatchQueue_1: com.apple.main-thread  (serial)
+    + 265 start  (in dyld) + 3056  [0x7ff80c875530]
+    +   265 swift::mainEntry(int, char const**)  (in swift-frontend) + 3241  [0x106a68b09]
+    +     265 swift::performFrontend(llvm::ArrayRef<char const*>, char const*, void*, swift::FrontendObserver*)  (in swift-frontend) + 4518  [0x106af9a16]
+    +       265 performCompile(swift::CompilerInstance&, int&, swift::FrontendObserver*)  (in swift-frontend) + 916  [0x106afafe4]
+    +         265 swift::CompilerInstance::performSema()  (in swift-frontend) + 23  [0x106f34f97]
+    +           265 swift::CompilerInstance::performParseAndResolveImportsOnly()  (in swift-frontend) + 1936  [0x106f34e00]
+    +             265 swift::performImportResolution(swift::SourceFile&)  (in swift-frontend) + 597  [0x1080e2f25]
+    +               265 (anonymous namespace)::ImportResolver::bindPendingImports()  (in swift-frontend) + 883  [0x1080e7b33]
+    +                 265 swift::ASTContext::getModule(swift::ImportPath::Module, bool)  (in swift-frontend) + 200  [0x108606938]
+    +                   214 swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)  (in swift-frontend) + 556  [0x107443bbc]
+    +                   ! 214 swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool)  (in swift-frontend) + 3010  [0x10743f332]
+    +                   !   214 swift::ModuleFile::associateWithFileContext(swift::FileUnit*, swift::SourceLoc, bool)  (in swift-frontend) + 1472  [0x1073a1370]
+    +                   !     214 swift::ModuleFile::loadDependenciesForFileContext(swift::FileUnit const*, swift::SourceLoc, bool)  (in swift-frontend) + 1547  [0x1073a09bb]
+    +                   !       205 swift::ModuleFile::getModule(swift::ImportPath::Module, bool)  (in swift-frontend) + 851  [0x107345b73]
+    +                   !       : 205 swift::ClangImporter::Implementation::loadModule(swift::SourceLoc, swift::ImportPath::Module)  (in swift-frontend) + 841  [0x106db6fd9]
+    +                   !       :   205 swift::ClangImporter::Implementation::loadModuleClang(swift::SourceLoc, swift::ImportPath::Module)::$_0::operator()(llvm::ArrayRef<std::pair<clang::IdentifierInfo*, clang::SourceLocation>>, clang::Module::NameVisibilityKind) const  (in swift-frontend) + 342  [0x106db6486]
+    +                   !       :     205 clang::CompilerInstance::loadModule(clang::SourceLocation, llvm::ArrayRef<std::pair<clang::IdentifierInfo*, clang::SourceLocation>>, clang::Module::NameVisibilityKind, bool)  (in swift-frontend) + 11098  [0x10ad52a4a]
+    +                   !       :       205 compileModuleAndReadAST(clang::CompilerInstance&, clang::SourceLocation, clang::SourceLocation, clang::Module*, llvm::StringRef)  (in swift-frontend) + 739  [0x10ad4fab3]
+    +                   !       :         201 llvm::LockFileManager::waitForUnlock(unsigned int)  (in swift-frontend) + 349  [0x10db5682d]
+    +                   !       :         | 201 std::this_thread::sleep_for(std::chrono::duration<long long, std::ratio<1l, 1000000000l>> const&)  (in libc++.1.dylib) + 73  [0x7ff80cb5ef72]
+    +                   !       :         |   201 nanosleep  (in libsystem_c.dylib) + 199  [0x7ff80cac826d]
+    +                   !       :         |     201 __semwait_signal  (in libsystem_kernel.dylib) + 10  [0x7ff80cbdb5c2]
+    +                   !       :         2 llvm::LockFileManager::waitForUnlock(unsigned int)  (in swift-frontend) + 475  [0x10db568ab]
+    +                   !       :         | 2 access  (in libsystem_kernel.dylib) + 10  [0x7ff80cbd92fe]
+    +                   !       :         1 llvm::LockFileManager::waitForUnlock(unsigned int)  (in swift-frontend) + 465  [0x10db568a1]
+    +                   !       :         | 1 llvm::Twine::toNullTerminatedStringRef(llvm::SmallVectorImpl<char>&) const  (in swift-frontend) + 90  [0x10db8426a]
+    +                   !       :         |   1 _platform_strlen  (in libsystem_platform.dylib) + 14  [0x7ff80cc50e8e]
+    +                   !       :         1 llvm::LockFileManager::waitForUnlock(unsigned int)  (in swift-frontend) + 492  [0x10db568bc]
+    +                   !       :           1 DYLD-STUB$$std::system_category()  (in swift-frontend) + 0  [0x10dbd0580]
+    +                   !       9 swift::ASTContext::getModule(swift::ImportPath::Module, bool)  (in swift-frontend) + 200  [0x108606938]
+    +                   !         9 swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)  (in swift-frontend) + 556  [0x107443bbc]
+    +                   !           8 swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool)  (in swift-frontend) + 3010  [0x10743f332]
+    +                   !           | 8 swift::ModuleFile::associateWithFileContext(swift::FileUnit*, swift::SourceLoc, bool)  (in swift-frontend) + 1472  [0x1073a1370]
+    +                   !           |   8 swift::ModuleFile::loadDependenciesForFileContext(swift::FileUnit const*, swift::SourceLoc, bool)  (in swift-frontend) + 1547  [0x1073a09bb]
+    +                   !           |     4 swift::ASTContext::getModule(swift::ImportPath::Module, bool)  (in swift-frontend) + 200  [0x108606938]
+    +                   !           |     + 4 swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)  (in swift-frontend) + 556  [0x107443bbc]
+    +                   !           |     +   4 swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool)  (in swift-frontend) + 3010  [0x10743f332]
+    +                   !           |     +     4 swift::ModuleFile::associateWithFileContext(swift::FileUnit*, swift::SourceLoc, bool)  (in swift-frontend) + 1472  [0x1073a1370]
+    +                   !           |     +       4 swift::ModuleFile::loadDependenciesForFileContext(swift::FileUnit const*, swift::SourceLoc, bool)  (in swift-frontend) + 1547  [0x1073a09bb]
+    +                   !           |     +         4 swift::ModuleFile::getModule(swift::ImportPath::Module, bool)  (in swift-frontend) + 851  [0x107345b73]
+    +                   !           |     +           4 swift::ClangImporter::Implementation::loadModule(swift::SourceLoc, swift::ImportPath::Module)  (in swift-frontend) + 841  [0x106db6fd9]
+    +                   !           |     +             4 swift::ClangImporter::Implementation::loadModuleClang(swift::SourceLoc, swift::ImportPath::Module)::$_0::operator()(llvm::ArrayRef<std::pair<clang::IdentifierInfo*, clang::SourceLocation>>, clang::Module::NameVisibilityKind) const  (in swift-frontend) + 342  [0x106db6486]
+    +                   !           |     +               3 clang::CompilerInstance::loadModule(clang::SourceLocation, llvm::ArrayRef<std::pair<clang::IdentifierInfo*, clang::SourceLocation>>, clang::Module::NameVisibilityKind, bool)  (in swift-frontend) + 1085  [0x10ad5032d]
+    +                   !           |     +               ! 3 clang::HeaderSearch::lookupModule(llvm::StringRef, clang::SourceLocation, bool, bool)  (in swift-frontend) + 100  [0x10cb63e64]
+    +                   !           |     +               !   3 clang::HeaderSearch::lookupModule(llvm::StringRef, llvm::StringRef, clang::SourceLocation, bool)  (in swift-frontend) + 292  [0x10cb64024]
+    +                   !           |     +               !     3 clang::HeaderSearch::loadModuleMapFile(clang::DirectoryEntryRef, bool, bool)  (in swift-frontend) + 223  [0x10cb6462f]
+    +                   !           |     +               !       3 clang::HeaderSearch::loadModuleMapFileImpl(clang::FileEntryRef, bool, clang::DirectoryEntryRef, clang::FileID, unsigned int*)  (in swift-frontend) + 297  [0x10cb6a3a9]
+    +                   !           |     +               !         3 clang::ModuleMap::parseModuleMapFile(clang::FileEntryRef, bool, clang::DirectoryEntryRef, clang::FileID, unsigned int*, clang::SourceLocation)  (in swift-frontend) + 1571  [0x10cb99583]
+    +                   !           |     +               !           3 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 3582  [0x10cb9e1be]
+    +                   !           |     +               !             3 clang::ModuleMap::parseModuleMapFile(clang::FileEntryRef, bool, clang::DirectoryEntryRef, clang::FileID, unsigned int*, clang::SourceLocation)  (in swift-frontend) + 1571  [0x10cb99583]
+    +                   !           |     +               !               2 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 9850  [0x10cb9fa3a]
+    +                   !           |     +               !               : 2 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 3582  [0x10cb9e1be]
+    +                   !           |     +               !               :   2 clang::ModuleMap::parseModuleMapFile(clang::FileEntryRef, bool, clang::DirectoryEntryRef, clang::FileID, unsigned int*, clang::SourceLocation)  (in swift-frontend) + 1571  [0x10cb99583]
+    +                   !           |     +               !               :     2 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 9850  [0x10cb9fa3a]
+    +                   !           |     +               !               :       1 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 9850  [0x10cb9fa3a]
+    +                   !           |     +               !               :       | 1 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 10557  [0x10cb9fcfd]
+    +                   !           |     +               !               :       |   1 clang::ModuleMapParser::parseHeaderDecl(clang::MMToken::TokenKind, clang::SourceLocation)  (in swift-frontend) + 6454  [0x10cba4386]
+    +                   !           |     +               !               :       |     1 clang::ModuleMap::resolveHeader(clang::Module*, clang::Module::UnresolvedHeaderDirective const&, bool&)  (in swift-frontend) + 639  [0x10cb8efef]
+    +                   !           |     +               !               :       |       1 clang::ModuleMap::findHeader(clang::Module*, clang::Module::UnresolvedHeaderDirective const&, llvm::SmallVectorImpl<char>&, bool&)::$_0::operator()(llvm::StringRef) const  (in swift-frontend) + 50  [0x10cb8e842]
+    +                   !           |     +               !               :       |         1 clang::FileManager::getFileRef(llvm::StringRef, bool, bool)  (in swift-frontend) + 471  [0x10cc37f47]
+    +                   !           |     +               !               :       |           1 clang::FileManager::getStatValue(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*)  (in swift-frontend) + 341  [0x10cc378e5]
+    +                   !           |     +               !               :       |             1 clang::FileSystemStatCache::get(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*, clang::FileSystemStatCache*, llvm::vfs::FileSystem&)  (in swift-frontend) + 314  [0x10cc3b07a]
+    +                   !           |     +               !               :       |               1 llvm::vfs::RedirectingFileSystem::status(llvm::Twine const&)  (in swift-frontend) + 0  [0x10db901c0]
+    +                   !           |     +               !               :       1 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 10557  [0x10cb9fcfd]
+    +                   !           |     +               !               :         1 clang::ModuleMapParser::parseHeaderDecl(clang::MMToken::TokenKind, clang::SourceLocation)  (in swift-frontend) + 6454  [0x10cba4386]
+    +                   !           |     +               !               :           1 clang::ModuleMap::resolveHeader(clang::Module*, clang::Module::UnresolvedHeaderDirective const&, bool&)  (in swift-frontend) + 639  [0x10cb8efef]
+    +                   !           |     +               !               :             1 clang::ModuleMap::findHeader(clang::Module*, clang::Module::UnresolvedHeaderDirective const&, llvm::SmallVectorImpl<char>&, bool&)::$_0::operator()(llvm::StringRef) const  (in swift-frontend) + 50  [0x10cb8e842]
+    +                   !           |     +               !               :               1 clang::FileManager::getFileRef(llvm::StringRef, bool, bool)  (in swift-frontend) + 471  [0x10cc37f47]
+    +                   !           |     +               !               :                 1 clang::FileManager::getStatValue(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*)  (in swift-frontend) + 341  [0x10cc378e5]
+    +                   !           |     +               !               :                   1 clang::FileSystemStatCache::get(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*, clang::FileSystemStatCache*, llvm::vfs::FileSystem&)  (in swift-frontend) + 314  [0x10cc3b07a]
+    +                   !           |     +               !               :                     1 llvm::vfs::RedirectingFileSystem::status(llvm::Twine const&)  (in swift-frontend) + 702  [0x10db9047e]
+    +                   !           |     +               !               :                       1 llvm::vfs::RedirectingFileSystem::getExternalStatus(llvm::Twine const&, llvm::Twine const&) const  (in swift-frontend) + 30  [0x10db9007e]
+    +                   !           |     +               !               :                         1 (anonymous namespace)::RealFileSystem::status(llvm::Twine const&)  (in swift-frontend) + 500  [0x10db94154]
+    +                   !           |     +               !               :                           1 stat$INODE64  (in libsystem_kernel.dylib) + 10  [0x7ff80cbda0c2]
+    +                   !           |     +               !               1 clang::ModuleMapParser::parseModuleDecl()  (in swift-frontend) + 10557  [0x10cb9fcfd]
+    +                   !           |     +               !                 1 clang::ModuleMapParser::parseHeaderDecl(clang::MMToken::TokenKind, clang::SourceLocation)  (in swift-frontend) + 6454  [0x10cba4386]
+    +                   !           |     +               !                   1 clang::ModuleMap::resolveHeader(clang::Module*, clang::Module::UnresolvedHeaderDirective const&, bool&)  (in swift-frontend) + 639  [0x10cb8efef]
+    +                   !           |     +               !                     1 clang::ModuleMap::findHeader(clang::Module*, clang::Module::UnresolvedHeaderDirective const&, llvm::SmallVectorImpl<char>&, bool&)::$_0::operator()(llvm::StringRef) const  (in swift-frontend) + 50  [0x10cb8e842]
+    +                   !           |     +               !                       1 clang::FileManager::getFileRef(llvm::StringRef, bool, bool)  (in swift-frontend) + 471  [0x10cc37f47]
+    +                   !           |     +               !                         1 clang::FileManager::getStatValue(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*)  (in swift-frontend) + 341  [0x10cc378e5]
+    +                   !           |     +               !                           1 clang::FileSystemStatCache::get(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*, clang::FileSystemStatCache*, llvm::vfs::FileSystem&)  (in swift-frontend) + 314  [0x10cc3b07a]
+    +                   !           |     +               !                             1 llvm::vfs::RedirectingFileSystem::status(llvm::Twine const&)  (in swift-frontend) + 702  [0x10db9047e]
+    +                   !           |     +               !                               1 llvm::vfs::RedirectingFileSystem::getExternalStatus(llvm::Twine const&, llvm::Twine const&) const  (in swift-frontend) + 30  [0x10db9007e]
+    +                   !           |     +               !                                 1 (anonymous namespace)::RealFileSystem::status(llvm::Twine const&)  (in swift-frontend) + 500  [0x10db94154]
+    +                   !           |     +               !                                   1 stat$INODE64  (in libsystem_kernel.dylib) + 10  [0x7ff80cbda0c2]
+    +                   !           |     +               1 clang::CompilerInstance::loadModule(clang::SourceLocation, llvm::ArrayRef<std::pair<clang::IdentifierInfo*, clang::SourceLocation>>, clang::Module::NameVisibilityKind, bool)  (in swift-frontend) + 2495  [0x10ad508af]
+    +                   !           |     +                 1 clang::ASTReader::ReadAST(llvm::StringRef, clang::serialization::ModuleKind, clang::SourceLocation, unsigned int, clang::serialization::ModuleFile**)  (in swift-frontend) + 1120  [0x10b1c1ea0]
+    +                   !           |     +                   1 clang::ASTReader::ReadASTBlock(clang::serialization::ModuleFile&, unsigned int)  (in swift-frontend) + 8172  [0x10b1b930c]
+    +                   !           |     +                     1 clang::ASTReader::getGlobalSubmoduleID(clang::serialization::ModuleFile&, unsigned int) const  (in swift-frontend) + 34  [0x10b1a8e42]
+    +                   !           |     +                       1 clang::ASTReader::ReadModuleOffsetMap(clang::serialization::ModuleFile&) const  (in swift-frontend) + 993  [0x10b1a8721]
+    +                   !           |     +                         1 llvm::SmallVectorBase<unsigned int>::grow_pod(void*, unsigned long, unsigned long)  (in swift-frontend) + 104  [0x10db6a618]
+    +                   !           |     +                           1 _realloc  (in libsystem_malloc.dylib) + 315  [0x7ff80ca574d4]
+    +                   !           |     +                             1 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 105  [0x7ff80ca56e17]
+    +                   !           |     +                               1 nanov2_realloc  (in libsystem_malloc.dylib) + 253  [0x7ff80ca26dc5]
+    +                   !           |     +                                 1 nanov2_malloc  (in libsystem_malloc.dylib) + 113  [0x7ff80ca23bab]
+    +                   !           |     4 swift::ModuleFile::getModule(swift::ImportPath::Module, bool)  (in swift-frontend) + 851  [0x107345b73]
+    +                   !           |       2 swift::ClangImporter::Implementation::loadModule(swift::SourceLoc, swift::ImportPath::Module)  (in swift-frontend) + 841  [0x106db6fd9]
+    +                   !           |       ! 2 swift::ClangImporter::Implementation::loadModuleClang(swift::SourceLoc, swift::ImportPath::Module)::$_0::operator()(llvm::ArrayRef<std::pair<clang::IdentifierInfo*, clang::SourceLocation>>, clang::Module::NameVisibilityKind) const  (in swift-frontend) + 342  [0x106db6486]
+    +                   !           |       !   2 clang::CompilerInstance::loadModule(clang::SourceLocation, llvm::ArrayRef<std::pair<clang::IdentifierInfo*, clang::SourceLocation>>, clang::Module::NameVisibilityKind, bool)  (in swift-frontend) + 2495  [0x10ad508af]
+    +                   !           |       !     1 clang::ASTReader::ReadAST(llvm::StringRef, clang::serialization::ModuleKind, clang::SourceLocation, unsigned int, clang::serialization::ModuleFile**)  (in swift-frontend) + 484  [0x10b1c1c24]
+    +                   !           |       !     : 1 clang::ASTReader::ReadASTCore(llvm::StringRef, clang::serialization::ModuleKind, clang::SourceLocation, clang::serialization::ModuleFile*, llvm::SmallVectorImpl<clang::ASTReader::ImportedModule>&, long long, long, clang::ASTFileSignature, unsigned int)  (in swift-frontend) + 154  [0x10b1b1e2a]
+    +                   !           |       !     :   1 clang::serialization::ModuleManager::addModule(llvm::StringRef, clang::serialization::ModuleKind, clang::SourceLocation, clang::serialization::ModuleFile*, unsigned int, long long, long, clang::ASTFileSignature, clang::ASTFileSignature (*)(llvm::StringRef), clang::serialization::ModuleFile*&, std::basic_string<char>&)  (in swift-frontend) + 253  [0x10b31167d]
+    +                   !           |       !     :     1 clang::FileManager::getFileRef(llvm::StringRef, bool, bool)  (in swift-frontend) + 471  [0x10cc37f47]
+    +                   !           |       !     :       1 clang::FileManager::getStatValue(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*)  (in swift-frontend) + 341  [0x10cc378e5]
+    +                   !           |       !     :         1 clang::FileSystemStatCache::get(llvm::StringRef, llvm::vfs::Status&, bool, std::unique_ptr<llvm::vfs::File>*, clang::FileSystemStatCache*, llvm::vfs::FileSystem&)  (in swift-frontend) + 253  [0x10cc3b03d]
+    +                   !           |       !     :           1 llvm::vfs::RedirectingFileSystem::openFileForRead(llvm::Twine const&)  (in swift-frontend) + 627  [0x10db90dd3]
+    +                   !           |       !     :             1 (anonymous namespace)::RealFileSystem::openFileForRead(llvm::Twine const&)  (in swift-frontend) + 382  [0x10db9443e]
+    +                   !           |       !     :               1 llvm::sys::fs::openFileForRead(llvm::Twine const&, int&, llvm::sys::fs::OpenFlags, llvm::SmallVectorImpl<char>*)  (in swift-frontend) + 46  [0x10dbc5d3e]
+    +                   !           |       !     :                 1 llvm::sys::fs::openFile(llvm::Twine const&, int&, llvm::sys::fs::CreationDisposition, llvm::sys::fs::FileAccess, llvm::sys::fs::OpenFlags, unsigned int)  (in swift-frontend) + 174  [0x10dbc76be]
+    +                   !           |       !     :                   1 llvm::Twine::toNullTerminatedStringRef(llvm::SmallVectorImpl<char>&) const  (in swift-frontend) + 175  [0x10db842bf]
+    +                   !           |       !     :                     1 llvm::raw_ostream::write(char const*, unsigned long)  (in swift-frontend) + 428  [0x10dbb324c]
+    +                   !           |       !     :                       1 llvm::raw_svector_ostream::write_impl(char const*, unsigned long)  (in swift-frontend) + 53  [0x10dbb5595]
+    +                   !           |       !     :                         1 llvm::SmallVectorBase<unsigned long long>::grow_pod(void*, unsigned long, unsigned long)  (in swift-frontend) + 150  [0x10db6a8d6]
+    +                   !           |       !     :                           1 szone_malloc_should_clear  (in libsystem_malloc.dylib) + 65  [0x7ff80ca24bb3]
+    +                   !           |       !     :                             1 tiny_malloc_should_clear  (in libsystem_malloc.dylib) + 31  [0x7ff80ca25c83]
+    +                   !           |       !     :                               1 rack_get_thread_index  (in libsystem_malloc.dylib) + 53  [0x7ff80ca3ea57]
+    +                   !           |       !     1 clang::ASTReader::ReadAST(llvm::StringRef, clang::serialization::ModuleKind, clang::SourceLocation, unsigned int, clang::serialization::ModuleFile**)  (in swift-frontend) + 1120  [0x10b1c1ea0]
+    +                   !           |       !       1 clang::ASTReader::ReadASTBlock(clang::serialization::ModuleFile&, unsigned int)  (in swift-frontend) + 2926  [0x10b1b7e8e]
+    +                   !           |       !         1 llvm::BitstreamCursor::readRecord(unsigned int, llvm::SmallVectorImpl<unsigned long long>&, llvm::StringRef*)  (in swift-frontend) + 768  [0x10da912c0]
+    +                   !           |       !           1 llvm::SimpleBitstreamCursor::ReadVBR64(unsigned int)  (in swift-frontend) + 36  [0x10da90c94]
+    +                   !           |       !             1 llvm::SimpleBitstreamCursor::Read(unsigned int)  (in swift-frontend) + 439  [0x106b1b487]
+    +                   !           |       2 swift::ClangImporter::Implementation::loadModule(swift::SourceLoc, swift::ImportPath::Module)  (in swift-frontend) + 889  [0x106db7009]
+    +                   !           |         2 swift::ClangImporter::Implementation::finishLoadingClangModule(clang::Module const*, swift::SourceLoc)  (in swift-frontend) + 359  [0x106db66c7]
+    +                   !           |           2 swift::namelookup::ImportCache::getImportSet(swift::DeclContext const*)  (in swift-frontend) + 2603  [0x108903edb]
+    +                   !           |             2 collectExports(swift::ImportedModule, llvm::SmallVectorImpl<swift::ImportedModule>&, bool)  (in swift-frontend) + 142  [0x10890312e]
+    +                   !           |               2 swift::ClangModuleUnit::getImportedModulesForLookup(llvm::SmallVectorImpl<swift::ImportedModule>&) const  (in swift-frontend) + 1132  [0x106dc2cac]
+    +                   !           |                 2 swift::ClangModuleUnit::getOverlayModule() const  (in swift-frontend) + 248  [0x106db8038]
+    +                   !           |                   2 swift::ASTContext::getOverlayModule(swift::FileUnit const*)  (in swift-frontend) + 480  [0x108606d10]
+    +                   !           |                     2 swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)  (in swift-frontend) + 556  [0x107443bbc]
+    +                   !           |                       1 swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool)  (in swift-frontend) + 692  [0x10743ea24]
+    +                   !           |                       : 1 swift::ModuleFileSharedCore::load(llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool, bool, llvm::StringRef, swift::PathObfuscator&, std::shared_ptr<swift::ModuleFileSharedCore const>&)  (in swift-frontend) + 273  [0x1073a2a11]
+    +                   !           |                       :   1 swift::ModuleFileSharedCore::ModuleFileSharedCore(std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool, bool, llvm::StringRef, swift::serialization::ValidationInfo&, swift::PathObfuscator&)  (in swift-frontend) + 4454  [0x1073b37a6]
+    +                   !           |                       :     1 llvm::BitstreamCursor::readRecord(unsigned int, llvm::SmallVectorImpl<unsigned long long>&, llvm::StringRef*)  (in swift-frontend) + 3296  [0x10da91ca0]
+    +                   !           |                       1 swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool)  (in swift-frontend) + 3010  [0x10743f332]
+    +                   !           |                         1 swift::ModuleFile::associateWithFileContext(swift::FileUnit*, swift::SourceLoc, bool)  (in swift-frontend) + 1472  [0x1073a1370]
+    +                   !           |                           1 swift::ModuleFile::loadDependenciesForFileContext(swift::FileUnit const*, swift::SourceLoc, bool)  (in swift-frontend) + 1547  [0x1073a09bb]
+    +                   !           |                             1 swift::ASTContext::getModule(swift::ImportPath::Module, bool)  (in swift-frontend) + 200  [0x108606938]
+    +                   !           |                               1 swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)  (in swift-frontend) + 556  [0x107443bbc]
+    +                   !           |                                 1 swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool)  (in swift-frontend) + 692  [0x10743ea24]
+    +                   !           |                                   1 swift::ModuleFileSharedCore::load(llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool, bool, llvm::StringRef, swift::PathObfuscator&, std::shared_ptr<swift::ModuleFileSharedCore const>&)  (in swift-frontend) + 273  [0x1073a2a11]
+    +                   !           |                                     1 swift::ModuleFileSharedCore::ModuleFileSharedCore(std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool, bool, llvm::StringRef, swift::serialization::ValidationInfo&, swift::PathObfuscator&)  (in swift-frontend) + 2761  [0x1073b3109]
+    +                   !           |                                       1 llvm::BitstreamCursor::advance(unsigned int)  (in swift-frontend) + 110  [0x106b1b91e]
+    +                   !           |                                         1 llvm::BitstreamCursor::ReadAbbrevRecord()  (in swift-frontend) + 81  [0x10da92001]
+    +                   !           |                                           1 _platform_bzero$VARIANT$Haswell  (in libsystem_platform.dylib) + 53  [0x7ff80cc50e15]
+    +                   !           1 swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool)  (in swift-frontend) + 692  [0x10743ea24]
+    +                   !             1 swift::ModuleFileSharedCore::load(llvm::StringRef, llvm::StringRef, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool, bool, llvm::StringRef, swift::PathObfuscator&, std::shared_ptr<swift::ModuleFileSharedCore const>&)  (in swift-frontend) + 273  [0x1073a2a11]
+    +                   !               1 swift::ModuleFileSharedCore::ModuleFileSharedCore(std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, std::unique_ptr<llvm::MemoryBuffer>, bool, bool, llvm::StringRef, swift::serialization::ValidationInfo&, swift::PathObfuscator&)  (in swift-frontend) + 2761  [0x1073b3109]
+    +                   !                 1 llvm::BitstreamCursor::advance(unsigned int)  (in swift-frontend) + 110  [0x106b1b91e]
+    +                   !                   1 llvm::BitstreamCursor::ReadAbbrevRecord()  (in swift-frontend) + 81  [0x10da92001]
+    +                   !                     1 _platform_bzero$VARIANT$Haswell  (in libsystem_platform.dylib) + 80  [0x7ff80cc50e30]
+    +                   51 swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)  (in swift-frontend) + 209  [0x107443a61]
+    +                     51 swift::SerializedModuleLoaderBase::findModule(swift::Located<swift::Identifier>, llvm::SmallVectorImpl<char>*, llvm::SmallVectorImpl<char>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, bool, bool, bool&, bool&)  (in swift-frontend) + 2510  [0x10743ddee]
+    +                       51 swift::SerializedModuleLoaderBase::findModule(swift::Located<swift::Identifier>, llvm::SmallVectorImpl<char>*, llvm::SmallVectorImpl<char>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, bool, bool, bool&, bool&)::$_1::operator()(bool) const  (in swift-frontend) + 569  [0x10743e579]
+    +                         51 swift::ModuleInterfaceLoader::findModuleFilesInDirectory(swift::Located<swift::Identifier>, swift::SerializedModuleBaseName const&, llvm::SmallVectorImpl<char>*, llvm::SmallVectorImpl<char>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, bool, bool, bool)  (in swift-frontend) + 12338  [0x106f472a2]
+    +                           51 swift::ImplicitModuleInterfaceBuilder::buildSwiftModule(llvm::StringRef, bool, std::unique_ptr<llvm::MemoryBuffer>*, llvm::function_ref<void ()>, llvm::ArrayRef<std::basic_string<char>>)  (in swift-frontend) + 1942  [0x106f43936]
+    +                             51 llvm::CrashRecoveryContext::RunSafelyOnThread(llvm::function_ref<void ()>, unsigned int)  (in swift-frontend) + 158  [0x10db2648e]
+    +                               51 _pthread_join  (in libsystem_pthread.dylib) + 348  [0x7ff80cc1c6bb]
+    +                                 51 __ulock_wait  (in libsystem_kernel.dylib) + 10  [0x7ff80cbda316]
+    51 Thread_46215
+      51 thread_start  (in libsystem_pthread.dylib) + 15  [0x7ff80cc16857]
+        51 _pthread_start  (in libsystem_pthread.dylib) + 115  [0x7ff80cc1ae05]
+          51 llvm::thread::ThreadProxy<std::tuple<void (*)(void*), (anonymous namespace)::RunSafelyOnThreadInfo*>>(void*)  (in swift-frontend) + 15  [0x10db2651f]
+            51 RunSafelyOnThread_Dispatch(void*)  (in swift-frontend) + 38  [0x10db264f6]
+              51 llvm::function_ref<void ()>::callback_fn<swift::ImplicitModuleInterfaceBuilder::buildSwiftModuleInternal(llvm::StringRef, bool, std::unique_ptr<llvm::MemoryBuffer>*, llvm::ArrayRef<std::basic_string<char>>)::$_0>(long)  (in swift-frontend) + 747  [0x106f43f9b]
+                44 swift::InterfaceSubContextDelegateImpl::runInSubCompilerInstance(llvm::StringRef, llvm::StringRef, llvm::StringRef, llvm::StringRef, swift::SourceLoc, bool, llvm::function_ref<std::error_code (swift::SubCompilerInstanceInfo&)>)  (in swift-frontend) + 5100  [0x106f530dc]
+                ! 44 llvm::function_ref<std::error_code (swift::SubCompilerInstanceInfo&)>::callback_fn<swift::ImplicitModuleInterfaceBuilder::buildSwiftModuleInternal(llvm::StringRef, bool, std::unique_ptr<llvm::MemoryBuffer>*, llvm::ArrayRef<std::basic_string<char>>)::$_0::operator()() const::'lambda'(swift::SubCompilerInstanceInfo&)>(long, swift::SubCompilerInstanceInfo&)  (in swift-frontend) + 342  [0x106f44156]
+                !   42 swift::ExplicitModuleInterfaceBuilder::buildSwiftModuleFromInterface(llvm::StringRef, llvm::StringRef, bool, std::unique_ptr<llvm::MemoryBuffer>*, llvm::ArrayRef<std::basic_string<char>>, llvm::StringRef)  (in swift-frontend) + 7934  [0x106f425be]
+                !   : 42 swift::CompilerInstance::performSILProcessing(swift::SILModule*)  (in swift-frontend) + 1275  [0x106f359bb]
+                !   :   42 swift::runSILOptimizationPasses(swift::SILModule&)  (in swift-frontend) + 505  [0x107c08559]
+                !   :     42 swift::Evaluator::getResultUncached<swift::ExecuteSILPipelineRequest, swift::ExecuteSILPipelineRequest::OutputType swift::evaluateOrFatal<swift::ExecuteSILPipelineRequest>(swift::Evaluator&, swift::ExecuteSILPipelineRequest)::'lambda'()>(swift::ExecuteSILPipelineRequest const&, swift::ExecuteSILPipelineRequest::OutputType swift::evaluateOrFatal<swift::ExecuteSILPipelineRequest>(swift::Evaluator&, swift::ExecuteSILPipelineRequest)::'lambda'())  (in swift-frontend) + 458  [0x107bf10ca]
+                !   :       40 swift::SimpleRequest<swift::ExecuteSILPipelineRequest, std::tuple<> (swift::SILPipelineExecutionDescriptor), (swift::RequestFlags)1>::evaluateRequest(swift::ExecuteSILPipelineRequest const&, swift::Evaluator&)  (in swift-frontend) + 58  [0x107c264fa]
+                !   :       | 25 swift::SILPassManager::executePassPipelinePlan(swift::SILPassPipelinePlan const&)  (in swift-frontend) + 18955  [0x107bcef3b]
+                !   :       | + 13 SerializeSILPass::run()  (in swift-frontend) + 80  [0x107d7c660]
+                !   :       | + ! 10 swift::serializeToBuffers(llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>, swift::SerializationOptions const&, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, swift::SILModule const*)  (in swift-frontend) + 492  [0x106f6967c]
+                !   :       | + ! : 8 swift::serialization::Serializer::writeToStream(llvm::raw_ostream&, llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>, swift::SILModule const*, swift::SerializationOptions const&, swift::fine_grained_dependencies::SourceFileDepGraph const*)  (in swift-frontend) + 12016  [0x107404460]
+                !   :       | + ! : | 6 swift::serialization::Serializer::writeAST(llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>)  (in swift-frontend) + 11418  [0x1073f65fa]
+                !   :       | + ! : | + 3 swift::serialization::Serializer::writeAllDeclsAndTypes()  (in swift-frontend) + 60366  [0x1073e1f6e]
+                !   :       | + ! : | + ! 2 swift::serialization::Serializer::DeclSerializer::writeDeclAttribute(swift::Decl const*, swift::DeclAttribute const*)  (in swift-frontend) + 5119  [0x107406d6f]
+                !   :       | + ! : | + ! : 2 swift::Decl::getResolvedMacro(swift::CustomAttr*) const  (in swift-frontend) + 167  [0x10878c857]
+                !   :       | + ! : | + ! :   2 swift::Evaluator::getResultCached<swift::ResolveMacroRequest, swift::ResolveMacroRequest::OutputType swift::evaluateOrDefault<swift::ResolveMacroRequest>(swift::Evaluator&, swift::ResolveMacroRequest, swift::ResolveMacroRequest::OutputType)::'lambda'(), (void*)0>(swift::ResolveMacroRequest const&, swift::ResolveMacroRequest::OutputType swift::evaluateOrDefault<swift::ResolveMacroRequest>(swift::Evaluator&, swift::ResolveMacroRequest, swift::ResolveMacroRequest::OutputType)::'lambda'())  (in swift-frontend) + 245  [0x108291e65]
+                !   :       | + ! : | + ! :     2 swift::Evaluator::getResultUncached<swift::ResolveMacroRequest, swift::ResolveMacroRequest::OutputType swift::evaluateOrDefault<swift::ResolveMacroRequest>(swift::Evaluator&, swift::ResolveMacroRequest, swift::ResolveMacroRequest::OutputType)::'lambda'()>(swift::ResolveMacroRequest const&, swift::ResolveMacroRequest::OutputType swift::evaluateOrDefault<swift::ResolveMacroRequest>(swift::Evaluator&, swift::ResolveMacroRequest, swift::ResolveMacroRequest::OutputType)::'lambda'())  (in swift-frontend) + 733  [0x10829218d]
+                !   :       | + ! : | + ! :       2 swift::ResolveMacroRequest::evaluate(swift::Evaluator&, swift::UnresolvedMacroReference, swift::DeclContext*) const  (in swift-frontend) + 383  [0x1082c025f]
+                !   :       | + ! : | + ! :         2 swift::namelookup::lookupMacros(swift::DeclContext*, swift::DeclNameRef, swift::DeclNameRef, swift::optionset::OptionSet<swift::MacroRole, unsigned int>)  (in swift-frontend) + 647  [0x108960797]
+                !   :       | + ! : | + ! :           2 swift::evaluateOrDefault<swift::ModuleQualifiedLookupRequest>(swift::Evaluator&, swift::ModuleQualifiedLookupRequest, swift::ModuleQualifiedLookupRequest::OutputType)  (in swift-frontend) + 366  [0x108960dde]
+                !   :       | + ! : | + ! :             2 swift::Evaluator::getResultUncached<swift::ModuleQualifiedLookupRequest, swift::ModuleQualifiedLookupRequest::OutputType swift::evaluateOrDefault<swift::ModuleQualifiedLookupRequest>(swift::Evaluator&, swift::ModuleQualifiedLookupRequest, swift::ModuleQualifiedLookupRequest::OutputType)::'lambda'()>(swift::ModuleQualifiedLookupRequest const&, swift::ModuleQualifiedLookupRequest::OutputType swift::evaluateOrDefault<swift::ModuleQualifiedLookupRequest>(swift::Evaluator&, swift::ModuleQualifiedLookupRequest, swift::ModuleQualifiedLookupRequest::OutputType)::'lambda'())  (in swift-frontend) + 589  [0x10897400d]
+                !   :       | + ! : | + ! :               2 swift::SimpleRequest<swift::ModuleQualifiedLookupRequest, llvm::SmallVector<swift::ValueDecl*, 4u> (swift::DeclContext const*, swift::ModuleDecl*, swift::DeclNameRef, swift::NLOptions), (swift::RequestFlags)33>::evaluateRequest(swift::ModuleQualifiedLookupRequest const&, swift::Evaluator&)  (in swift-frontend) + 31  [0x1089828cf]
+                !   :       | + ! : | + ! :                 2 swift::ModuleQualifiedLookupRequest::evaluate(swift::Evaluator&, swift::DeclContext const*, swift::ModuleDecl*, swift::DeclNameRef, swift::NLOptions) const  (in swift-frontend) + 419  [0x108968253]
+                !   :       | + ! : | + ! :                   2 swift::namelookup::lookupInModule(swift::DeclContext const*, swift::DeclName, llvm::SmallVectorImpl<swift::ValueDecl*>&, swift::NLKind, swift::namelookup::ResolutionKind, swift::DeclContext const*, swift::SourceLoc, swift::NLOptions)  (in swift-frontend) + 394  [0x1089530aa]
+                !   :       | + ! : | + ! :                     2 swift::evaluateOrDefault<swift::LookupInModuleRequest>(swift::Evaluator&, swift::LookupInModuleRequest, swift::LookupInModuleRequest::OutputType)  (in swift-frontend) + 366  [0x1089532ae]
+                !   :       | + ! : | + ! :                       2 swift::Evaluator::getResultUncached<swift::LookupInModuleRequest, swift::LookupInModuleRequest::OutputType swift::evaluateOrDefault<swift::LookupInModuleRequest>(swift::Evaluator&, swift::LookupInModuleRequest, swift::LookupInModuleRequest::OutputType)::'lambda'()>(swift::LookupInModuleRequest const&, swift::LookupInModuleRequest::OutputType swift::evaluateOrDefault<swift::LookupInModuleRequest>(swift::Evaluator&, swift::LookupInModuleRequest, swift::LookupInModuleRequest::OutputType)::'lambda'())  (in swift-frontend) + 589  [0x108953f3d]
+                !   :       | + ! : | + ! :                         2 swift::SimpleRequest<swift::LookupInModuleRequest, llvm::SmallVector<swift::ValueDecl*, 4u> (swift::DeclContext const*, swift::DeclName, swift::NLKind, swift::namelookup::ResolutionKind, swift::DeclContext const*, swift::NLOptions), (swift::RequestFlags)33>::evaluateRequest(swift::LookupInModuleRequest const&, swift::Evaluator&)  (in swift-frontend) + 190  [0x10898289e]
+                !   :       | + ! : | + ! :                           2 (anonymous namespace)::ModuleNameLookup<(anonymous namespace)::LookupByName>::lookupInModule(llvm::SmallVectorImpl<swift::ValueDecl*>&, swift::DeclContext const*, swift::ImportPath::Access, swift::DeclContext const*, swift::NLOptions)  (in swift-frontend) + 1122  [0x108952c92]
+                !   :       | + ! : | + ! :                             2 swift::ModuleDecl::lookupValue(swift::DeclName, swift::NLKind, swift::optionset::OptionSet<swift::ModuleLookupFlags, unsigned int>, llvm::SmallVectorImpl<swift::ValueDecl*>&) const  (in swift-frontend) + 320  [0x108913570]
+                !   :       | + ! : | + ! :                               1 swift::ClangModuleUnit::lookupValue(swift::DeclName, swift::NLKind, swift::optionset::OptionSet<swift::ModuleLookupFlags, unsigned int>, llvm::SmallVectorImpl<swift::ValueDecl*>&) const  (in swift-frontend) + 271  [0x106dbe25f]
+                !   :       | + ! : | + ! :                               | 1 <deduplicated_symbol>  (in swift-frontend) + 769  [0x106b82201]
+                !   :       | + ! : | + ! :                               |   1 _platform_memcmp$VARIANT$Base  (in libsystem_platform.dylib) + 298  [0x7ff80cc571aa]
+                !   :       | + ! : | + ! :                               1 swift::ClangModuleUnit::lookupValue(swift::DeclName, swift::NLKind, swift::optionset::OptionSet<swift::ModuleLookupFlags, unsigned int>, llvm::SmallVectorImpl<swift::ValueDecl*>&) const  (in swift-frontend) + 339  [0x106dbe2a3]
+                !   :       | + ! : | + ! :                                 1 swift::ClangImporter::Implementation::lookupValue(swift::SwiftLookupTable&, swift::DeclName, swift::VisibleDeclConsumer&)  (in swift-frontend) + 976  [0x106dbe740]
+                !   :       | + ! : | + ! :                                   1 swift::SwiftLookupTable::lookup(swift::SerializedSwiftName, std::optional<std::pair<swift::SwiftLookupTable::ContextKind, llvm::StringRef>>)  (in swift-frontend) + 84  [0x106e99df4]
+                !   :       | + ! : | + ! :                                     1 swift::SwiftLookupTable::findOrCreate(llvm::DenseMap<swift::SerializedSwiftName, llvm::SmallVector<swift::SwiftLookupTable::FullTableEntry, 2u>, llvm::DenseMapInfo<swift::SerializedSwiftName, void>, llvm::detail::DenseMapPair<swift::SerializedSwiftName, llvm::SmallVector<swift::SwiftLookupTable::FullTableEntry, 2u>>>&, swift::SerializedSwiftName, llvm::function_ref<void (llvm::SmallVectorImpl<swift::SwiftLookupTable::FullTableEntry>&, swift::SwiftLookupTableReader&, swift::SerializedSwiftName)>)  (in swift-frontend) + 92  [0x106e9b18c]
+                !   :       | + ! : | + ! :                                       1 llvm::DenseMapBase<llvm::DenseMap<swift::SerializedSwiftName, llvm::SmallVector<swift::SwiftLookupTable::FullTableEntry, 2u>, llvm::DenseMapInfo<swift::SerializedSwiftName, void>, llvm::detail::DenseMapPair<swift::SerializedSwiftName, llvm::SmallVector<swift::SwiftLookupTable::FullTableEntry, 2u>>>, swift::SerializedSwiftName, llvm::SmallVector<swift::SwiftLookupTable::FullTableEntry, 2u>, llvm::DenseMapInfo<swift::SerializedSwiftName, void>, llvm::detail::DenseMapPair<swift::SerializedSwiftName, llvm::SmallVector<swift::SwiftLookupTable::FullTableEntry, 2u>>>::LookupBucketFor<swift::SerializedSwiftName>(swift::SerializedSwiftName const&, llvm::detail::DenseMapPair<swift::SerializedSwiftName, llvm::SmallVector<swift::SwiftLookupTable::FullTableEntry, 2u>> const*&) const  (in swift-frontend) + 667  [0x106ea4b6b]
+                !   :       | + ! : | + ! 1 swift::serialization::Serializer::DeclSerializer::writeDeclAttribute(swift::Decl const*, swift::DeclAttribute const*)  (in swift-frontend) + 33  [0x107405991]
+                !   :       | + ! : | + 2 swift::serialization::Serializer::writeAllDeclsAndTypes()  (in swift-frontend) + 63049  [0x1073e29e9]
+                !   :       | + ! : | + ! 1 swift::ASTVisitor<swift::serialization::Serializer::DeclSerializer, void, void, void, void, void, void>::visit(swift::Decl*)  (in swift-frontend) + 2762  [0x107409c2a]
+                !   :       | + ! : | + ! : 1 swift::ParamDecl::getDefaultValueStringRepresentation(llvm::SmallVectorImpl<char>&) const  (in swift-frontend) + 221  [0x1087b630d]
+                !   :       | + ! : | + ! :   1 swift::extractInlinableText(swift::ASTContext&, swift::ASTNode, llvm::SmallVectorImpl<char>&)  (in swift-frontend) + 165  [0x108908785]
+                !   :       | + ! : | + ! :     1 extractInlinableText(astContext:sourceText:)  (in swift-frontend) + 160  [0x106942130]
+                !   :       | + ! : | + ! :       1 SyntaxProtocol.removingInactive<A>(in:retainFeatureCheckIfConfigs:)  (in lib_CompilerSwiftIfConfig.dylib) + 141  [0x111d0cc5d]
+                !   :       | + ! : | + ! :         1 SyntaxRewriter.rewrite<A>(_:detach:)  (in lib_CompilerSwiftSyntax.dylib) + 65  [0x114080e51]
+                !   :       | + ! : | + ! :           1 SyntaxRewriter.dispatchVisit(_:)  (in lib_CompilerSwiftSyntax.dylib) + 29583  [0x11408b32f]
+                !   :       | + ! : | + ! :             1 SyntaxRewriter.visit(_:)  (in lib_CompilerSwiftSyntax.dylib) + 9  [0x114082cf9]
+                !   :       | + ! : | + ! :               1 SyntaxRewriter.visitChildren(_:)  (in lib_CompilerSwiftSyntax.dylib) + 933  [0x11408ca75]
+                !   :       | + ! : | + ! :                 1 SyntaxRewriter.dispatchVisit(_:)  (in lib_CompilerSwiftSyntax.dylib) + 32127  [0x11408bd1f]
+                !   :       | + ! : | + ! :                   1 specialized ActiveSyntaxRewriter.dropInactive<A>(_:elementAsIfConfig:)  (in lib_CompilerSwiftIfConfig.dylib) + 858  [0x111d0d22a]
+                !   :       | + ! : | + ! :                     1 SyntaxRewriter.rewrite<A>(_:detach:)  (in lib_CompilerSwiftSyntax.dylib) + 118  [0x114080e86]
+                !   :       | + ! : | + ! :                       1 closure #1 in SyntaxRewriter.rewrite<A>(_:detach:)  (in lib_CompilerSwiftSyntax.dylib) + 192  [0x114080f70]
+                !   :       | + ! : | + ! :                         1 Syntax.replacingSelf(_:rawNodeArena:allocationArena:)  (in lib_CompilerSwiftSyntax.dylib) + 261  [0x113f5de85]
+                !   :       | + ! : | + ! :                           1 Syntax.replacingSelf(_:rawNodeArena:allocationArena:)  (in lib_CompilerSwiftSyntax.dylib) + 229  [0x113f5de65]
+                !   :       | + ! : | + ! :                             1 RawSyntaxLayoutView.replacingChild(at:with:arena:)  (in lib_CompilerSwiftSyntax.dylib) + 52  [0x113f94d64]
+                !   :       | + ! : | + ! :                               1 specialized static RawSyntax.makeLayout(kind:uninitializedCount:isMaximumNestingLevelOverflow:arena:initializingWith:)  (in lib_CompilerSwiftSyntax.dylib) + 606  [0x113f8e93e]
+                !   :       | + ! : | + ! :                                 1 swift_beginAccess  (in libswiftCore.dylib) + 46  [0x7ff81eea861e]
+                !   :       | + ! : | + ! :                                   1 swift::runtime::SwiftTLSContext::get()  (in libswiftCore.dylib) + 9  [0x7ff81ef02409]
+                !   :       | + ! : | + ! 1 swift::ASTVisitor<swift::serialization::Serializer::DeclSerializer, void, void, void, void, void, void>::visit(swift::Decl*)  (in swift-frontend) + 29831  [0x1074105e7]
+                !   :       | + ! : | + 1 swift::serialization::Serializer::writeAllDeclsAndTypes()  (in swift-frontend) + 91641  [0x1073e9999]
+                !   :       | + ! : | +   1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x7ff80cbd437b]
+                !   :       | + ! : | +     1 nanov2_malloc_type  (in libsystem_malloc.dylib) + 117  [0x7ff80ca482bf]
+                !   :       | + ! : | 1 swift::serialization::Serializer::writeAST(llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>)  (in swift-frontend) + 1612  [0x1073f3fac]
+                !   :       | + ! : | + 1 swift::Evaluator::getResultCached<swift::AllMembersRequest, swift::AllMembersRequest::OutputType swift::evaluateOrDefault<swift::AllMembersRequest>(swift::Evaluator&, swift::AllMembersRequest, swift::AllMembersRequest::OutputType)::'lambda'(), (void*)0>(swift::AllMembersRequest const&, swift::AllMembersRequest::OutputType swift::evaluateOrDefault<swift::AllMembersRequest>(swift::Evaluator&, swift::AllMembersRequest, swift::AllMembersRequest::OutputType)::'lambda'())  (in swift-frontend) + 1533  [0x10888c85d]
+                !   :       | + ! : | +   1 evaluateMembersRequest(swift::IterableDeclContext*, (anonymous namespace)::MembersRequestKind)  (in swift-frontend) + 269  [0x10821e17d]
+                !   :       | + ! : | +     1 swift::IterableDeclContext::getLocalConformances(swift::ConformanceLookupKind) const  (in swift-frontend) + 3710  [0x1089a6b0e]
+                !   :       | + ! : | +       1 findSynthesizedConformances(swift::DeclContext const*)::$_0::operator()(swift::KnownProtocolKind) const  (in swift-frontend) + 345  [0x1089a7b59]
+                !   :       | + ! : | +         1 swift::lookupConformance(swift::Type, swift::ProtocolDecl*, bool)  (in swift-frontend) + 438  [0x10877b416]
+                !   :       | + ! : | +           1 swift::ProtocolConformanceRef::forEachMissingConformance(llvm::function_ref<bool (swift::BuiltinProtocolConformance*)>) const  (in swift-frontend) + 442  [0x1089b24ba]
+                !   :       | + ! : | +             1 swift::ProtocolConformance::getSubstitutionMap() const  (in swift-frontend) + 187  [0x1089a1dab]
+                !   :       | + ! : | +               1 swift::SubstitutionMap::get(swift::GenericSignature, swift::InFlightSubstitution&)  (in swift-frontend) + 328  [0x108a33268]
+                !   :       | + ! : | +                 1 swift::SubstitutionMap::get(swift::GenericSignature, llvm::ArrayRef<swift::Type>, swift::InFlightSubstitution&)  (in swift-frontend) + 208  [0x108a33360]
+                !   :       | + ! : | +                   1 swift::Type::subst(swift::InFlightSubstitution&) const  (in swift-frontend) + 1106  [0x108a694a2]
+                !   :       | + ! : | +                     1 swift::TypeTransform<(anonymous namespace)::TypeSubstituter>::doIt(swift::Type, swift::TypePosition)  (in swift-frontend) + 3077  [0x108a6a775]
+                !   :       | + ! : | 1 swift::serialization::Serializer::writeAST(llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>)  (in swift-frontend) + 8663  [0x1073f5b37]
+                !   :       | + ! : 1 swift::serialization::Serializer::writeToStream(llvm::raw_ostream&, llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>, swift::SILModule const*, swift::SerializationOptions const&, swift::fine_grained_dependencies::SourceFileDepGraph const*)  (in swift-frontend) + 12008  [0x107404458]
+                !   :       | + ! : | 1 swift::serialization::Serializer::writeSIL(swift::SILModule const*, bool, bool)  (in swift-frontend) + 746  [0x10744dfca]
+                !   :       | + ! : |   1 (anonymous namespace)::SILSerializer::writeSILBlock(swift::SILModule const*)  (in swift-frontend) + 22040  [0x107453f28]
+                !   :       | + ! : |     1 (anonymous namespace)::SILSerializer::processWorklists()  (in swift-frontend) + 178  [0x107455c92]
+                !   :       | + ! : |       1 (anonymous namespace)::SILSerializer::writeSILFunction(swift::SILFunction const&, bool)  (in swift-frontend) + 7909  [0x107458a05]
+                !   :       | + ! : |         1 llvm::ReversePostOrderTraversal<swift::SILFunction*, llvm::GraphTraits<swift::SILFunction*>>::Initialize(swift::SILFunction* const&)  (in swift-frontend) + 121  [0x10746d179]
+                !   :       | + ! : 1 swift::serialization::Serializer::writeToStream(llvm::raw_ostream&, llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>, swift::SILModule const*, swift::SerializationOptions const&, swift::fine_grained_dependencies::SourceFileDepGraph const*)  (in swift-frontend) + 12519  [0x107404657]
+                !   :       | + ! :   1 llvm::raw_ostream::write(char const*, unsigned long)  (in swift-frontend) + 428  [0x10dbb324c]
+                !   :       | + ! :     1 llvm::raw_svector_ostream::write_impl(char const*, unsigned long)  (in swift-frontend) + 76  [0x10dbb55ac]
+                !   :       | + ! :       1 _platform_memmove$VARIANT$Haswell  (in libsystem_platform.dylib) + 41  [0x7ff80cc50969]
+                !   :       | + ! 3 swift::serializeToBuffers(llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>, swift::SerializationOptions const&, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, std::unique_ptr<llvm::MemoryBuffer>*, swift::SILModule const*)  (in swift-frontend) + 777  [0x106f69799]
+                !   :       | + !   3 swift::withOutputPath(swift::DiagnosticEngine&, llvm::vfs::OutputBackend&, llvm::StringRef, llvm::function_ref<bool (llvm::raw_pwrite_stream&)>)  (in swift-frontend) + 716  [0x106a9af2c]
+                !   :       | + !     3 llvm::vfs::OutputFile::keep()  (in swift-frontend) + 51  [0x10dba2813]
+                !   :       | + !       2 (anonymous namespace)::OnDiskOutputFile::keep()  (in swift-frontend) + 3108  [0x10dba1424]
+                !   :       | + !       | 2 llvm::sys::fs::mapped_file_region::mapped_file_region(int, llvm::sys::fs::mapped_file_region::mapmode, unsigned long, unsigned long long, std::error_code&)  (in swift-frontend) + 79  [0x10dbc6f5f]
+                !   :       | + !       |   2 mmap  (in libsystem_kernel.dylib) + 87  [0x7ff80cbd962e]
+                !   :       | + !       |     2 __mmap  (in libsystem_kernel.dylib) + 10  [0x7ff80cbd9682]
+                !   :       | + !       1 (anonymous namespace)::OnDiskOutputFile::keep()  (in swift-frontend) + 3322  [0x10dba14fa]
+                !   :       | + !         1 _platform_memcmp$VARIANT$Base  (in libsystem_platform.dylib) + 208  [0x7ff80cc57150]
+                !   :       | + 4 (anonymous namespace)::LetPropertiesOptPass::run()  (in swift-frontend) + 542,424  [0x1079c74ce,0x1079c7458]
+                !   :       | + 2 SerializeSILPass::run()  (in swift-frontend) + 530  [0x107d7c822]
+                !   :       | + ! 2 swift::SILInstruction::getAllOperands()  (in swift-frontend) + 15,19  [0x1074cb74f,0x1074cb753]
+                !   :       | + 2 SerializeSILPass::run()  (in swift-frontend) + 10294  [0x107d7ee46]
+                !   :       | + ! 1 swift::FunctionAnalysisBase<swift::DominanceInfo>::invalidate(swift::SILFunction*, swift::SILAnalysis::InvalidationKind)  (in swift-frontend) + 177  [0x10786e211]
+                !   :       | + ! 1 swift::FunctionAnalysisBase<swift::PostOrderFunctionInfo>::invalidate(swift::SILFunction*, swift::SILAnalysis::InvalidationKind)  (in swift-frontend) + 49  [0x107871871]
+                !   :       | + !   1 llvm::DenseMapBase<llvm::DenseMap<swift::SILFunction*, std::unique_ptr<swift::PostOrderFunctionInfo>, llvm::DenseMapInfo<swift::SILFunction*, void>, llvm::detail::DenseMapPair<swift::SILFunction*, std::unique_ptr<swift::PostOrderFunctionInfo>>>, swift::SILFunction*, std::unique_ptr<swift::PostOrderFunctionInfo>, llvm::DenseMapInfo<swift::SILFunction*, void>, llvm::detail::DenseMapPair<swift::SILFunction*, std::unique_ptr<swift::PostOrderFunctionInfo>>>::erase(swift::SILFunction* const&)  (in swift-frontend) + 51  [0x107871df3]
+                !   :       | + 1 (anonymous namespace)::DeadFunctionAndGlobalEliminationPass::run()  (in swift-frontend) + 11704  [0x1079bcfd8]
+                !   :       | + ! 1 swift::SILFunction::isPossiblyUsedExternally() const  (in swift-frontend) + 16  [0x10749a1d0]
+                !   :       | + 1 (anonymous namespace)::DeadFunctionAndGlobalEliminationPass::run()  (in swift-frontend) + 26592  [0x1079c0a00]
+                !   :       | + ! 1 swift::FunctionAnalysisBase<swift::PostDominanceInfo>::notifyWillDeleteFunction(swift::SILFunction*)  (in swift-frontend) + 83  [0x10786edf3]
+                !   :       | + !   1 <deduplicated_symbol>  (in swift-frontend) + 156  [0x10786f47c]
+                !   :       | + !     1 free_small  (in libsystem_malloc.dylib) + 800  [0x7ff80ca275a9]
+                !   :       | + !       1 small_free_list_remove_ptr_no_clear  (in libsystem_malloc.dylib) + 696  [0x7ff80ca29fbb]
+                !   :       | + 1 (anonymous namespace)::SILLinker::run()  (in swift-frontend) + 260  [0x107d64a64]
+                !   :       | + ! 1 swift::SILLinkerVisitor::processFunction(swift::SILFunction*)  (in swift-frontend) + 131  [0x10747a903]
+                !   :       | + !   1 swift::SILLinkerVisitor::process()  (in swift-frontend) + 372  [0x10747aaf4]
+                !   :       | + 1 SerializeSILPass::run()  (in swift-frontend) + 3416  [0x107d7d368]
+                !   :       | 12 swift::SILPassManager::executePassPipelinePlan(swift::SILPassPipelinePlan const&)  (in swift-frontend) + 251  [0x107bca62b]
+                !   :       | + 10 swift::SILPassManager::runFunctionPasses(unsigned int, unsigned int)  (in swift-frontend) + 3899  [0x107bd365b]
+                !   :       | + ! 1 (anonymous namespace)::ConstantPropagation::run()  (in swift-frontend) + 333  [0x107aaa02d]
+                !   :       | + ! : 1 swift::ConstantFolder::initializeWorklist(swift::SILFunction&)  (in swift-frontend) + 2685  [0x107db335d]
+                !   :       | + ! 1 (anonymous namespace)::ConstantPropagation::run()  (in swift-frontend) + 341  [0x107aaa035]
+                !   :       | + ! : 1 swift::ConstantFolder::processWorkList()  (in swift-frontend) + 7313  [0x107db5881]
+                !   :       | + ! :   1 swift::SILInstruction::getResultsImpl() const  (in swift-frontend) + 0  [0x1074cbf10]
+                !   :       | + ! 1 (anonymous namespace)::DCEPass::run()  (in swift-frontend) + 4672  [0x107cbf320]
+                !   :       | + ! 1 (anonymous namespace)::OwnershipModelEliminator::run()  (in swift-frontend) + 697  [0x107bc3ba9]
+                !   :       | + ! : 1 stripOwnership(swift::SILFunction&)  (in swift-frontend) + 1138  [0x107bc42b2]
+                !   :       | + ! 1 (anonymous namespace)::SILCombine::run()  (in swift-frontend) + 573  [0x107c3038d]
+                !   :       | + ! : 1 swift::SILCombiner::doOneIteration(swift::SILFunction&, unsigned int)  (in swift-frontend) + 1444  [0x107c2aac4]
+                !   :       | + ! :   1 swift::SILCombiner::processInstruction(swift::SILInstruction*, swift::SILCombineCanonicalize&, bool&)  (in swift-frontend) + 312  [0x107c2ada8]
+                !   :       | + ! :     1 swift::SILCombiner::visitAllocStackInst(swift::AllocStackInst*)  (in swift-frontend) + 907  [0x107c498eb]
+                !   :       | + ! :       1 swift::SILType::isMoveOnly(bool) const  (in swift-frontend) + 399  [0x10756513f]
+                !   :       | + ! :         1 conformsToInvertible(swift::CanType, swift::InvertibleProtocolKind)  (in swift-frontend) + 295  [0x10877db57]
+                !   :       | + ! :           1 swift::lookupConformance(swift::Type, swift::ProtocolDecl*, bool)  (in swift-frontend) + 341  [0x10877b3b5]
+                !   :       | + ! :             1 swift::Evaluator::getResultUncached<swift::LookupConformanceInModuleRequest, swift::LookupConformanceInModuleRequest::OutputType swift::evaluateOrDefault<swift::LookupConformanceInModuleRequest>(swift::Evaluator&, swift::LookupConformanceInModuleRequest, swift::LookupConformanceInModuleRequest::OutputType)::'lambda'()>(swift::LookupConformanceInModuleRequest const&, swift::LookupConformanceInModuleRequest::OutputType swift::evaluateOrDefault<swift::LookupConformanceInModuleRequest>(swift::Evaluator&, swift::LookupConformanceInModuleRequest, swift::LookupConformanceInModuleRequest::OutputType)::'lambda'())  (in swift-frontend) + 75  [0x10877e64b]
+                !   :       | + ! :               1 llvm::SetVector<swift::ActiveRequest, llvm::SmallVector<swift::ActiveRequest, 0u>, llvm::DenseSet<swift::ActiveRequest, llvm::DenseMapInfo<swift::ActiveRequest, void>>, 0u>::insert(swift::ActiveRequest const&)  (in swift-frontend) + 30  [0x1088c9d4e]
+                !   :       | + ! :                 1 llvm::DenseMapBase<llvm::DenseMap<swift::ActiveRequest, llvm::detail::DenseSetEmpty, llvm::DenseMapInfo<swift::ActiveRequest, void>, llvm::detail::DenseSetPair<swift::ActiveRequest>>, swift::ActiveRequest, llvm::detail::DenseSetEmpty, llvm::DenseMapInfo<swift::ActiveRequest, void>, llvm::detail::DenseSetPair<swift::ActiveRequest>>::LookupBucketFor<swift::ActiveRequest>(swift::ActiveRequest const&, llvm::detail::DenseSetPair<swift::ActiveRequest> const*&) const  (in swift-frontend) + 62  [0x107ead5fe]
+                !   :       | + ! :                   1 swift::hash_value(swift::AnyRequestBase<swift::ActiveRequest> const&)  (in swift-frontend) + 69  [0x107ead7e5]
+                !   :       | + ! :                     1 swift::AnyRequestVTable::Impl<swift::LookupConformanceInModuleRequest>::getHash(void const*)  (in swift-frontend) + 289  [0x10877e1c1]
+                !   :       | + ! :                       1 llvm::hashing::detail::hash_short(char const*, unsigned long, unsigned long long)  (in swift-frontend) + 132  [0x106a961f4]
+                !   :       | + ! 1 (anonymous namespace)::SILPerformanceInlinerPass::run()  (in swift-frontend) + 1136  [0x107ceacc0]
+                !   :       | + ! : 1 std::vector<ShortestPathAnalysis::BlockInfo>::__append(unsigned long)  (in swift-frontend) + 163  [0x107cee093]
+                !   :       | + ! :   1 operator new(unsigned long)  (in libc++abi.dylib) + 52  [0x7ff80cbd437b]
+                !   :       | + ! :     1 DYLD-STUB$$malloc_type_malloc  (in libc++abi.dylib) + 0  [0x7ff80cbd456c]
+                !   :       | + ! 1 (anonymous namespace)::SILPerformanceInlinerPass::run()  (in swift-frontend) + 5060  [0x107cebc14]
+                !   :       | + ! : 1 ConstantTracker::trackInst(swift::SILInstruction*)  (in swift-frontend) + 216  [0x107e3e728]
+                !   :       | + ! :   1 ConstantTracker::getMemoryContent(swift::SILValue)  (in swift-frontend) + 26  [0x107e3e90a]
+                !   :       | + ! :     1 <deduplicated_symbol>  (in swift-frontend) + 142  [0x106c71dce]
+                !   :       | + ! 1 (anonymous namespace)::SILPerformanceInlinerPass::run()  (in swift-frontend) + 5795  [0x107cebef3]
+                !   :       | + ! : 1 (anonymous namespace)::SILPerformanceInliner::isProfitableToInline(swift::FullApplySite, ShortestPathAnalysis::Weight, ConstantTracker&, int&, llvm::DenseMap<swift::SILBasicBlock*, unsigned long long, llvm::DenseMapInfo<swift::SILBasicBlock*, void>, llvm::detail::DenseMapPair<swift::SILBasicBlock*, unsigned long long>> const&)  (in swift-frontend) + 874  [0x107cee92a]
+                !   :       | + ! :   1 swift::isPureCall(swift::FullApplySite, swift::BasicCalleeAnalysis*)  (in swift-frontend) + 63  [0x107e422af]
+                !   :       | + ! :     1 closure #2 in static CalleeAnalysis.register()  (in swift-frontend) + 54  [0x106812046]
+                !   :       | + ! :       1 ApplySite.callee.getter  (in swift-frontend) + 23  [0x1067bfe97]
+                !   :       | + ! :         1 OperandArray.subscript.getter  (in swift-frontend) + 88  [0x1067a3578]
+                !   :       | + ! 1 closure #1 in variable initialization expression of computeEscapeEffects  (in swift-frontend) + 846  [0x10684429e]
+                !   :       | + ! : 1 specialized Set.contains(_:)  (in swift-frontend) + 5  [0x1067fcc05]
+                !   :       | + ! 1 closure #1 in variable initialization expression of deinitDevirtualizer  (in swift-frontend) + 4  [0x1068499a4]
+                !   :       | + 1 swift::SILPassManager::runFunctionPasses(unsigned int, unsigned int)  (in swift-frontend) + 301  [0x107bd284d]
+                !   :       | + ! 1 swift::BottomUpFunctionOrder::getFunctions()  (in swift-frontend) + 571  [0x1079a522b]
+                !   :       | + !   1 swift::BottomUpFunctionOrder::DFS(swift::SILFunction*)  (in swift-frontend) + 552  [0x10788b0f8]
+                !   :       | + 1 swift::SILPassManager::runFunctionPasses(unsigned int, unsigned int)  (in swift-frontend) + 3950  [0x107bd368e]
+                !   :       | +   1 swift::SwiftPassInvocation::endTransformFunction()  (in swift-frontend) + 127  [0x107bd534f]
+                !   :       | +     1 swift::BasicCalleeAnalysis::invalidate(swift::SILFunction*, swift::SILAnalysis::InvalidationKind)  (in swift-frontend) + 1  [0x107872181]
+                !   :       | 3 swift::SILPassManager::executePassPipelinePlan(swift::SILPassPipelinePlan const&)  (in swift-frontend) + 13979  [0x107bcdbcb]
+                !   :       |   2 swift::SILPassManager::runFunctionPasses(unsigned int, unsigned int)  (in swift-frontend) + 3899  [0x107bd365b]
+                !   :       |   ! 1 closure #1 in variable initialization expression of computeEscapeEffects  (in swift-frontend) + 981  [0x106844325]
+                !   :       |   ! : 1 specialized ProjectedValue.isEscaping<A, B>(using:initialWalkingDirection:complexityBudget:_:)  (in swift-frontend) + 402  [0x1067f9032]
+                !   :       |   ! :   1 specialized AddressDefUseWalker.walkDownUses(ofAddress:path:)  (in swift-frontend) + 203  [0x1068e38eb]
+                !   :       |   ! :     1 isOperandOfRecursiveCall(_:)  (in swift-frontend) + 72  [0x1068448b8]
+                !   :       |   ! :       1 ApplySite.referencedFunction.getter  (in swift-frontend) + 11  [0x1067a372b]
+                !   :       |   ! :         1 Operand.value.getter  (in swift-frontend) + 25  [0x1067a35a9]
+                !   :       |   ! :           1 BridgedValue::getKind() const  (in swift-frontend) + 11  [0x10760276b]
+                !   :       |   ! 1 closure #1 in variable initialization expression of computeSideEffects  (in swift-frontend) + 1407  [0x106844fcf]
+                !   :       |   !   1 BridgedInstruction::mayBeDeinitBarrierNotConsideringSideEffects() const  (in swift-frontend) + 7  [0x1076036d7]
+                !   :       |   1 swift::SILPassManager::runFunctionPasses(unsigned int, unsigned int)  (in swift-frontend) + 3755  [0x107bd35cb]
+                !   :       |     1 std::chrono::system_clock::now()  (in libc++.1.dylib) + 19  [0x7ff80cb4dd43]
+                !   :       |       1 clock_gettime  (in libsystem_c.dylib) + 125  [0x7ff80cac90e1]
+                !   :       |         1 gettimeofday  (in libsystem_c.dylib) + 45  [0x7ff80cac0f41]
+                !   :       |           1 __commpage_gettimeofday_internal  (in libsystem_kernel.dylib) + 36  [0x7ff80cbda3d3]
+                !   :       |             1 mach_absolute_time  (in libsystem_kernel.dylib) + 56  [0x7ff80cbd8ee6]
+                !   :       2 swift::SimpleRequest<swift::ExecuteSILPipelineRequest, std::tuple<> (swift::SILPipelineExecutionDescriptor), (swift::RequestFlags)1>::evaluateRequest(swift::ExecuteSILPipelineRequest const&, swift::Evaluator&)  (in swift-frontend) + 66  [0x107c26502]
+                !   :         2 swift::SILPassManager::~SILPassManager()  (in swift-frontend) + 504  [0x107bd45e8]
+                !   :           1 swift::DeadEndBlocksAnalysis::~DeadEndBlocksAnalysis()  (in swift-frontend) + 42  [0x107881aba]
+                !   :           + 1 llvm::DenseMapBase<llvm::DenseMap<swift::SILFunction*, std::unique_ptr<swift::DeadEndBlocks>, llvm::DenseMapInfo<swift::SILFunction*, void>, llvm::detail::DenseMapPair<swift::SILFunction*, std::unique_ptr<swift::DeadEndBlocks>>>, swift::SILFunction*, std::unique_ptr<swift::DeadEndBlocks>, llvm::DenseMapInfo<swift::SILFunction*, void>, llvm::detail::DenseMapPair<swift::SILFunction*, std::unique_ptr<swift::DeadEndBlocks>>>::clear()  (in swift-frontend) + 168  [0x107882088]
+                !   :           1 swift::IVAnalysis::~IVAnalysis()  (in swift-frontend) + 42  [0x10786f8da]
+                !   :             1 llvm::DenseMapBase<llvm::DenseMap<swift::SILFunction*, std::unique_ptr<swift::IVInfo>, llvm::DenseMapInfo<swift::SILFunction*, void>, llvm::detail::DenseMapPair<swift::SILFunction*, std::unique_ptr<swift::IVInfo>>>, swift::SILFunction*, std::unique_ptr<swift::IVInfo>, llvm::DenseMapInfo<swift::SILFunction*, void>, llvm::detail::DenseMapPair<swift::SILFunction*, std::unique_ptr<swift::IVInfo>>>::clear()  (in swift-frontend) + 182  [0x10786fe66]
+                !   :               1 swift::SCCVisitor<swift::IVInfo>::~SCCVisitor()  (in swift-frontend) + 148  [0x1078700d4]
+                !   :                 1 _nanov2_free  (in libsystem_malloc.dylib) + 443  [0x7ff80ca48696]
+                !   2 swift::ExplicitModuleInterfaceBuilder::buildSwiftModuleFromInterface(llvm::StringRef, llvm::StringRef, bool, std::unique_ptr<llvm::MemoryBuffer>*, llvm::ArrayRef<std::basic_string<char>>, llvm::StringRef)  (in swift-frontend) + 8130  [0x106f42682]
+                !     1 swift::SILModule::~SILModule()  (in swift-frontend) + 2395  [0x10750a7eb]
+                !     | 1 swift::SILInstruction::destroy(swift::SILInstruction*)  (in swift-frontend) + 19  [0x1074cede3]
+                !     1 swift::SILModule::~SILModule()  (in swift-frontend) + 4638  [0x10750b0ae]
+                !       1 free_small  (in libsystem_malloc.dylib) + 1076  [0x7ff80ca276bd]
+                !         1 small_madvise_free_range_no_lock  (in libsystem_malloc.dylib) + 445  [0x7ff80ca3e47e]
+                !           1 mvm_madvise_free  (in libsystem_malloc.dylib) + 13  [0x7ff80ca2d791]
+                !             1 mvm_madvise_free_plat  (in libsystem_malloc.dylib) + 90  [0x7ff80ca3f1a0]
+                !               1 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 9  [0x7ff80ca3f12c]
+                !                 1 madvise  (in libsystem_kernel.dylib) + 10  [0x7ff80cbdae5a]
+                7 swift::InterfaceSubContextDelegateImpl::runInSubCompilerInstance(llvm::StringRef, llvm::StringRef, llvm::StringRef, llvm::StringRef, swift::SourceLoc, bool, llvm::function_ref<std::error_code (swift::SubCompilerInstanceInfo&)>)  (in swift-frontend) + 5167  [0x106f5311f]
+                  7 swift::CompilerInstance::~CompilerInstance()  (in swift-frontend) + 543  [0x106f25ccf]
+                    4 swift::ASTContext::~ASTContext()  (in swift-frontend) + 9789  [0x1085f6bfd]
+                    : 3 swift::rewriting::RewriteContext::~RewriteContext()  (in swift-frontend) + 860  [0x108a00b5c]
+                    : | 2 swift::rewriting::RewriteSystem::~RewriteSystem()  (in swift-frontend) + 1045  [0x108a0a435]
+                    : | + 2 free_small  (in libsystem_malloc.dylib) + 1076  [0x7ff80ca276bd]
+                    : | +   2 small_madvise_free_range_no_lock  (in libsystem_malloc.dylib) + 445  [0x7ff80ca3e47e]
+                    : | +     2 mvm_madvise_free  (in libsystem_malloc.dylib) + 13  [0x7ff80ca2d791]
+                    : | +       2 mvm_madvise_free_plat  (in libsystem_malloc.dylib) + 90  [0x7ff80ca3f1a0]
+                    : | +         2 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 9  [0x7ff80ca3f12c]
+                    : | +           2 madvise  (in libsystem_kernel.dylib) + 10  [0x7ff80cbdae5a]
+                    : | 1 swift::rewriting::RewriteSystem::~RewriteSystem()  (in swift-frontend) + 984  [0x108a0a3f8]
+                    : |   1 _nanov2_free  (in libsystem_malloc.dylib) + 41  [0x7ff80ca48504]
+                    : 1 swift::rewriting::RewriteContext::~RewriteContext()  (in swift-frontend) + 839  [0x108a00b47]
+                    1 swift::ASTContext::~ASTContext()  (in swift-frontend) + 10170  [0x1085f6d7a]
+                    : 1 swift::ASTContext::Implementation::Arena::~Arena()  (in swift-frontend) + 496  [0x108621690]
+                    :   1 _szone_free  (in libsystem_malloc.dylib) + 579  [0x7ff80ca3b34e]
+                    :     1 free_large  (in libsystem_malloc.dylib) + 387  [0x7ff80ca2e782]
+                    :       1 mvm_deallocate_plat  (in libsystem_malloc.dylib) + 39  [0x7ff80ca3f09c]
+                    :         1 mach_vm_deallocate  (in libsystem_kernel.dylib) + 67  [0x7ff80cbda12b]
+                    :           1 _kernelrpc_mach_vm_deallocate_trap  (in libsystem_kernel.dylib) + 10  [0x7ff80cbd89be]
+                    1 swift::ASTContext::~ASTContext()  (in swift-frontend) + 11791  [0x1085f73cf]
+                    : 1 swift::ClangImporter::~ClangImporter()  (in swift-frontend) + 31  [0x106da28df]
+                    :   1 swift::ClangImporter::Implementation::~Implementation()  (in swift-frontend) + 14  [0x106db959e]
+                    :     1 swift::ClangImporter::Implementation::~Implementation()  (in swift-frontend) + 2349  [0x106db929d]
+                    :       1 clang::SourceManager::~SourceManager()  (in swift-frontend) + 215  [0x10cc748e7]
+                    :         1 (anonymous namespace)::MemoryBufferMMapFile<llvm::MemoryBuffer>::~MemoryBufferMMapFile()  (in swift-frontend) + 44  [0x10db57aac]
+                    :           1 __munmap  (in libsystem_kernel.dylib) + 10  [0x7ff80cbdb8ba]
+                    1 swift::ASTContext::~ASTContext()  (in swift-frontend) + 17758  [0x1085f8b1e]
+                      1 std::__function::__func<swift::evaluator::PerRequestCache swift::evaluator::PerRequestCache::makeEmpty<swift::ProtocolDependenciesRequest>()::'lambda'(void*), void (void*)>::operator()(void*&&)  (in swift-frontend) + 27  [0x108837d5b]
+                        1 free_small  (in libsystem_malloc.dylib) + 1076  [0x7ff80ca276bd]
+                          1 small_madvise_free_range_no_lock  (in libsystem_malloc.dylib) + 445  [0x7ff80ca3e47e]
+                            1 mvm_madvise_free  (in libsystem_malloc.dylib) + 13  [0x7ff80ca2d791]
+                              1 mvm_madvise_free_plat  (in libsystem_malloc.dylib) + 90  [0x7ff80ca3f1a0]
+                                1 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 9  [0x7ff80ca3f12c]
+                                  1 madvise  (in libsystem_kernel.dylib) + 10  [0x7ff80cbdae5a]
+
+Total number in stack (recursive counted multiple, when >=5):
+        5       swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)  (in swift-frontend) + 556  [0x107443bbc]
+
+Sort by top of stack, same collapsed (when >= 5):
+        __semwait_signal  (in libsystem_kernel.dylib)        201
+        __ulock_wait  (in libsystem_kernel.dylib)        51
+
+Binary Images:
+       0x106794000 -        0x10f20e02f +swift-frontend (6.1.2.1.2) <9B7F5FF9-FE7C-3100-89A4-DB5748F30C7C> /Library/Developer/CommandLineTools/usr/bin/swift-frontend
+       0x1119ad000 -        0x1119d25df +lib_CompilerSwiftSyntaxMacroExpansion.dylib (6.1.2.1.2) <D4A4DDB1-2028-3821-BA3B-C93D035ABA31> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftSyntaxMacroExpansion.dylib
+       0x111a47000 -        0x111a5563f +lib_CompilerSwiftIDEUtils.dylib (6.1.2.1.2) <974A12D7-3865-318C-8CBB-BDED6D88FE75> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftIDEUtils.dylib
+       0x111a91000 -        0x111aa4a6f +lib_CompilerSwiftDiagnostics.dylib (6.1.2.1.2) <B782FE8D-E903-3E92-A640-927E80612370> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftDiagnostics.dylib
+       0x111ad3000 -        0x111ada80f +lib_CompilerSwiftSyntaxMacros.dylib (6.1.2.1.2) <9F245C81-4BD4-362A-B361-139127FE0533> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftSyntaxMacros.dylib
+       0x111bc8000 -        0x111be3d97 +lib_CompilerSwiftOperators.dylib (6.1.2.1.2) <68C5867B-7818-3A9A-903F-723EA0D894B2> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftOperators.dylib
+       0x111c34000 -        0x111c73787 +lib_CompilerSwiftCompilerPluginMessageHandling.dylib (6.1.2.1.2) <3DF839E6-A76F-3283-9993-48519D60487E> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftCompilerPluginMessageHandling.dylib
+       0x111d08000 -        0x111d2c1c7 +lib_CompilerSwiftIfConfig.dylib (6.1.2.1.2) <45487C9F-58AF-32C2-8931-AE49296BAB4A> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftIfConfig.dylib
+       0x111da5000 -        0x111e067cf +lib_CompilerSwiftParserDiagnostics.dylib (6.1.2.1.2) <E200454D-BC1E-32EC-9CD1-ED5F7F23A151> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftParserDiagnostics.dylib
+       0x111ee2000 -        0x111ef11df +lib_CompilerSwiftBasicFormat.dylib (6.1.2.1.2) <F1258044-7CF3-32FE-8977-0ABC31E70744> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftBasicFormat.dylib
+       0x111f92000 -        0x111fc0b7f +lib_CompilerSwiftSyntaxBuilder.dylib (6.1.2.1.2) <65E85D96-1928-3FAC-A28F-E87BE83C5016> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftSyntaxBuilder.dylib
+       0x112523000 -        0x11266666f +lib_CompilerSwiftParser.dylib (6.1.2.1.2) <112209A5-23A3-3AF9-8F31-C7AEB009B442> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftParser.dylib
+       0x113f41000 -        0x11427fd47 +lib_CompilerSwiftSyntax.dylib (6.1.2.1.2) <B8A60A4F-99D2-3733-8A67-5421F5599174> /Library/Developer/CommandLineTools/usr/lib/swift/host/compiler/lib_CompilerSwiftSyntax.dylib
+    0x7ff80c829000 -     0x7ff80c86e05b  libobjc.A.dylib (940.4) <88AA23BF-F45D-3A23-960D-8C093783C3DC> /usr/lib/libobjc.A.dylib
+    0x7ff80c86f000 -     0x7ff80c9096c7  dyld (1.0.0 - 1286.10) <22E15325-4DF0-3BA4-882C-314A2A7A3239> /usr/lib/dyld
+    0x7ff80c90a000 -     0x7ff80c90d6d8  libsystem_blocks.dylib (96) <D01A0A23-0FD7-36DC-AC90-32A6EDF52FDD> /usr/lib/system/libsystem_blocks.dylib
+    0x7ff80c90e000 -     0x7ff80c954bd5  libxpc.dylib (2894.140.12.705.2) <A1CBBDA0-6389-3803-91FB-D18379D62FEB> /usr/lib/system/libxpc.dylib
+    0x7ff80c955000 -     0x7ff80c96f805  libsystem_trace.dylib (1643.120.5) <222959FA-DC7D-3C77-A634-963AFFA191AF> /usr/lib/system/libsystem_trace.dylib
+    0x7ff80c970000 -     0x7ff80ca2214f  libcorecrypto.dylib (1736.140.2) <D6505935-819C-312B-A93F-96D7050BCA91> /usr/lib/system/libcorecrypto.dylib
+    0x7ff80ca23000 -     0x7ff80ca6d89f  libsystem_malloc.dylib (715.140.5) <600C2890-CAAD-36CB-8945-D94FB23B1E4C> /usr/lib/system/libsystem_malloc.dylib
+    0x7ff80ca6e000 -     0x7ff80cab5339  libdispatch.dylib (1521.140.2) <9BC18302-2A6A-38A7-8A59-F571D6721BDC> /usr/lib/system/libdispatch.dylib
+    0x7ff80cab6000 -     0x7ff80cab8b0f  libsystem_featureflags.dylib (97) <4634F62C-4B50-3C32-B51E-F13929343C2F> /usr/lib/system/libsystem_featureflags.dylib
+    0x7ff80cab9000 -     0x7ff80cb41a07  libsystem_c.dylib (1698.140.3.705.1) <6B1481E5-A9C4-3315-8ADE-BE0EDA06B6EC> /usr/lib/system/libsystem_c.dylib
+    0x7ff80cb42000 -     0x7ff80cbc0fff  libc++.1.dylib (1900.181) <8B12A903-6375-38A8-88C7-1DB258194767> /usr/lib/libc++.1.dylib
+    0x7ff80cbc1000 -     0x7ff80cbd7fff  libc++abi.dylib (1900.181) <589929E2-FCEB-35D5-9AD0-62D04CF261C9> /usr/lib/libc++abi.dylib
+    0x7ff80cbd8000 -     0x7ff80cc14b1f  libsystem_kernel.dylib (11417.140.69.712.69) <96CC590B-A75E-3BED-A0F3-DF6C2454D6DD> /usr/lib/system/libsystem_kernel.dylib
+    0x7ff80cc15000 -     0x7ff80cc20fd7  libsystem_pthread.dylib (536.0.0.702.1) <2410DCD3-4D92-30B2-96EC-4BD6F78139D4> /usr/lib/system/libsystem_pthread.dylib
+    0x7ff80cc21000 -     0x7ff80cc4f7c7  libdyld.dylib (1286.10) <5C5D582D-6064-307F-B796-15ECA9CE9DEF> /usr/lib/system/libdyld.dylib
+    0x7ff80cc50000 -     0x7ff80cc5993f  libsystem_platform.dylib (349.140.6) <308F812C-0A9C-39F7-B900-E26DAAD2DEF2> /usr/lib/system/libsystem_platform.dylib
+    0x7ff80cc5a000 -     0x7ff80cc88477  libsystem_info.dylib (597.0.0.701.2) <45A6A3B5-7B87-3BD4-A274-B6622B382F7B> /usr/lib/system/libsystem_info.dylib
+    0x7ff810282000 -     0x7ff81028c71f  libsystem_darwin.dylib (1698.140.3.705.1) <EEC0A038-2B93-3873-9E2B-91B68969CBF6> /usr/lib/system/libsystem_darwin.dylib
+    0x7ff8106bf000 -     0x7ff8106d00e3  libsystem_notify.dylib (342.0.0.701.1) <78921675-2609-30DF-A921-F75FAFA20E82> /usr/lib/system/libsystem_notify.dylib
+    0x7ff8127c1000 -     0x7ff8127da36f  libsystem_networkextension.dylib (2063.140.6.701.3) <89399ED8-5BD9-3717-AAA3-B3599EF40465> /usr/lib/system/libsystem_networkextension.dylib
+    0x7ff812851000 -     0x7ff81286813b  libsystem_asl.dylib (402) <93231D3F-89EB-3837-8C48-CBC20D1BDEFC> /usr/lib/system/libsystem_asl.dylib
+    0x7ff814600000 -     0x7ff814607c57  libsystem_symptoms.dylib (2022.140.4.702.1) <C1852672-2252-3EB0-819F-64984AF215DD> /usr/lib/system/libsystem_symptoms.dylib
+    0x7ff81803b000 -     0x7ff8180697d3  libsystem_containermanager.dylib (689.100.6.702.2) <A46B89C5-F4A6-3763-95F3-C4A29D1438A7> /usr/lib/system/libsystem_containermanager.dylib
+    0x7ff8192ee000 -     0x7ff8192f18df  libsystem_configuration.dylib (1351.140.5.703.3) <4158E474-68E0-38C6-9041-ABFECA467B9F> /usr/lib/system/libsystem_configuration.dylib
+    0x7ff8192f2000 -     0x7ff8192f8887  libsystem_sandbox.dylib (2401.140.15.705.3) <4F88FD83-3D9B-30C6-AAC7-F9D3D2ACE5B9> /usr/lib/system/libsystem_sandbox.dylib
+    0x7ff81a424000 -     0x7ff81a426bfb  libquarantine.dylib (181.120.2.701.3) <651E5597-825B-349D-AA71-10274D8C0E84> /usr/lib/system/libquarantine.dylib
+    0x7ff81acba000 -     0x7ff81acc097f  libsystem_coreservices.dylib (178.6.9) <C67D084B-6DA2-34E1-B7A7-3BE7347948CE> /usr/lib/system/libsystem_coreservices.dylib
+    0x7ff81b071000 -     0x7ff81b084dab  libz.1.dylib (98.0.0.700.1) <F631D076-22FE-3436-93BD-9FA79A835F2A> /usr/lib/libz.1.dylib
+    0x7ff81b085000 -     0x7ff81b0f243f  libsystem_m.dylib (3291.100.4) <8009D098-9B43-3FBD-ABF2-FDC58A8F41C2> /usr/lib/system/libsystem_m.dylib
+    0x7ff81b0f4000 -     0x7ff81b0f75c7  libmacho.dylib (1024.3) <27C000F3-D932-3064-9934-D506175D58B9> /usr/lib/system/libmacho.dylib
+    0x7ff81b10f000 -     0x7ff81b11b33f  libcommonCrypto.dylib (600035) <BB8CD5F4-1ECF-392C-BBBA-1299CF1A9989> /usr/lib/system/libcommonCrypto.dylib
+    0x7ff81b11c000 -     0x7ff81b1246ef  libunwind.dylib (1900.125) <A5354435-5DCA-3FB4-9DDA-F157FDEF7BD9> /usr/lib/system/libunwind.dylib
+    0x7ff81b12d000 -     0x7ff81b1388bf  libcopyfile.dylib (224.0.0.702.1) <30FC5550-4BBA-3FC0-A359-A532FB748F5C> /usr/lib/system/libcopyfile.dylib
+    0x7ff81b139000 -     0x7ff81b1409cf  libcompiler_rt.dylib (103.3) <14F604FA-8B07-3846-857B-B79A07B6176E> /usr/lib/system/libcompiler_rt.dylib
+    0x7ff81b141000 -     0x7ff81b14576b  libsystem_collections.dylib (1698.140.3.705.1) <7B31E45C-5048-3220-BFEB-4D384FF8D635> /usr/lib/system/libsystem_collections.dylib
+    0x7ff81b146000 -     0x7ff81b148ef7  libsystem_secinit.dylib (153.140.2) <835E06C5-30A7-3565-89C4-F226F346CBA3> /usr/lib/system/libsystem_secinit.dylib
+    0x7ff81b149000 -     0x7ff81b14b727  libremovefile.dylib (81) <1C6BD407-ED6C-3A18-AE5D-E42A4A36DA8E> /usr/lib/system/libremovefile.dylib
+    0x7ff81b14c000 -     0x7ff81b14cb47  libkeymgr.dylib (31) <C08F04C2-7C21-345C-ACEC-0E86D6B792AA> /usr/lib/system/libkeymgr.dylib
+    0x7ff81b14d000 -     0x7ff81b15555f  libsystem_dnssd.dylib (2600.140.3.704.1) <B974499F-1D49-34A9-8C3B-1CEB585D96C8> /usr/lib/system/libsystem_dnssd.dylib
+    0x7ff81b156000 -     0x7ff81b15b003  libcache.dylib (95) <48DD00BB-1398-308D-B695-DA9E04F09D6A> /usr/lib/system/libcache.dylib
+    0x7ff81b15c000 -     0x7ff81b15da8b  libSystem.B.dylib (1351) <7BB66B40-0533-36A1-9DCC-E4CBAAAE1F75> /usr/lib/libSystem.B.dylib
+    0x7ff81eb9b000 -     0x7ff81f06ea97  libswiftCore.dylib (6.1.2 - 6.1.2.1.102) <AA03691F-C7B0-3DD0-8F2C-04A5EC05C567> /usr/lib/swift/libswiftCore.dylib
+    0x7ff912ae3000 -     0x7ff912ae4dc7  libswiftDarwin.dylib (310.100.8.0.1) <36E13DCA-AEA3-3B44-AB8C-5D454C97F86E> /usr/lib/swift/libswiftDarwin.dylib
+    0x7ffd1aa31000 -     0x7ffd1aa38707  libRosetta.dylib (349) <A7484538-A51A-3402-8897-670EEAC80FC9> /usr/lib/libRosetta.dylib
+    0x7ffd1bca3000 -     0x7ffd1bca59f3  libswift_Builtin_float.dylib (6.1.2 - 6.1.2.1.102) <99BEED41-C858-321E-808A-D8D53D559F4D> /usr/lib/swift/libswift_Builtin_float.dylib
+    0x7ffd1be74000 -     0x7ffd1be7532f  libswift_errno.dylib (310.100.8.0.1) <929354FA-5411-378A-88B2-C6013EDFBF33> /usr/lib/swift/libswift_errno.dylib
+    0x7ffd1be76000 -     0x7ffd1be787f7  libswift_math.dylib (310.100.8.0.1) <B8409739-F23A-364B-9D40-DA63B6180369> /usr/lib/swift/libswift_math.dylib
+    0x7ffd1be79000 -     0x7ffd1be795ad  libswift_signal.dylib (310.100.8.0.1) <BCF64B51-F85D-3508-BE0B-A41E5118CB35> /usr/lib/swift/libswift_signal.dylib
+    0x7ffd1be7a000 -     0x7ffd1be7abdf  libswift_stdio.dylib (310.100.8.0.1) <A17F5118-843D-31C7-9F5A-05EE2D74D3AB> /usr/lib/swift/libswift_stdio.dylib
+    0x7ffd1be7b000 -     0x7ffd1be7b797  libswift_time.dylib (310.100.8.0.1) <7EB27BF2-E46F-3756-92D0-B48EE0D1466A> /usr/lib/swift/libswift_time.dylib
+    0x7ffd1be7c000 -     0x7ffd1be7c707  libswiftsys_time.dylib (310.100.8.0.1) <3A41360D-A016-3885-BB73-27CEFEACCD67> /usr/lib/swift/libswiftsys_time.dylib
+    0x7ffd1be7d000 -     0x7ffd1be7d94f  libswiftunistd.dylib (310.100.8.0.1) <A705C0EF-52EC-330F-A9A8-A7823267A879> /usr/lib/swift/libswiftunistd.dylib
+    0x7ffd1bfd6000 -     0x7ffd1bfda023  libsystem_darwindirectory.dylib (122) <E73FDFE5-8EB1-33BE-8B80-4668EB16B4EC> /usr/lib/system/libsystem_darwindirectory.dylib
+    0x7ffd1bfdb000 -     0x7ffd1bfe2323  libsystem_eligibility.dylib (181.140.5) <4F540AE6-9874-342E-AA2A-11F13F584504> /usr/lib/system/libsystem_eligibility.dylib
+    0x7ffd1bfe3000 -     0x7ffd1bfe827f  libsystem_sanitizers.dylib (19) <010EEE9D-BA86-3DBC-A719-667D24CDC50F> /usr/lib/system/libsystem_sanitizers.dylib
